@@ -1,0 +1,124 @@
+.ctitle{
+	// text-align: center;
+  font-size: 18px;
+    color: #FABA52;
+}
+.titleclass{
+	text-align: center;
+  padding-top: 7px;
+}
+.ios{
+	.titleclass{
+		text-align: center; padding-top: 8px;
+	}
+}
+.topicon{
+  font-size: 30px;
+  margin-top: 3px;
+}
+.container{
+  width: 85%;
+  margin:5% auto 25%;
+}
+.text-area{
+    padding: 20px 10px;
+    background-color: white;
+    // margin: 100px auto 5px;
+    border-color: #2B2B2B;
+    border-radius: 8px 8px 0px 8px;
+    padding-left: 15px;
+    font-weight: 300;
+    margin-top: 4%;
+        .text-content{
+            font-size: 12px;
+            // font-weight: lighter;
+            color: #191919;
+            font-weight: 300;
+        }
+        .timestamp{
+            color: #FFA00A;
+            font-size: 10px;
+            font-weight: 300;
+            // font-weight: lighter;
+        }
+
+}
+.msg-div {
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    margin: 20px 20px 0px;
+}
+.msg-box{
+  --background:white;
+  box-shadow: 0px 0px 0px 1px #faba52;
+  border-radius	: 5px;
+  margin: 0px;
+  // --padding-top:10px;
+  --padding-end:45px;
+  --color:#191919;
+  --placeholder-color:#191919;
+  // --placeholder-font-weight:var(--placeholder-font-weight)
+  font-size: 12px;
+  font-weight: normal;
+  position: absolute;
+  bottom: 245%;
+  width: 90%;
+  margin: 0% auto;
+  --padding-start: 4%;
+}
+span.arrow-span {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+
+}
+
+
+ion-tabs{
+	ion-fab {
+		margin-bottom: env(safe-area-inset-bottom); /* fix notch ios*/
+		ion-fab-button {
+      --box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
+      --background: none;
+		}
+	}
+	ion-tab-bar {
+		--border: 0;
+		--background: transparent;
+		position: absolute;
+		bottom: 0;
+		left:0; right: 0;
+		width: 100%;
+		&:after{
+			content: " ";
+			width: 100%;
+			bottom: 0;
+			background: var(--ion-color-light);
+			height: env(safe-area-inset-bottom);
+			position: absolute;
+		}
+		ion-tab-button {
+      background:#fff;
+      ion-icon{
+        color:#42474F;
+      }
+		}
+		ion-tab-button.comments {
+			margin-right: 0px;
+			border-top-right-radius: 18px;
+		}
+		ion-tab-button.notifs {
+			margin-left: 0px;
+			border-top-left-radius: 18px;
+		}
+		svg {
+			width: 72px;
+			margin-top: 19px;
+			path{
+        fill:#fff;
+			}
+		}
+	}
+}
+

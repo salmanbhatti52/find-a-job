@@ -1,0 +1,124 @@
+.ctitle{
+	// text-align: center;
+  font-size: 18px;
+    color: #FABA52;
+}
+.titleclass{
+	text-align: center;
+  padding-top: 7px;
+}
+.ios{
+	.titleclass{
+		text-align: center; padding-top: 8px;
+	}
+}
+.header-menu{
+  margin: 0px 2px 0px 19%;
+}
+h1.header-head {
+  color: #FABA52;
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0px;
+  margin: 15px 0px 15px 33%;
+  font-family: 'Poppins', sans-serif;
+}
+.header {
+  display: flex;
+  //margin: 0px 25px 0px;
+  // background: #F3F3F3;
+  text-align: center;
+  padding: 0px;
+
+}
+.container{
+  text-align: center;
+}
+.start-para{
+  font-size: 12px;
+  font-weight: normal;
+  color: #42474F;
+  margin: 12px auto 67px;
+}
+.btn-slide{
+  --background: #FFA00A;
+  // width: 120px;
+  height: 35px;
+  font-size: 12px;
+  --border-radius: 6px;
+  color: white;
+  margin-top: 30px;
+  // letter-spacing: 1px;
+}
+img.boost{
+  position: absolute;
+  top: 16px;
+  right: 17px;
+}
+.slide-section {
+  // margin: 0px 7px 0px 7px;
+  border-radius: 5px;
+  height: auto;
+    max-height: 365px;
+}
+p.slide-title {
+  margin: 12px auto 0px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #FABA52;
+}
+p.slide-last-para {
+  font-size: 12px;
+  color: #191919;
+  font-weight: 300;
+  margin: 0px;
+  padding: 9px 60px 20px;
+}
+p.zero-img {
+  margin-top: 12px;
+  margin-bottom: 0px;
+}
+span.p-symbol {
+  font-size: 25px;
+  color: #FFA00A;
+  font-weight: 600;
+  font-family: system-ui;
+}
+span.price {
+  color: #191919;
+  font-size: 40px;
+}
+p.last-para {
+  font-size: 12px;
+  font-weight: normal;
+  color: #CF1818;
+  margin-top: 68px;
+  margin-bottom: 48px;
+}
+.last-btn{
+  width: 75%;
+  // margin-top: 35px;
+  --background: #FFA00A;
+  --border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  /* letter-spacing: 1px; */
+  color: white;
+  text-transform: capitalize;
+}
+span.pm-span {
+  font-size: 14px;
+  color: #CECECE;
+  font-weight: 500;
+}
+p.value-para {
+  margin: 0px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #FFA00A;
+  margin-bottom: 5px;
+}
+ion-slides {
+  height: 100%;
+}
+

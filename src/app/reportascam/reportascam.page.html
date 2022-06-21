@@ -1,0 +1,139 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col style="padding-top:10px;text-align: center;" size="2">
+
+        <img src="assets/imgs/icons/back.svg" class="topicon" (click)="goback()">
+
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Report A Scam</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="bg">
+  <div class="wrapper">
+    <div class="imglogo">
+      <img src="assets/imgs/manlogo.svg">
+      <p class="para">Do you want to report scam or unacceptable behavior to us?</p>
+    </div>
+    <div class="main">
+      <div class="text">Select behavior type</div>
+      <!-- Select behavior type -->
+      <div class="box3">
+        <div style="align-items: center;display: flex;padding-right: 15px;">
+          <ion-input class="input4" type="text" placeholder="Unacceptable behaviour" (click)="openlist()" readonly
+            [(ngModel)]="name">
+          </ion-input>
+          <div style="text-align: end;height: 17px;" *ngIf="droplist==false">
+            <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+          </div>
+          <div style="text-align: end;height: 17px;" *ngIf="droplist==true">
+            <ion-icon name="caret-up-outline" class="cicon"></ion-icon>
+          </div>
+        </div>
+        <div *ngIf="droplist==true" style="padding-bottom:1%;">
+          <p *ngFor="let ls of list" class="para1" [class.active]="ls.status=='checked'" (click)="select(ls)">
+            {{ls.name}}
+            <span style="float:right ;">
+              <img src="assets/imgs/icons/unchecked.svg" *ngIf="ls.status=='unchecked'">
+              <img src="assets/imgs/icons/checked.svg" *ngIf="ls.status=='checked'">
+            </span>
+          </p>
+        </div>
+      </div>
+      <!-- Select behavior type -->
+      <div class="text">Type of complain<span style="color:#CF1818">*</span></div>
+      <div class="box3">
+        <div style="align-items: center;display: flex;padding-right: 15px;">
+          <ion-input class="input4" type="text" placeholder="Select complaint type" readonly>
+          </ion-input>
+          <div style="text-align: end;height: 17px;">
+            <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+          </div>
+          <!-- <div style="text-align: end;height: 17px;" *ngIf="droplist==true">
+            <ion-icon name="caret-up-outline" class="cicon"></ion-icon>
+          </div> -->
+        </div>
+        <!-- <div *ngIf="droplist==true" style="padding-bottom:1%;">
+          <p *ngFor="let ls of list" class="para1" [class.active]="ls.status=='checked'" (click)="select(ls)">
+            {{ls.name}}
+            <span style="float:right ;">
+              <img src="assets/imgs/icons/unchecked.svg" *ngIf="ls.status=='unchecked'">
+              <img src="assets/imgs/icons/checked.svg" *ngIf="ls.status=='checked'">
+            </span>
+          </p>
+        </div> -->
+      </div>
+
+      <div class="box4">
+        <ion-input class="input4" type="text" placeholder="First name">
+        </ion-input>
+      </div>
+      <div class="box4">
+        <ion-input class="input4" type="text" placeholder="Surname*">
+        </ion-input>
+      </div>
+      <div class="box4">
+        <ion-input class="input4" type="text" placeholder="Contact number">
+        </ion-input>
+      </div>
+      <div class="box4">
+        <ion-input class="input4" type="text" placeholder="Registered email">
+        </ion-input>
+      </div>
+      <div class="box4">
+        <ion-input class="input4" type="text" placeholder="Employer name (optional)">
+        </ion-input>
+      </div>
+      <div class="box4">
+        <ion-textarea class="msg-box" rows="3" cols="20" placeholder="Details"></ion-textarea>
+      </div>
+
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

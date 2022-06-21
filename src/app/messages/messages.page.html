@@ -1,0 +1,94 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col size="2">
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Messages</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+        <ion-menu-toggle>
+          <ion-buttons>
+            <img src="assets/imgs/icons/menu.svg" style="width: 24px;
+              height: 24px;">
+          </ion-buttons>
+        </ion-menu-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="bg">
+
+  <div class="msg-div" (click)="seemessges()">
+    <img class="intuit-img" src="assets/imgs/intuit.png" alt="intuit-logo">
+    <div class="intuit-content">
+      <h1 class="text">Intuit</h1>
+      <p class="intuit-msg">Welcome on board</p>
+    </div>
+    <div class="intuit-stamp">
+      <div class="msg-count">
+        <div class="count">2</div>
+      </div>
+      <p class="time-stamp">05:00PM</p>
+    </div>
+  </div>
+
+  <div class="msg-div" style="margin-top: 10px; background-color: #FFFFFF;">
+    <img class="intuit-img" src="assets/imgs/oracle.png" alt="oracle-logo">
+    <div class="intuit-content">
+      <h1 class="text">Oracle</h1>
+      <p class="intuit-msg">Welcome on board</p>
+    </div>
+    <div class="intuit-stamp" style="margin: 30px 12px 10px 0px">
+      <!-- <div class="msg-count">
+        <div class="count">2</div>
+      </div> -->
+      <p class="time-stamp">05:00PM</p>
+    </div>
+  </div>
+
+
+</ion-content>
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button tab="tab-encounters" (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-conversations" class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button tab="tab-notifications" class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-profile" (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

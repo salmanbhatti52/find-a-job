@@ -1,0 +1,182 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col style="padding-top:10px;text-align: center;" size="2">
+
+        <img src="assets/imgs/icons/back.svg" class="topicon" (click)="goback()">
+
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Transactions</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+        <ion-menu-toggle>
+          <ion-buttons>
+            <img src="assets/imgs/icons/menu.svg" style="width: 24px;
+              height: 24px;">
+          </ion-buttons>
+        </ion-menu-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg">
+  <div class="wrapper">
+    <div class="box">
+      <div style="align-items: center;display: flex;padding-right: 15px;">
+        <ion-input class="input4" type="text" placeholder="Plan Type"></ion-input>
+        <div style="text-align: end;">
+          <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+        </div>
+      </div>
+
+    </div>
+    <div class="box">
+      <div style="align-items: center;display: flex;padding-right: 15px;">
+        <ion-input class="input4" type="text" placeholder="Status"></ion-input>
+        <div style="text-align: end;">
+          <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="profile-info">
+      <ion-grid style="padding-bottom: 8px; ">
+        <ion-row (click)="open()">
+          <ion-col size="4" style="padding-bottom: 0px;">
+            <p class="p-size">Plan type:</p>
+          </ion-col>
+          <ion-col size="4" style="padding-bottom: 0px;">
+            <p class="p-size">Full Plan</p>
+          </ion-col>
+          <ion-col size="4" style="padding-top:2px; padding-bottom:0px;text-align: end; ">
+            <img src="assets/imgs/icons/up.png" *ngIf="dropdown==false" width="8px">
+            <img src="assets/imgs/icons/yellowdropdown.svg" *ngIf="dropdown==true">
+          </ion-col>
+        </ion-row>
+
+        <div *ngIf="dropdown==true" style="padding-bottom: 0px; ">
+          <ion-row>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">Price:</p>
+            </ion-col>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">
+                <span>100K</span>
+              </p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">Time Period:</p>
+            </ion-col>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">
+                5 Years
+              </p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">Status:</p>
+            </ion-col>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">
+                Active
+              </p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">Purchased On:</p>
+            </ion-col>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">
+                20/08/21
+              </p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">Start Date:</p>
+            </ion-col>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">
+                20/08/21
+              </p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">End Date:</p>
+            </ion-col>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">
+                20/08/21
+              </p>
+            </ion-col>
+          </ion-row>
+
+        </div>
+      </ion-grid>
+
+
+    </div>
+    <p style="text-align: center; font-size: 8px;font-weight:300;color: #191919;">Showing 1-5 of 552 Transactions </p>
+    <div style="width: 90%;margin: 0% auto;">
+      <ion-button class="btn1">Show More</ion-button>
+    </div>
+
+  </div>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

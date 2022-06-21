@@ -1,0 +1,197 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col size="2">
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Application</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+        <ion-menu-toggle>
+          <ion-buttons>
+            <img src="assets/imgs/icons/menu.svg" style="width: 24px;
+              height: 24px;">
+          </ion-buttons>
+        </ion-menu-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="bg">
+  <div class="wrapper">
+    <div class="search-div">
+      <div style="width:70%;float: left;">
+        <ion-input class="search-box" placeholder="Search here"><span class="arrow-span">
+            <ion-icon name="search-outline"></ion-icon>
+          </span></ion-input>
+      </div>
+      <div class="filterimg">
+        <div class="text4">Available</div>
+        <img src="assets/imgs/icons/dropdown.svg" class="cimg">
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="profile-info">
+      <ion-grid style="padding-bottom: 8px; ">
+        <ion-row (click)="open()">
+          <ion-col size="4" style="padding-bottom: 0px;">
+            <p class="p-size">Title</p>
+          </ion-col>
+          <ion-col size="4" style="padding-bottom: 0px;">
+            <p class="p-size">UI/UX Designer</p>
+          </ion-col>
+          <ion-col size="4" style="padding-top:2px; padding-bottom:0px;text-align: end; ">
+            <img src="assets/imgs/icons/yellowdropdown.svg" *ngIf="dropdown==false">
+            <img src="assets/imgs/icons/up.png" *ngIf="dropdown==true" width="8px">
+          </ion-col>
+        </ion-row>
+
+        <div *ngIf="dropdown==true" style="padding-bottom: 0px; ">
+          <ion-row>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">Company</p>
+            </ion-col>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">
+                <span>Intuit
+                  <span><img src="assets/imgs/icons/greentick.svg" style="margin-left: 5%;"></span>
+                </span>
+              </p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">Status</p>
+            </ion-col>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">
+                Active
+              </p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">Role</p>
+            </ion-col>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">
+                Accountant
+              </p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">Salary</p>
+            </ion-col>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">
+                35k-40k
+              </p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">Date Applied</p>
+            </ion-col>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">
+                20/08/21
+              </p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <p class="p-size">Actions</p>
+            </ion-col>
+            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+              <ion-row>
+                <ion-col size="4" style="padding:0px;">
+                  <img src="assets/imgs/icons/eye.svg">
+                </ion-col>
+                <ion-col size="2" style="padding:0px;">
+                  <img src="assets/imgs/icons/delete.svg">
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+        </div>
+      </ion-grid>
+
+
+    </div>
+
+    <div class="profile-info">
+      <ion-grid style="padding-bottom: 8px; ">
+        <ion-row (click)="open()">
+          <ion-col size="4" style="padding-bottom: 0px;">
+            <p class="p-size">Title</p>
+          </ion-col>
+          <ion-col size="4" style="padding-bottom: 0px;">
+            <p class="p-size">UI/UX Designer</p>
+          </ion-col>
+          <ion-col size="4" style="padding-top:2px; padding-bottom:0px;text-align: end; ">
+            <img src="assets/imgs/icons/yellowdropdown.svg">
+            <!-- <img src="assets/imgs/icons/up.png" *ngIf="dropdown==true" width="8px"> -->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div style="margin-top: 15%;">
+      <p class="para">Showing 1-9 of 552 Applicationss</p>
+      <div style="width: 80%;margin: 0% auto;">
+        <ion-button class="btn1">Show More</ion-button>
+      </div>
+
+    </div>
+
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

@@ -1,0 +1,257 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col size="2">
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Company Details</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+        <ion-menu-toggle>
+          <ion-buttons>
+            <img src="assets/imgs/icons/menu.svg" style="width: 24px;
+              height: 24px;">
+          </ion-buttons>
+        </ion-menu-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="bg">
+  <div class="container">
+    <div style="display: flex;align-items: center" *ngIf="jobssection==false">
+      <div class="hulu-div">
+        <img class="hulu-img" src="assets/imgs/hului-icon.svg" alt="hulu-svg">
+        <div class="hulu-brand">
+          <div class="hulu-desc">
+            <p class="hulu-head">Hulu</p>
+            <p class="hulu-corp">Hulu Inc.</p>
+          </div>
+          <div>
+            <img class="verified-img" src="assets/imgs/icons/verified.svg" alt="verified-svg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex;align-items: center" *ngIf="jobssection==true">
+      <div class="hulu-div">
+        <img class="hulu-img" src="assets/imgs/hului-icon.svg" alt="hulu-svg">
+        <div style=" display: flex;
+        align-items: center;
+        margin-left: 15%;">
+          <div class="hulu-desc">
+            <p class="hulu-head">Hulu</p>
+            <p class="hulu-corp">Hulu Inc.</p>
+          </div>
+          <div>
+            <img class="verified-img" src="assets/imgs/icons/verified.svg" alt="verified-svg">
+          </div>
+        </div>
+      </div>
+      <div class="images-div">
+        <div>
+          <img class="share-img" src="assets/imgs/share.png" alt="">
+        </div>
+        <div>
+          <img class="share-img" src="assets/imgs/heart.png" alt="">
+        </div>
+      </div>
+    </div>
+
+
+    <ion-segment mode="ios" (ionChange)="segmentChanged($event)" #mySegment>
+      <ion-segment-button mode="ios" value="about">
+        <ion-label>About</ion-label>
+      </ion-segment-button>
+      <ion-segment-button checked mode="ios" value="jobs">
+        <ion-label>Jobs</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+
+    <div *ngIf="requestsType=='about'">
+      <div class="para-caret-combo">
+        <p class="para">About</p>
+        <img class="caret-down" src="assets/imgs/icons/polygon.svg" alt="caret-down-svg">
+      </div>
+      <div class="para-div">
+        <p class="para-data">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam neque elit, dapibus vel
+          sollicitudin vitae, egestas non elit. Duis laoreet, sem vel faucibus ullamcorper, erat eros consequat lectus,
+          sit amet consequat tellus nunc sed leo. Suspendisse vel </p>
+      </div>
+      <div class="para-caret-combo">
+        <p class="para">Overview</p>
+        <img class="caret-down" src="assets/imgs/icons/polygon.svg" alt="caret-down-svg">
+      </div>
+      <div class="para-div">
+        <p class="para-data">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam neque elit, dapibus vel
+          sollicitudin vitae, egestas non elit. Duis laoreet, sem vel faucibus ullamcorper, erat eros consequat lectus,
+          sit amet consequat tellus nunc sed leo. Suspendisse vel </p>
+      </div>
+      <div class="para-caret-combo">
+        <p class="para">Details</p>
+        <img class="caret-down" src="assets/imgs/icons/polygon.svg" alt="caret-down-svg">
+      </div>
+      <ion-grid style="padding: 0px;">
+        <ion-row style="padding: 0px; margin: 5px 0px;">
+          <ion-col size="4" style="padding: 0px;" class="col-head">
+            Website:
+          </ion-col>
+          <ion-col size="8" style="padding: 0px;" class="col-desc">
+            www.hulu.com
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="padding: 0px; margin: 5px 0px;">
+          <ion-col size="4" style="padding: 0px;" class="col-head">
+            Industry:
+          </ion-col>
+          <ion-col size="8" style="padding: 0px;" class="col-desc">
+            hulu loreup ipsum
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="padding: 0px; margin: 5px 0px;">
+          <ion-col size="4" style="padding: 0px;" class="col-head">
+            Company Size:
+          </ion-col>
+          <ion-col size="8" style="padding: 0px;" class="col-desc">
+            18000+ employes
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="padding: 0px; margin: 5px 0px;">
+          <ion-col size="4" style="padding: 0px;" class="col-head">
+            Type:
+          </ion-col>
+          <ion-col size="8" style="padding: 0px;" class="col-desc">
+            Public Company
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="padding: 0px; margin: 5px 0px;">
+          <ion-col size="4" style="padding: 0px;" class="col-head">
+            Address:
+          </ion-col>
+          <ion-col size="8" style="padding: 0px;" class="col-desc">
+            8th Avenue Street 87 98K, Canada
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="padding: 0px; margin: 5px 0px;">
+          <ion-col size="4" style="padding: 0px;" class="col-head">
+            Phone Number:
+          </ion-col>
+          <ion-col size="8" style="padding: 0px;" class="col-desc">
+            +66-454-9799
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="padding: 0px; margin: 5px 0px;">
+          <ion-col size="4" style="padding: 0px;" class="col-head">
+            Specification:
+          </ion-col>
+          <ion-col size="8" style="padding: 0px;" class="col-desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam neque elit, dapibus vel sollicitudin vitae,
+            egestas non elit. Duis ll
+          </ion-col>
+        </ion-row>
+
+
+      </ion-grid>
+    </div>
+    <div *ngIf="requestsType=='jobs'">
+      <ion-row>
+        <ion-col size="4">
+          <div class="maindiv">
+            <div class="maininner">
+              <img class="intuit-svg" src="assets/imgs/intuit.svg" alt="hulu-svg">
+              <p class="para11">UX UI Designer</p>
+              <p class="para22">Posted 2 day ago</p>
+              <div style="display: flex;align-items: center;margin-left: 25%;">
+                <img src="assets/imgs/icons/Path-logo.svg" alt="path-svg">
+                <p class="para23">Logos</p>
+              </div>
+            </div>
+
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div class="maindiv">
+            <div class="maininner">
+              <img class="intuit-svg" src="assets/imgs/intuit.svg" alt="hulu-svg">
+              <p class="para11">UX UI Designer</p>
+              <p class="para22">Posted 2 day ago</p>
+              <div style="display: flex;align-items: center;margin-left: 25%;">
+                <img src="assets/imgs/icons/Path-logo.svg" alt="path-svg">
+                <p class="para23">Logos</p>
+              </div>
+            </div>
+
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <div class="maindiv">
+            <div class="maininner">
+              <img class="intuit-svg" src="assets/imgs/intuit.svg" alt="hulu-svg">
+              <p class="para11">UX UI Designer</p>
+              <p class="para22">Posted 2 day ago</p>
+              <div style="display: flex;align-items: center;margin-left: 25%;">
+                <img src="assets/imgs/icons/Path-logo.svg" alt="path-svg">
+                <p class="para23">Logos</p>
+              </div>
+            </div>
+
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </div>
+  </div>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button tab="tab-encounters" (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-conversations" class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button tab="tab-notifications" class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-profile" (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

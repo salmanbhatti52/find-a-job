@@ -1,0 +1,105 @@
+<ion-content class="content">
+  <ion-header [translucent]="true" class="ion-no-border cheader">
+    <ion-toolbar style="--background:transparent !important;--box-shadow:none;">
+      <ion-row>
+        <ion-col style="padding-top:10px;text-align: center;" size="2">
+
+          <img src="assets/imgs/icons/whiteback.svg" class="topicon" (click)="goback()">
+
+        </ion-col>
+
+        <ion-col class="titleclass" size="8">
+          <ion-text class="ctitle">SafeJobs</ion-text>
+        </ion-col>
+
+        <ion-col size="2">
+        </ion-col>
+      </ion-row>
+
+    </ion-toolbar>
+  </ion-header>
+  <div class="txtt">Shine Your Eyes!</div>
+  <div class="container">
+
+
+    <p class="para">SafeJobs is the Find A Job  (FAJ) safe zone iniative to provide free advice and help to Nigerian
+      Job
+      seekers to protect and prevent them from being scammed. We are all aware there are unsrupulous people who are
+      exploiting the vunerability of job seekers for financial gains
+      On this Job search portal we try to make it very hard for scammers to operate but we still expect all job
+      seekers
+      to "Shine their eyes!". We advise all job seekers to follow the following SafeJob guidelines;</p>
+    <p class="para2">Safejob Guidelines</p>
+    <div class="bullet-list">
+      <div class="list-item">
+        <img src="assets/imgs/icons/bullet.svg" alt="">
+        <p class="bullet-para">Do Not Pay For Any Job</p>
+      </div>
+      <div class="list-item">
+        <img style="margin-bottom: 15px;" src="assets/imgs/icons/bullet.svg" alt="">
+        <p class="bullet-para">Try To Respond To Jobs Posted By Verified
+          Employers Only</p>
+      </div>
+      <div class="list-item">
+        <img style="margin-bottom: 15px;" src="assets/imgs/icons/bullet.svg" alt="">
+        <p class="bullet-para">Make Sure You Attend Interviews During
+          Office Hours Only</p>
+      </div>
+      <div class="list-item">
+        <img style="margin-bottom: 15px;" src="assets/imgs/icons/bullet.svg" alt="">
+        <p class="bullet-para">Male Sure You Tell Someone Details Of An Interview
+          You May Be Attending</p>
+      </div>
+      <div class="list-item">
+        <img src="assets/imgs/icons/bullet.svg" alt="">
+        <p class="bullet-para">If It Does Not Seem Right, Then Walk Away!.</p>
+      </div>
+      <div class="list-item">
+        <img src="assets/imgs/icons/bullet.svg" alt="">
+        <p class="bullet-para">Report Any Scam Or Unscrupulous Behavior</p>
+      </div>
+    </div>
+
+
+  </div>
+
+</ion-content>
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button tab="tab-encounters" (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-conversations" class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button tab="tab-notifications" class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-profile" (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

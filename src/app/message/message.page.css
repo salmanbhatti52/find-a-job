@@ -1,0 +1,38 @@
+.text-area {
+  padding: 20px 10px;
+  background-color: white;
+  margin: 100px auto 5px;
+  width: 90%;
+  border-color: #2B2B2B;
+  border-radius: 8px 8px 0px 8px;
+  font-weight: 300;
+}
+
+.text-area .text-content {
+  font-size: 12px;
+  font-weight: 300;
+  color: #191919;
+}
+
+.text-area .timestamp {
+  color: #FFA00A;
+  font-size: 10px;
+  font-weight: 300;
+}
+
+.input-box {
+  margin: 0px auto 0px;
+  width: 90%;
+  border-color: #FABA52;
+  border-radius: 5px;
+  background-color: white;
+  --placeholder-font-style: "Poppins", sans-serif;
+  --placeholder-font-weight: lighter;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=message.page.css.map */

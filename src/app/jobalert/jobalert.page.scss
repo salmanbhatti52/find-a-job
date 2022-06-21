@@ -1,0 +1,110 @@
+.ctitle{
+	// text-align: center;
+  font-size: 18px;
+    color: #FABA52;
+}
+.titleclass{
+	text-align: center;
+  padding-top: 7px;
+}
+.ios{
+	.titleclass{
+		text-align: center; padding-top: 8px;
+	}
+}
+.topicon{
+  font-size: 30px;
+  margin-top: 3px;
+}
+.wrapper{
+  width: 90%;
+  margin: 5% auto;
+}
+.logo{
+  text-align: center;
+}
+.input{
+  --background: #fff;
+    --padding-top: 15px;
+    --padding-bottom: 12px;
+    --padding-start: 15px;
+    // box-shadow: rgb(0 0 0 / 35%) 0px 3px 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 60%;
+    color: #191919;
+    width: 80%;
+    margin: 1% auto;
+}
+
+.input1{
+  --background: #fff;
+    --padding-top: 15px;
+    --padding-bottom: 12px;
+    --padding-start: 15px;
+    // box-shadow: rgb(0 0 0 / 35%) 0px 3px 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
+    border-radius: 5px;
+    background-image: url("/assets/imgs/icons/location.svg");
+    background-repeat: no-repeat;
+    background-position: 93% 55%;
+    font-size: 12px;
+    opacity: 60%;
+    color: #191919;
+    width: 80%;
+    margin: 2.5% auto;
+}
+.btn{
+  height: 40px;
+  --border-radius: 5px;
+  --background: #FFA00A;
+  width: 100%;
+}
+
+ion-tabs{
+	ion-fab {
+		margin-bottom: env(safe-area-inset-bottom); /* fix notch ios*/
+		ion-fab-button {
+      --box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
+      --background: none;
+		}
+	}
+	ion-tab-bar {
+		--border: 0;
+		--background: transparent;
+		position: absolute;
+		bottom: 0;
+		left:0; right: 0;
+		width: 100%;
+		&:after{
+			content: " ";
+			width: 100%;
+			bottom: 0;
+			background: var(--ion-color-light);
+			height: env(safe-area-inset-bottom);
+			position: absolute;
+		}
+		ion-tab-button {
+      background:#fff;
+      ion-icon{
+        color:#42474F;
+      }
+		}
+		ion-tab-button.comments {
+			margin-right: 0px;
+			border-top-right-radius: 18px;
+		}
+		ion-tab-button.notifs {
+			margin-left: 0px;
+			border-top-left-radius: 18px;
+		}
+		svg {
+			width: 72px;
+			margin-top: 19px;
+			path{
+        fill:#fff;
+			}
+		}
+	}
+}

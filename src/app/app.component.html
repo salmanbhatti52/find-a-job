@@ -1,0 +1,63 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay" side="end">
+      <ion-content>
+        <div style="display: flex;width: 90%;
+        margin: 15% 0% 0% 10%;">
+          <div (click)="menunbtn()">
+            <img src="assets/imgs/icons/menu.svg">
+          </div>
+          <div style="margin-left: 15%;">
+            <img src="assets/imgs/profiledumy.svg" class="userimg">
+            <div class="innertext">
+              <div class="text2">John Doe</div>
+              <div style="margin-left: 3%;">
+                <img src="assets/imgs/icons/greentick.svg">
+              </div>
+            </div>
+            <div style="font-size: 10px;text-align: center;">Premium</div>
+          </div>
+        </div>
+        <div class="wrapper">
+
+          <div auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
+              routerLinkActive="selected">
+
+
+              <ion-label class="title" (click)="openpage(p)">{{ p.title }}
+                <span *ngIf="!show">
+                  <ion-icon class="iconcls" *ngIf="p.title=='Jobs'" name="chevron-up-outline" (click)="showhide()">
+                  </ion-icon>
+                </span>
+                <span *ngIf="show">
+                  <ion-icon class="iconcls" *ngIf="p.title=='Jobs'" name="chevron-down-outline" (click)="showhide()">
+                  </ion-icon>
+                </span>
+              </ion-label>
+            </ion-item>
+          </div>
+          <div class="extra" *ngIf="show==true">
+            <div auto-hide="false" *ngFor="let p of appsubPages; let i = index">
+              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
+                routerLinkActive="selected">
+
+
+                <ion-label class="title1" (click)="openpage(p)">{{ p.title }}
+                </ion-label>
+              </ion-item>
+            </div>
+          </div>
+          <ion-item lines="none">
+            <ion-label class="title" (click)="logout()">Logout
+            </ion-label>
+          </ion-item>
+        </div>
+
+
+      </ion-content>
+
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

@@ -1,0 +1,108 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col style="padding-top:10px;text-align: center;" size="2">
+
+        <img src="assets/imgs/icons/back.svg" class="topicon" (click)="goback()">
+
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Job Seeker Videos</ion-text>
+      </ion-col>
+
+      <ion-col size="2">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content class="bg">
+  <div class="section">
+    <div class="text" style="width: 66%;">
+      <p class="p1">Job Preview</p>
+      <p class="p2">Upload: 12-4-2021</p>
+      <p class="p3">It is a long established fact that a reader will be distracted by the readable content</p>
+    </div>
+    <div>
+      <div style="position:relative">
+        <img style="margin-top: 13px; margin-right: 26px;" class="seeker-svg" src="assets/imgs/job-seeker1.svg">
+        <img style="top: 46px;
+        right: 50px;; position: absolute;" src="assets/imgs/play.svg">
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="text" style="width: 66%;">
+      <p class="p1">Job Preview</p>
+      <p class="p2">Upload: 12-4-2021</p>
+      <p class="p3">It is a long established fact that a reader will be distracted by the readable content</p>
+    </div>
+    <div>
+      <div style="position:relative">
+        <img style="margin-top: 13px; margin-right: 26px;" class="seeker-svg" src="assets/imgs/job-seeker1.svg">
+        <img style="top: 46px;
+        right: 50px;; position: absolute;" src="assets/imgs/play.svg">
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="text" style="width: 66%;">
+      <p class="p1">Job Preview</p>
+      <p class="p2">Upload: 12-4-2021</p>
+      <p class="p3">It is a long established fact that a reader will be distracted by the readable content</p>
+    </div>
+    <div>
+      <div style="position:relative">
+        <img style="margin-top: 13px; margin-right: 26px;" class="seeker-svg" src="assets/imgs/job-seeker1.svg">
+        <img style="top: 46px;
+        right: 50px;; position: absolute;" src="assets/imgs/play.svg">
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

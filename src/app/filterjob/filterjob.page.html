@@ -1,0 +1,81 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>filterjob</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="background">
+  <div class="wrapper">
+    <ion-row>
+      <ion-col size="4" (click)="close()">
+        <ion-icon name="close-outline" class="crossicon"></ion-icon>
+      </ion-col>
+      <ion-col size="4" style="text-align: center;">
+        <div class="text">Filter</div>
+      </ion-col>
+      <ion-col size="4" style="text-align: end;">
+        <div class="text1">Clear All</div>
+      </ion-col>
+    </ion-row>
+    <div class="search-div">
+      <div style="width:90%;margin: 0% auto;">
+        <ion-input class="search-box" placeholder="Search here"><span class="arrow-span">
+            <img src="assets/imgs/icons/location.svg">
+          </span></ion-input>
+      </div>
+    </div>
+    <div class="text2">Job Industory</div>
+    <div class="badges">
+      <ion-badge class="badge" [class.active]="job.status=='checked'" *ngFor="let job of jobs let i=index;"
+        (click)="selectindustory(job,i)">{{job.name}}</ion-badge>
+      <hr>
+    </div>
+    <div class="text2">Job Type</div>
+    <div class="badges">
+      <ion-badge class="badge" *ngFor="let type of types" [class.active]="type.status=='checked'"
+        (click)="selectType(type)">
+        <span>+</span>
+        <span style="margin-left: 4%;">{{type.name}}</span>
+
+      </ion-badge>
+      <hr>
+    </div>
+    <div class="text2">Salary</div>
+    <div class="badges">
+      <ion-badge class="badge" *ngFor="let s of salary" [class.active]="s.status=='checked'" (click)="selectsalary(s)">
+        {{s.sal}}</ion-badge>
+      <hr>
+    </div>
+    <ion-range id="dual-range" min="100" max="2000" dual-knobs (ionChange)="onSliderChanged($event)">
+    </ion-range>
+    <p style="margin-left: 20%;font-size: 10px;font-weight: 500;">
+      <span>₦{{lowprice}}</span> <span>₦{{highprice}}</span>
+    </p>
+
+    <div class="text2">Posted by</div>
+    <div class="badges">
+      <ion-badge class="badge" *ngFor="let post of posted" [class.active]="post.status=='checked'"
+        (click)="selectpost(post)">
+        <span>+</span>
+        <span style="margin-left: 4%;">{{post.name}}</span>
+
+      </ion-badge>
+      <hr>
+    </div>
+
+    <div class="text2">Posted date</div>
+    <div class="badges">
+      <ion-badge class="badge" *ngFor="let date of posteddate" [class.active]="date.status=='checked'"
+        (click)="postbydate(date)">{{date.date}}</ion-badge>
+      <hr>
+    </div>
+
+    <div class="btndiv">
+      <ion-button class="btn" (click)="showjobs()">
+        Show 254,252 Jobs
+      </ion-button>
+    </div>
+
+
+  </div>
+</ion-content>

@@ -1,0 +1,114 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>signup</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="bg">
+  <div class="wrapper">
+    <div class="logodiv">
+      <img src="/assets/imgs/logo.svg">
+    </div>
+
+    <div class="textdiv">
+      <div class="text1">Sign Up</div>
+      <div class="text2">Welcome to the world of opportunities</div>
+    </div>
+
+    <div class="main">
+      <div class="field1">
+        <ion-input class="input" type="text" placeholder="First Name" [(ngModel)]="users.firstname"></ion-input>
+      </div>
+      <div class="field2">
+        <ion-input class="input" type="text" placeholder="Last Name" [(ngModel)]="users.lastname"></ion-input>
+      </div>
+      <div class="field2">
+        <ion-input class="input" type="email" placeholder="EmailID" [(ngModel)]="users.email"></ion-input>
+      </div>
+      <div class="field2" style="display:flex;">
+        <div class="dialcode" (click)="openlist()" *ngIf="flaglist==false">{{dialcode}}</div>
+        <!-- dial code list shown -->
+        <div *ngIf="flaglist==true" class="dialcodelist">
+          <ion-list style="height: 150px;overflow: scroll;">
+            <ion-item *ngFor="let item of items" (click)="viewDetails(item)">
+              <ion-avatar item-start>
+                <div style="font-size: 12px;
+                font-weight: 300;
+                color: #191919;text-align: center">{{item.callingCodes}}</div>
+              </ion-avatar>
+            </ion-item>
+          </ion-list>
+        </div>
+        <!-- dial code list shown -->
+
+        <ion-input class="input" type="tel" placeholder="phone Number" style="margin-left:2%;height:30%;"
+          [(ngModel)]="users.phoneno"></ion-input>
+      </div>
+      <div class="field2">
+        <ion-input class="input" type="text" placeholder="Nationality" [(ngModel)]="users.nationality"></ion-input>
+      </div>
+      <div class="field2">
+        <ion-input class="input" type="password" placeholder="Password" [(ngModel)]="users.password"></ion-input>
+      </div>
+      <div class="field2">
+        <ion-input class="input" type="password" placeholder="Confirm Password" [(ngModel)]="users.confirmpassword">
+        </ion-input>
+      </div>
+    </div>
+    <div style="display: flex;">
+      <ion-checkbox class="check"></ion-checkbox>
+      <p style="margin: 0px;
+      font-size: 10px;color: #FABA52;margin-left: 2%">you accept terms & conditions</p>
+    </div>
+
+    <div class="btndiv">
+      <ion-button class="btn" (click)=" signup()">sign up</ion-button>
+    </div>
+
+    <div style="text-align: center;margin-top: 5%">
+      <img src="/assets/imgs/OR.svg">
+    </div>
+
+    <div style="display:flex;margin-left: 17%;margin-top:3%;margin-bottom: 8%;">
+      <img src="/assets/imgs/google.svg" class="simg">
+      <img src="/assets/imgs/facebook.svg" class="simg">
+    </div>
+    <p style="font-size:12px;text-align: center;color:#CF1818;">Terms & Conditions</p>
+    <p style="font-size:12px;text-align: center;">Already have an account?
+      <br>
+      <span style="font: size 14px !important;font-weight:500;text-decoration:underline;color:#FABA52"
+        (click)="gotosigin()">Sign In</span>
+    </p>
+  </div>
+
+</ion-content>
+<!-- <ion-footer>
+  <ion-tabs #tabs (ionTabsDidChange)="setCurrentTab($event)">
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button routerLink="/tabs/add-post">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-icon [name]="selectTab == 'home' ? 'home' : 'home-outline'"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="search" class="search">
+        <ion-icon [name]="selectTab == 'search' ? 'search' : 'search-outline'"></ion-icon>
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button tab="wishlist" class="wishlist">
+        <ion-icon [name]="selectTab == 'wishlist' ? 'heart' : 'heart-outline'"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="profile">
+        <ion-icon [name]="selectTab == 'profile' ? 'person' : 'person-outline'"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+
+  </ion-tabs>
+</ion-footer> -->

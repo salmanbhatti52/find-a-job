@@ -1,0 +1,270 @@
+.ctitle{
+	// text-align: center;
+  font-size: 18px;
+    color: #FABA52;
+}
+.titleclass{
+	text-align: center;
+  padding-top: 7px;
+}
+.ios{
+	.titleclass{
+		text-align: center; padding-top: 8px;
+	}
+}
+.wrapper{
+  width: 90%;
+  margin: 5% auto 15%;
+}
+///topsection////
+.imgdiv{
+  width: 100%;
+}
+.userimg{
+  width: 92px;
+  height: 92px;
+  border-radius: 50px;
+  border:2px solid #FABA52
+}
+.textdiv{
+  width: 100%;
+}
+.text{
+  color: #CF1818;
+  font-size: 10px;
+}
+
+.innertext{
+  display: flex;
+  align-items: center;
+}
+.text2{
+  color: #191919;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.text3{
+  color: #191919;
+  font-size: 10px;
+  margin: 0px 0px 0px 8px;
+}
+.text4{
+  color: #191919;
+  font-size: 10px;
+  margin: 0px 0px 0px 8px;
+  width:100%;
+}
+.text5{
+  color: #191919;
+  font-size: 10px;
+  margin: 0px 0px 0px 8px;
+  width:100%;
+  color:#51CF66;
+}
+.cicon{
+  font-size: 12px;
+  margin-right: 15px;
+}
+.staricon{
+  color:#51CF66;
+  margin-right: 15px;
+}
+///end csss///
+
+///badge section css////
+.bagediv{
+  width: 100%;
+  background: #191919;
+  border-radius: 5px;
+}
+.badgeinner{
+  text-align: center;
+  padding: 0px 4px 10px 4px;
+
+}
+.centerdiv{
+  width: 100%;
+  margin-left: 2%;
+}
+.badgetxt{
+
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  padding: 0px 10px;
+}
+.badgetxt1{
+
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+}
+.badgetxt2{
+  font-size: 8px;
+  font-weight: 400;
+  color: #fff;
+}
+.btn{
+  --background: #CF1818;
+  --border-radius: 5px;
+  font-size: 8px;
+  text-align: center;
+  height: 22px;
+  text-transform: capitalize;
+}
+.barimg{
+  width: 29px;
+  margin-right: 1px;
+}
+.centerinner{
+  background: #FFA00A;
+  border-radius: 5px;
+  text-align: center;
+  padding: 15px 7px;
+}
+.centerinner1{
+  margin-top: 10%;
+  background:#CF1818;
+  border-radius: 5px;
+  text-align: center;
+  padding: 15px 7px;
+}
+.centerinner2{
+  background:#51CF66;
+  border-radius: 5px;
+  text-align: center;
+  padding: 40px 7px;
+}
+.centertext{
+  color: #fff;
+  font-size: 10px;
+}
+.centertext1{
+  color: #fff;
+  font-size: 21px;
+  font-weight: 600;
+  margin-top: -4px
+}
+///end badge section css///
+
+//jobs section css////
+.jobsection{
+  margin-top: 4%;
+}
+.jobheading{
+  color: #191919;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+}
+.jobtext{
+  color: #FFA00A;
+  font-size: 8px;
+  width: 100%;
+  text-align: end;
+  margin-top: 2%;
+}
+.sticker{
+  position: absolute;
+  left: -2%;
+  top: -5%;
+}
+.main{
+  background: #fff;
+  border-radius:5px;
+  position: relative;
+}
+.mainleft{
+  width: 100%;
+  padding-left: 3%;
+}
+.mainhead{
+  color:#191919;
+  font-size: 12px;
+  font-weight: 600;
+}
+.maintext{
+  color: #191919;
+  font-size: 10px;
+  font-weight: 300;
+}
+.mainleft p{
+  margin: 0px;
+  color:#191919;
+  font-size: 10px;
+}
+.heart{
+  position: absolute;
+  top: 75%;
+  left: 87%;
+  z-index: 9999;
+}
+.scrollable-div{
+  display: flex;
+  width: 100%;
+  // overflow-x: scroll;
+  scrollbar-width: none;
+}
+.main-avatar{
+  height: 15px;
+  width: 15px;
+}
+.btndiv{
+  width: 90%;
+  margin: 5% auto;
+}
+.btn1{
+  width: 100%;
+  --background: #FFA00A;
+  height: 40px;
+  --border-radius: 5px;
+}
+
+
+
+ion-tabs{
+	ion-fab {
+		margin-bottom: env(safe-area-inset-bottom); /* fix notch ios*/
+		ion-fab-button {
+      // --box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
+      --background: #fff;
+		}
+	}
+	ion-tab-bar {
+		--border: 0;
+		--background: transparent;
+		position: absolute;
+		bottom: 0;
+		left:0; right: 0;
+		width: 100%;
+		&:after{
+			content: " ";
+			width: 100%;
+			bottom: 0;
+			background: var(--ion-color-light);
+			height: env(safe-area-inset-bottom);
+			position: absolute;
+		}
+		ion-tab-button {
+      background:#fff;
+      ion-icon{
+        color:#42474F;
+      }
+		}
+		ion-tab-button.comments {
+			margin-right: 0px;
+			border-top-right-radius: 18px;
+		}
+		ion-tab-button.notifs {
+			margin-left: 0px;
+			border-top-left-radius: 18px;
+		}
+		svg {
+			width: 72px;
+			margin-top: 19px;
+			path{
+        fill:#fff;
+			}
+		}
+	}
+}

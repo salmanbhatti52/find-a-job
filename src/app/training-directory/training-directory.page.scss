@@ -1,0 +1,104 @@
+.ctitle{
+	// text-align: center;
+  font-size: 18px;
+    color: #FABA52;
+}
+.titleclass{
+	text-align: center;
+  padding-top: 7px;
+}
+.ios{
+	.titleclass{
+		text-align: center; padding-top: 8px;
+	}
+}
+.container{
+  margin: 0% auto 20%;
+}
+.topicon{
+  font-size: 30px;
+  margin-top: 3px;
+}
+.designers{
+    margin-top: 20px;
+}
+.section {
+    display: flex;
+    align-items: center;
+    background: white;
+    margin: 13px 20px 13px;
+    padding-top: 13px;
+    padding-left: 13px;
+}
+p.p1 {
+    margin: 0px;
+    font-size: 15px;
+    font-weight: normal;
+    color: #191919;
+}
+p.p2 {
+    margin: 0px;
+    font-size: 10px;
+    font-weight: normal;
+    color: #42474F;
+}
+p.p3{
+    margin: 0px;
+    margin-top: 7.7px;
+    font-size: 12px;
+    font-weight: 300;
+    color: #42474F;
+    // margin-right: 27px;
+    padding-bottom: 12px;
+}
+.image {
+    margin-left: 12px;
+}
+
+
+ion-tabs{
+	ion-fab {
+		margin-bottom: env(safe-area-inset-bottom); /* fix notch ios*/
+		ion-fab-button {
+      --box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
+      --background: none;
+		}
+	}
+	ion-tab-bar {
+		--border: 0;
+		--background: transparent;
+		position: absolute;
+		bottom: 0;
+		left:0; right: 0;
+		width: 100%;
+		&:after{
+			content: " ";
+			width: 100%;
+			bottom: 0;
+			background: var(--ion-color-light);
+			height: env(safe-area-inset-bottom);
+			position: absolute;
+		}
+		ion-tab-button {
+      background:#fff;
+      ion-icon{
+        color:#42474F;
+      }
+		}
+		ion-tab-button.comments {
+			margin-right: 0px;
+			border-top-right-radius: 18px;
+		}
+		ion-tab-button.notifs {
+			margin-left: 0px;
+			border-top-left-radius: 18px;
+		}
+		svg {
+			width: 72px;
+			margin-top: 19px;
+			path{
+        fill:#fff;
+			}
+		}
+	}
+}

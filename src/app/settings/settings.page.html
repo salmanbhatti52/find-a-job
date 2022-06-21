@@ -1,0 +1,91 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col size="2">
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Settings</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+        <ion-menu-toggle>
+          <ion-buttons>
+            <img src="assets/imgs/icons/menu.svg" style="width: 24px;
+              height: 24px;">
+          </ion-buttons>
+        </ion-menu-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content class="bg">
+  <div class="wrapper">
+    <div style="display: flex;border-bottom: 0.2px solid #707070;padding-bottom: 2px;">
+      <div style="width: 100%;">
+        <div class="text">Notifications</div>
+        <div class="text1">Turn on push notifications</div>
+      </div>
+      <div style="width: 100%;text-align: end;">
+        <ion-toggle class="ctoggle"></ion-toggle>
+      </div>
+    </div>
+    <div style="width: 100%;margin-top: 3%">
+      <div class="text">Password</div>
+      <div class="text1">Change your password</div>
+    </div>
+    <div class="field2">
+      <ion-input class="input" type="password" placeholder="Old Password"></ion-input>
+    </div>
+    <div class="field2">
+      <ion-input class="input" type="password" placeholder="New Password"></ion-input>
+    </div>
+    <div class="field2">
+      <ion-input class="input" type="password" placeholder="Confirm New Password"></ion-input>
+    </div>
+
+    <div class="btndiv">
+      <ion-button class="btn">Save</ion-button>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

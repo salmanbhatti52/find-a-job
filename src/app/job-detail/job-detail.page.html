@@ -1,0 +1,137 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col style="padding-top:10px;padding-left: 20px;" size="2">
+        <div>
+          <img src="assets/imgs/icons/back.svg" class="topicon" (click)="goback()">
+        </div>
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Job Detail</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="bg">
+  <div class="container">
+    <div class="tag">
+      <p class="top-tag-para">Today</p>
+    </div>
+    <div class="first-section">
+      <img src="assets/imgs/hulu.png" alt="hulu-icon">
+      <div class="heading-div">
+        <h2 class="heading">{{title}}</h2>
+        <p class="head-para">Easy Apply</p>
+        <div class="hulu-inc">
+          <p class="hulu-para">{{industry}}.</p>
+          <img class="verify-img" src="assets/imgs/verified.png" alt="verified-icon">
+        </div>
+      </div>
+      <div class="images-div">
+        <div>
+          <img class="share-img" src="assets/imgs/share.png" alt="">
+        </div>
+        <div>
+          <img class="share-img" src="assets/imgs/heart.png" alt="">
+        </div>
+      </div>
+    </div>
+    <hr class="hr-cls">
+    <div class="paras-div">
+      <div class="flexdiv">
+        <p class="para-cls">Location:</p>
+        <p class="para-cls lft">{{joblocation}}</p>
+      </div>
+      <div class="flexdiv">
+        <p class="para-cls">Min Qualification:</p>
+        <p class="para-cls lft">{{min_qualification}}</p>
+      </div>
+      <div class="flexdiv">
+        <p class="para-cls">Salary:</p>
+        <p class="para-cls lft">${{monthly_salary}}</p>
+      </div>
+      <div class="flexdiv">
+        <p class="para-cls">Experience:</p>
+        <p class="para-cls lft">{{experience}}</p>
+      </div>
+      <div class="flexdiv">
+        <p class="para-cls">DeadLine:</p>
+        <p class="para-cls lft">{{deadline}}</p>
+      </div>
+
+      <p class="para-cls" style="margin-bottom: 0px;text-align: center;
+      font-weight: bold;">{{industry}} Private Limited</p>
+    </div>
+    <hr class="hr-cls">
+    <p class="mid-para">{{slug}} - {{level}} - ${{monthly_salary}}</p>
+    <p class="lorem-para">{{summary}}.</p>
+    <div class="chevron-cls">
+      <img class="chevron" src="assets/imgs/chevron-down-outline.svg" alt="chevron-down-icon">
+      <p class="chevron-para">Most resent</p>
+    </div>
+    <hr class="hr-cls">
+    <p class="mid-para" style="font-size: 12px;">Required Skills</p>
+    <div class="badges">
+      <ion-badge class="badge">Designer</ion-badge>
+      <ion-badge class="badge">IOS</ion-badge>
+      <ion-badge class="badge">UI</ion-badge>
+      <ion-badge class="badge">UX</ion-badge>
+      <ion-badge class="badge">User Interface</ion-badge>
+      <ion-badge class="badge">Mobile Apps</ion-badge>
+      <ion-badge class="badge">Android</ion-badge>
+      <ion-badge class="badge">XD</ion-badge>
+      <ion-badge class="badge">Figma</ion-badge>
+      <ion-badge class="badge">Sketch</ion-badge>
+    </div>
+    <div class="btn-div">
+      <ion-button class="cta-button" (click)="sendmessage()">Message</ion-button>
+      <ion-button class="cta-button btn-css" (click)="applynow()">Apply Now</ion-button>
+    </div>
+
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

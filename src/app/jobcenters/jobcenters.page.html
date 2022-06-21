@@ -1,0 +1,135 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col size="2" style="padding-top: 12px;">
+        <img src="assets/imgs/icons/location.svg">
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Job Centres</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+        <ion-menu-toggle>
+          <ion-buttons>
+            <img src="assets/imgs/icons/menu.svg" style="width: 24px;
+              height: 24px;">
+          </ion-buttons>
+        </ion-menu-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content class="bg">
+  <div class="wrapper">
+    <div class="search-div">
+      <div style="width:88%;float: left;">
+        <ion-searchbar></ion-searchbar>
+        <!-- <ion-input class="search-box" placeholder="Search here"><span class="arrow-span">
+            <ion-icon name="search-outline"></ion-icon>
+          </span></ion-input> -->
+      </div>
+      <div class="filterimg" (click)="filterjobs()">
+        <img src="assets/imgs/icons/filter.svg">
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="main" *ngFor="let center of jobcenters" (click)="seedetail()">
+      <div style="display: flex;padding: 15px 15px;">
+        <div class="mainleft">
+          <div class="mainhead">{{center.name}}</div>
+
+          <div style="display: flex;margin-top: 2%;">
+
+            <img src="assets/imgs/Line.svg">
+
+            <div style="width: 100%;margin-left: 5%;">
+              <p>{{center.address}}</p>
+              <p>{{center.phone}}</p>
+              <p><span style="color:#FFA00A;margin-right: 10px">Availability</span>Offline</p>
+            </div>
+
+          </div>
+          <p><span style="color:#51CF66">Opens</span> {{center.open}} - <span style="color:#51CF66">Closes</span>
+            {{center.close}}</p>
+        </div>
+        <div style="width: 30%;text-align: end;padding-top: 10px;">
+          <img src="assets/imgs/house.svg" class="cimg">
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="main" (click)="seedetail()">
+      <div style="display: flex;padding: 15px 15px;">
+        <div class="mainleft">
+          <div class="mainhead">Oracle</div>
+
+          <div style="display: flex;margin-top: 2%;">
+
+            <img src="assets/imgs/Line.svg">
+
+            <div style="width: 100%;margin-left: 5%;">
+              <p>48 Adetokunbo Ademola, VI , Lagos</p>
+              <p>+948548944516</p>
+              <p><span style="color:#FFA00A;margin-right: 10px">Availability</span>Offline</p>
+            </div>
+
+          </div>
+          <p><span style="color:#51CF66">Opens</span> 10:00 AM - <span style="color:#51CF66">Closes</span> 5:00 PM</p>
+        </div>
+        <div style="width: 30%;text-align: end;padding-top: 10px;">
+          <img src="assets/imgs/house.svg" class="cimg">
+        </div>
+      </div>
+    </div> -->
+    <p class="para">Showing 1-5 of 552</p>
+    <div style="width: 90%;margin: 0% auto;">
+      <ion-button class="btn" (click)="showmore()">Show More</ion-button>
+    </div>
+
+  </div>
+</ion-content>
+
+
+
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

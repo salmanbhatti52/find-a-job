@@ -1,0 +1,62 @@
+.msg-div {
+  height: 60px;
+  width: 90%;
+  background-color: #CECECE;
+  margin: 100px auto 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 12px;
+}
+
+.msg-div .intuit-img {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+}
+
+.msg-div .intuit-content {
+  margin: 10px 0 10px;
+  width: 100%;
+}
+
+.msg-div .intuit-content .text {
+  font-size: 16px;
+  font-weight: normal;
+  color: #172A36;
+  margin: 0 0 0 0;
+}
+
+.msg-div .intuit-content .intuit-msg {
+  margin: 5px 0 0 0;
+  font-size: 12px;
+  font-weight: lighter;
+  color: #172A36;
+}
+
+.msg-div .intuit-stamp {
+  margin: 10px 10px 10px 0px;
+}
+
+.msg-div .intuit-stamp .msg-count {
+  margin: 0 15px 5px 40px;
+}
+
+.msg-div .intuit-stamp .msg-count .count {
+  padding: 4px 7px;
+  background-color: #CF1818;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  font-weight: normal;
+  color: white;
+  font-size: 10px;
+}
+
+.msg-div .intuit-stamp .time-stamp {
+  margin: 5px 0 0 30px;
+  font-size: 10px;
+  font-weight: lighter;
+  color: #172A36;
+}
+/*# sourceMappingURL=messages.page.css.map */

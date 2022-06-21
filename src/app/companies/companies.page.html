@@ -1,0 +1,136 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col size="2">
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Companies</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+        <ion-menu-toggle>
+          <ion-buttons>
+            <img src="assets/imgs/icons/menu.svg" style="width: 24px;
+              height: 24px;">
+          </ion-buttons>
+        </ion-menu-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="bg">
+  <div class="wrapper">
+    <div class="search-div">
+      <div style="width:85%;margin: 0% auto;">
+        <ion-input class="search-box" placeholder="Search here"><span class="arrow-span">
+            <ion-icon name="search-outline"></ion-icon>
+          </span></ion-input>
+      </div>
+      <p class="para">Recommendations are based on your <span style="color:#CF1818;">Profile & Company
+          Preferences</span> on FAJ</p>
+    </div>
+
+    <div class="main" (click)="seedetail()">
+      <div style="display: flex;padding: 10px 10px 0px 10px;">
+        <div class="mainleft">
+          <div class="innertext">
+            <div class="maintext">Intuit</div>
+            <div style="margin-left: 3%;">
+              <img src="assets/imgs/icons/greentick.svg">
+            </div>
+          </div>
+          <div style="display: flex;">
+
+            <img src="assets/imgs/Line.svg">
+
+            <div style="width: 100%;margin-left: 5%;">
+              <p>48 Adetokunbo Ademola, VI , Lagos</p>
+              <p>+948548944516</p>
+              <p style="font-weight: 500;"><span style="color:#51CF66">Available</span> 20 Jobs</p>
+            </div>
+
+          </div>
+
+        </div>
+        <div style="width: 40%;text-align: end;">
+          <img src="assets/imgs/jobimage.svg">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="main" (click)="seedetail()">
+      <div style="display: flex;padding: 10px 10px 0px 10px;">
+        <div class="mainleft">
+          <div class="innertext">
+            <div class="maintext">Oracle</div>
+            <div style="margin-left: 3%;">
+              <img src="assets/imgs/icons/greentick.svg">
+            </div>
+          </div>
+          <div style="display: flex;">
+
+            <img src="assets/imgs/Line.svg">
+
+            <div style="width: 100%;margin-left: 5%;">
+              <p>48 Adetokunbo Ademola, VI , Lagos</p>
+              <p>+948548944516</p>
+              <p style="font-weight: 500;"><span style="color:#51CF66">Available</span> 20 Jobs</p>
+            </div>
+
+          </div>
+
+        </div>
+        <div style="width: 40%;text-align: end;">
+          <img src="assets/imgs/jobimage1.svg">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

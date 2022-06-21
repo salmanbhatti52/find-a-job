@@ -1,0 +1,361 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col size="2">
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Profile Detail's</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+        <ion-menu-toggle>
+          <ion-buttons>
+            <img src="assets/imgs/icons/menu.svg" style="width: 24px;
+              height: 24px;">
+          </ion-buttons>
+        </ion-menu-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="bg">
+  <div class="wrapper">
+    <div style="text-align: center;">
+      <div class="head">Basic Information</div>
+      <div style="position: relative;margin-top: 3%;">
+        <img src="assets/imgs/andrew.png">
+        <img src="assets/imgs/icons/edit.svg" class="editimg">
+      </div>
+    </div>
+    <div class="main">
+      <div class="text">NIN number</div>
+      <div class="field1">
+        <ion-input class="input" type="text" placeholder="National Identity Number (NIN)"></ion-input>
+      </div>
+      <div class="field2">
+        <div>
+          <img src="assets/imgs/images.svg">
+        </div>
+        <p class="para">Photo ID will be shown here</p>
+      </div>
+      <ion-button class="btn1">
+        Verify ID
+      </ion-button>
+      <div style="display: flex;align-items: center;margin-top: 2%;">
+        <ion-input class="input1" type="text" placeholder="john"></ion-input>
+        <ion-input class="input2" type="text" placeholder="Doe"></ion-input>
+      </div>
+
+      <div class="text">Date of Birth</div>
+      <div style="display: flex;margin-top: 1%;">
+        <div class="box">
+          <div style="align-items: center;display: flex;
+          padding: 8px 5px 6px 15px;">
+            <div class="text1">21</div>
+            <div style="width: 100%;text-align: end;">
+              <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+            </div>
+          </div>
+        </div>
+
+        <div class="box1">
+          <div style="align-items: center;display: flex;
+          padding: 8px 10px 6px 15px;">
+            <div class="text1">july</div>
+            <div style="text-align: end;">
+              <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="box2">
+          <div style="align-items: center;display: flex;
+          padding: 8px 10px 6px 15px;">
+            <div class="text1">1992</div>
+            <div style="text-align: end;">
+              <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="text">Gender</div>
+      <ion-radio-group value=male (ionChange)="selectgender($event)">
+        <div style="display: flex;flex-direction: row;margin-top: 1%;">
+
+          <div class="leftone">
+            <ion-radio slot="start" value="Male" mode="md" class="cradio radio-gray"></ion-radio>
+            <ion-label class="txt">Male</ion-label>
+          </div>
+
+          <div class="rightone">
+            <ion-radio slot="start" value="Female" mode="md" class="cradio radio-gray"></ion-radio>
+            <ion-label class="txt">Female</ion-label>
+          </div>
+        </div>
+
+      </ion-radio-group>
+      <div style="width:100%;margin-top: 3%;">
+        <div class="flagbox" [class.active]="showflags==true">
+          <div style="align-items: center;display: flex;
+          padding: 8px 5px 6px 15px;" (click)="openfflaglist()">
+            <div class="text1">
+              <img src="assets/imgs/icons/flag.svg" *ngIf="showimage==false">
+              <img src="{{flagimage}}" *ngIf="showimage==true">
+            </div>
+            <div style="width: 100%;text-align: end;" *ngIf="upicon==false">
+              <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+            </div>
+            <div style="width: 100%;text-align: end;" *ngIf="upicon==true">
+              <ion-icon name="caret-up-outline" class="cicon"></ion-icon>
+            </div>
+          </div>
+        </div>
+        <div class="inputdiv">
+          <ion-input class="input3" type="tel" placeholder="Phone Number"></ion-input>
+        </div>
+        <div class="clear"></div>
+      </div>
+
+      <!-- flag list shown -->
+      <div *ngIf="flaglist==true">
+        <ion-list style="height: 150px;overflow: scroll;width:58px;">
+          <ion-item *ngFor="let item of items" (click)="viewDetails(item)">
+            <ion-avatar item-start>
+              <img [src]="item.flag" style="width: 30px;
+              height: 30px;">
+            </ion-avatar>
+          </ion-item>
+        </ion-list>
+      </div>
+      <!-- flag list shown -->
+
+      <div class="box3">
+        <div style="align-items: center;display: flex;padding-right: 15px;">
+          <ion-input class="input4" type="text" placeholder="Choose Job seeker status"></ion-input>
+          <div style="text-align: end;">
+            <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="box3">
+        <div style="align-items: center;display: flex;padding-right: 15px;">
+          <ion-input class="input4" type="text" placeholder="State of origin"></ion-input>
+          <div style="text-align: end;">
+            <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+          </div>
+        </div>
+
+      </div>
+
+      <ion-row style="margin-top:3%;">
+        <ion-col size="1"></ion-col>
+        <ion-col size="9">
+          <div class="atext">Advanced Profile Details (Optional)</div>
+        </ion-col>
+        <ion-col size="2" style="padding-left: 5%;padding-bottom: 0px;" (click)="openpopup()">
+          <img src="assets/imgs/icons/info.svg">
+        </ion-col>
+      </ion-row>
+
+      <div class="box3" (click)="religionlist()">
+        <div style="align-items: center;display: flex;justify-content: space-between;
+        padding: 9px 14px;">
+          <div class="input4">{{choosereligion}}</div>
+          <div style="text-align: end;">
+            <ion-icon name="caret-down-outline" class="cicon" *ngIf="!list"></ion-icon>
+            <ion-icon name="caret-up-outline" class="cicon" *ngIf="list"></ion-icon>
+          </div>
+        </div>
+        <div *ngIf="list==true">
+          <div *ngFor="let list of religionarray" (click)="selectreligion(list)">
+            <div class="euro-text1">{{list.religion}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="box3" (click)="tribelist()">
+        <div style="align-items: center;display: flex;justify-content: space-between;
+        padding: 9px 14px;">
+          <div class="input4">{{choosetribe}}</div>
+          <div style="text-align: end;">
+            <ion-icon name="caret-down-outline" class="cicon" *ngIf="!list1"></ion-icon>
+            <ion-icon name="caret-up-outline" class="cicon" *ngIf="list1"></ion-icon>
+          </div>
+        </div>
+        <div *ngIf="list1==true">
+          <div *ngFor="let list of tribearray" (click)="selecttribe(list)">
+            <div class="euro-text1">{{list.tribe}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text">Height</div>
+      <div class="box3">
+        <ion-input class="input4" type="text" placeholder="Enter Height"></ion-input>
+      </div>
+
+      <div class="box3" (click)="complexionlist()">
+        <div style="align-items: center;display: flex;justify-content: space-between;
+        padding: 9px 14px;">
+          <div class="input4">{{Complexion}}</div>
+          <div style="text-align: end;">
+            <ion-icon name="caret-down-outline" class="cicon" *ngIf="!list2"></ion-icon>
+            <ion-icon name="caret-up-outline" class="cicon" *ngIf="list2"></ion-icon>
+          </div>
+        </div>
+        <div *ngIf="list2==true">
+          <div *ngFor="let list of complexionarray" (click)="selectcomplexion(list)">
+            <div class="euro-text1">{{list.complexion}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text">Disability</div>
+      <ion-radio-group value=male (ionChange)="selectgender($event)">
+        <div style="display: flex;flex-direction: row;margin-top: 1%;">
+
+          <div class="leftone">
+            <ion-radio slot="start" value="yes" mode="md" class="cradio radio-gray"></ion-radio>
+            <ion-label class="txt">Yes</ion-label>
+          </div>
+
+          <div class="rightone">
+            <ion-radio slot="start" value="no" mode="md" class="cradio radio-gray"></ion-radio>
+            <ion-label class="txt">No</ion-label>
+          </div>
+        </div>
+
+      </ion-radio-group>
+      <div class="box3">
+        <ion-input class="input4" type="text" placeholder="Type your Disability"></ion-input>
+      </div>
+
+      <div class="etext">Education</div>
+      <div class="btndiv">
+        <ion-button class="dbtn"><span style="color: #F3F3F3;font-size: 15px;">+</span>
+          Secondary Education
+        </ion-button>
+        <ion-button class="dbtn1"><span>+</span>
+          Other Education
+        </ion-button>
+      </div>
+
+      <div class="text">Secondary School Name</div>
+      <div class="box3">
+        <ion-input class="input4" type="text" placeholder="St. Nicholas Secondary School"></ion-input>
+      </div>
+      <div style="display: flex;">
+        <div class="text">Start Year</div>
+        <div class="text">End Year</div>
+      </div>
+      <div style="display: flex;margin-top: 1%;">
+        <div class="box4">
+          <div style="align-items: center;display: flex;
+          padding: 8px 10px 6px 15px;">
+            <div class="text1">Month</div>
+            <div style="text-align: end;">
+              <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+            </div>
+          </div>
+
+        </div>
+        <div class="box4">
+          <div style="align-items: center;display: flex;
+          padding: 8px 10px 6px 15px;">
+            <div class="text1">Year</div>
+            <div style="text-align: end;">
+              <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="box4">
+          <div style="align-items: center;display: flex;
+          padding: 8px 10px 6px 15px;">
+            <div class="text1">Month</div>
+            <div style="text-align: end;">
+              <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="box4">
+          <div style="align-items: center;display: flex;
+          padding: 8px 10px 6px 15px;">
+            <div class="text1">Year</div>
+            <div style="text-align: end;">
+              <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div style="display: flex;margin-top: 3%;align-items: center;">
+        <div class="ltext">Employment History</div>
+        <div class="plus">+</div>
+      </div>
+      <div style="display: flex;margin-top: 3%;align-items: center;">
+        <div class="ltext">Certificates & Awards</div>
+        <div class="plus">+</div>
+      </div>
+      <div style="display: flex;margin-top: 3%;align-items: center;">
+        <div class="ltext">Language & Skills</div>
+        <div class="plus">+</div>
+      </div>
+
+      <ion-button class="viewbtn" (click)="previewprofile()">
+        Preview Profile
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

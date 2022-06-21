@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18.85" height="12.35" viewBox="0 0 18.85 12.35">
+  <g id="nigeria" transform="translate(0 -80)">
+    <rect id="Rectangle_842" data-name="Rectangle 842" width="6.689" height="12.35" transform="translate(6.081 80)" fill="#ebf7f7"/>
+    <g id="Group_14819" data-name="Group 14819" transform="translate(0 80)">
+      <path id="Path_4037" data-name="Path 4037" d="M6.081,80H1.824A1.734,1.734,0,0,0,0,81.705v8.939A1.734,1.734,0,0,0,1.824,92.35H6.081Z" transform="translate(0 -80)" fill="#589f58"/>
+      <path id="Path_4038" data-name="Path 4038" d="M340.256,80H336V92.35h4.256a1.734,1.734,0,0,0,1.824-1.705V81.705A1.734,1.734,0,0,0,340.256,80Z" transform="translate(-323.231 -80)" fill="#589f58"/>
+    </g>
+    <path id="Path_4039" data-name="Path 4039" d="M340.256,80H336v8.851l4.2,3.5a1.788,1.788,0,0,0,1.885-1.705V81.705A1.734,1.734,0,0,0,340.256,80Z" transform="translate(-323.231)" fill="#479347"/>
+    <path id="Path_4040" data-name="Path 4040" d="M166.689,88.851V80H160v3.5Z" transform="translate(-153.919)" fill="#e2f2f1"/>
+    <path id="Path_4041" data-name="Path 4041" d="M52.256,80H48l4.256,3.5Z" transform="translate(-46.176)" fill="#479347"/>
+    <path id="Path_4042" data-name="Path 4042" d="M336,369.764h4.256A1.68,1.68,0,0,0,342.081,368H336Z" transform="translate(-323.231 -277.414)" fill="#398439"/>
+    <rect id="Rectangle_843" data-name="Rectangle 843" width="6.689" height="1.764" transform="translate(6.081 90.586)" fill="#d6eae8"/>
+    <g id="Group_14820" data-name="Group 14820" transform="translate(0 80)">
+      <path id="Path_4043" data-name="Path 4043" d="M0,368a1.68,1.68,0,0,0,1.824,1.764H6.081V368Z" transform="translate(0 -357.414)" fill="#398439"/>
+      <path id="Path_4044" data-name="Path 4044" d="M340.256,80H336v3.117l6.081,1.823V81.705A1.734,1.734,0,0,0,340.256,80Z" transform="translate(-323.231 -80)" fill="#398439"/>
+    </g>
+    <path id="Path_4045" data-name="Path 4045" d="M166.689,83.117V80H160v1.206Z" transform="translate(-153.919)" fill="#d6eae8"/>
+    <path id="Path_4046" data-name="Path 4046" d="M52.256,80H48l4.256,1.206Z" transform="translate(-46.176)" fill="#398439"/>
+  </g>
+</svg>

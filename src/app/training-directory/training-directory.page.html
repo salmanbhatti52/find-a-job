@@ -1,0 +1,106 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col style="padding-top:10px;text-align: center;" size="2">
+
+        <img src="assets/imgs/icons/back.svg" class="topicon" (click)="goback()">
+
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Training Directory</ion-text>
+      </ion-col>
+
+      <ion-col size="2">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="bg">
+  <div class="container">
+    <ion-slides mode="ios" pager="true" [options]="slideOpts">
+      <ion-slide id="slides">
+        <img class="designers" src="assets/imgs/designers.svg">
+      </ion-slide>
+      <ion-slide>
+        <img class="designers" src="assets/imgs/designers.svg">
+      </ion-slide>
+      <ion-slide>
+        <img class="designers" src="assets/imgs/designers.svg">
+      </ion-slide>
+    </ion-slides>
+    <div class="section" *ngFor="let t of trainings">
+      <div class="text" style="width: 66%;">
+        <p class="p1">{{t.name_provider}}</p>
+        <p class="p2">{{t.duration}} Weeks | {{t.episodes}} Episodes</p>
+        <p class="p3">{{t.course_details}}</p>
+      </div>
+      <div class="image">
+        <img src="assets/imgs/proj-mnger.svg" alt="proj-mnger-svg">
+      </div>
+    </div>
+
+    <!-- <div class="section">
+      <div class="text" style="width: 65%;">
+        <p class="p1">IT & Cloud Computing</p>
+        <p class="p2">2 Weeks | 12 Episodes</p>
+        <p class="p3">It is a long established fact that a reader will be distracted</p>
+      </div>
+      <div class="image">
+        <img src="assets/imgs/cloud-computing.svg" alt="proj-mnger-svg">
+      </div>
+    </div>
+    <div class="section">
+      <div class="text" style="width: 64.5%;;">
+        <p class="p1">Big Data & Scrapping </p>
+        <p class="p2">eBook</p>
+        <p class="p3">It is a long established fact that a reader will be distracted</p>
+      </div>
+      <div class="image">
+        <img src="assets/imgs/data-scraping.svg" alt="proj-mnger-svg">
+      </div>
+    </div> -->
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

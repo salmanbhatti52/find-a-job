@@ -1,0 +1,64 @@
+.wrapper{
+  width: 80%;
+  margin: 15% auto 0%;
+}
+.logodiv{
+  text-align: center;
+}
+
+.textdiv{
+  margin-top: 10%;
+  color: #FABA52;
+  text-align: center;
+}
+.text1{
+  font-size: 20px;
+  font-weight: 500;
+}
+.text2{
+  font-size: 12px;
+  font-weight: 400;
+}
+.main{
+  width: 100%;
+  margin: 10% auto;
+}
+ion-input{
+  --background: #fff;
+    --padding-top: 15px;
+    --padding-bottom: 12px;
+    --padding-start: 15px;
+    // box-shadow: rgb(0 0 0 / 35%) 0px 3px 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
+    border-radius: 5px;
+}
+.field2{
+  margin-top: 10%
+}
+.check{
+  --border-color:#FFA00A;
+  --border-color-checked:#FFA00A;
+}
+.btndiv{
+	margin-top: 7%;
+}
+.btn{
+	width:100%;
+	--background:#FFA00A;
+	--border-radius: 5px;
+	--box-shadow:none;
+	color:#FFFFFF;
+	font-size:14px;
+	height:40px;
+	text-transform: capitalize;
+}
+.fp{
+  color: #FABA52;
+  font-size: 12px;
+  text-align: center;
+  margin: 8% 0%;
+}
+.simg{
+  box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+  margin-right: 5%;
+}

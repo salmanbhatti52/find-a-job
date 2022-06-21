@@ -1,0 +1,145 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col style="padding-top:10px;text-align: center;" size="2">
+
+        <img src="assets/imgs/icons/back.svg" class="topicon" (click)="goback()">
+
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">CV Services</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg">
+  <div class="container">
+    <div class="para-div">
+      <p class="first-para">
+        Every job application starts with a decent, well laid-out CV. That is the starting point for an employer is who
+        is looking to fill a vacancy.<br><br>
+        You need to stand out and to do that, you must have a CV put together. <br><br>
+        How to achieve that? That’s what we’re here for! Check out our CV services below and select the option that
+        meets your need.
+      </p>
+    </div>
+
+    <div class="section1">
+      <div class="sub-section">
+        <p class="head-para">CV Basic (Free)</p>
+        <div class="align">
+          <img class="svg" src="assets/imgs/icons/tick.svg">
+          <p class="sub-para">Do It Yourself With A Wizard</p>
+        </div>
+      </div>
+      <div class="sub-section-div2">
+        <div class="sub-section2">
+          <p class="para-sec2">Overview</p>
+          <img class="dropdown" src="assets/imgs/icons/dropdown.svg">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section1">
+      <div class="sub-section">
+        <p class="head-para">CV Pro (N15,500)</p>
+        <div class="align">
+          <img class="svg" src="assets/imgs/icons/tick.svg">
+          <p class="sub-para">Professionally Written CV</p>
+        </div>
+        <div class="align">
+          <img class="svg" src="assets/imgs/icons/tick.svg">
+          <p class="sub-para sub-para1">Cover Letter</p>
+        </div>
+        <div class="align">
+          <img class="svg" src="assets/imgs/icons/tick.svg">
+          <p class="sub-para sub-para2">30 Minute Phone Consultation</p>
+        </div>
+        <div class="align">
+          <img class="svg" src="assets/imgs/icons/tick.svg">
+          <p class="sub-para sub-para3">5-7 Working Days For Delivery</p>
+        </div>
+      </div>
+      <div class="section-divv">
+        <div class="sub-section2" style="padding-left: 20px">
+          <p class="para-sec2">Overview</p>
+          <img class="dropdown" src="assets/imgs/icons/dropup.svg">
+        </div>
+        <p class="value"><span class="n-symbol">₦</span>15,500</p>
+      </div>
+    </div>
+
+    <div class="section1">
+      <div class="sub-section">
+        <p class="head-para">CV Pro+ (N33,500)</p>
+        <div class="align">
+          <img class="svg" src="assets/imgs/icons/tick.svg">
+          <p class="sub-para">Professionally Written CV</p>
+        </div>
+      </div>
+      <div class="sub-section2">
+        <p class="para-sec2">Overview</p>
+        <img class="dropdown" src="assets/imgs/icons/ydropdown.svg">
+      </div>
+    </div>
+
+    <div class="section1">
+      <div class="sub-section">
+        <p class="head-para">Remote working CV (N 16,000)</p>
+        <div class="align">
+          <img class="svg" src="assets/imgs/icons/tick.svg">
+          <p class="sub-para">Professionally Written CV</p>
+        </div>
+      </div>
+      <div class="sub-section2">
+        <p class="para-sec2">Overview</p>
+        <img class="dropdown" src="assets/imgs/icons/ydropdown.svg">
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

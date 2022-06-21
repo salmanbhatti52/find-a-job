@@ -1,0 +1,105 @@
+.background{
+  background:#fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
+}
+.wrapper{
+  width: 90%;
+  margin: 5% auto;
+}
+.search-div {
+  width: 100%;
+}
+.search-box{
+  --background: #F3F3F3;
+  --padding-top: 20px;
+  --padding-bottom: 15px;
+    --padding-start: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 1px 2px 0px;
+    border-radius: 5px;
+  --color:#191919;
+  --placeholder-color:#191919;
+  font-size: 10px;
+  font-weight: normal;
+}
+span.arrow-span {
+  position: absolute;
+  right: 16px;
+  top: 12px;
+
+}
+.crossicon{
+  color:#FFA00A;
+  font-size: 20px;
+}
+.text{
+  color:#191919;
+  font-size: 16px;
+  font-weight: 500;
+}
+.text1{
+  color:#CF1818;
+  font-size: 10px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.text2{
+  color:#191919;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 3%
+}
+.badges{
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+hr{
+  border-color: #707070;
+  border-style: solid none none none;
+  border-width: 0.2px;
+}
+.badge{
+  --background: white;
+  color: #191919;
+  font-size: 10px;
+
+  border-color: #191919;
+  margin-right: 5px;
+  --padding-top: 5px;
+  --padding-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid #191919;
+  font-weight: 300;
+}
+ion-range{
+  padding: 0px;
+  --bar-background: #E1E1E1;
+    --bar-height: 6px;
+    --bar-border-radius: 6px;
+  --knob-background: #FFA00A;
+  --knob-size: 18px;
+  --pin-background: #FFA00A;
+  --pin-color: #FFA00A;
+  --height: 0px;
+  --bar-background-active: #FFA00A;
+}
+p span{
+  color: #191919;
+  font-size: 10px;
+  margin-right: 20%;
+  font-weight: 400;
+}
+.btndiv{
+  width: 90%;
+  margin: 5% auto;
+}
+.btn{
+  height: 40px;
+  --border-radius: 5px;
+  --background: #FFA00A;
+  width: 100%;
+}
+.active{
+  background: #FFA00A;
+  color: #fff;
+  border: 1px solid #fff;
+}

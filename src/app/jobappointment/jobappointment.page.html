@@ -1,0 +1,345 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col style="padding-top:10px;text-align: center;" size="2">
+
+        <img src="assets/imgs/icons/back.svg" class="topicon" (click)="goback()">
+
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Appointments</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+        <ion-menu-toggle>
+          <ion-buttons>
+            <img src="assets/imgs/icons/menu.svg" style="width: 24px;
+              height: 24px;">
+          </ion-buttons>
+        </ion-menu-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="bg">
+  <div class="wrapper">
+    <ion-row>
+      <ion-col size="3"></ion-col>
+      <ion-col size="5">
+        <div class="hulu-div">
+          <img class="hulu-img" src="assets/imgs/house.svg" alt="hulu-svg">
+          <div class="hulu-brand">
+            <div class="hulu-desc">
+              <p class="hulu-head">Hulu</p>
+              <p class="hulu-corp">Hulu Inc.</p>
+            </div>
+            <div>
+              <img class="verified-img" src="assets/imgs/icons/verified.svg" alt="verified-svg">
+            </div>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="4" style="padding-top: 15%;">
+        <div class="images-div">
+          <div>
+            <img class="share-img" src="assets/imgs/share.png" alt="">
+          </div>
+          <div>
+            <img class="share-img" src="assets/imgs/heart.png" alt="">
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-segment mode="ios" (ionChange)="segmentChanged($event)" #mySegment>
+      <ion-segment-button mode="ios" value="BookAppointments">
+        <ion-label>Book Appointments</ion-label>
+      </ion-segment-button>
+      <ion-segment-button checked mode="ios" value="MyBookings">
+        <ion-label>My Bookings</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <div *ngIf="requestsType=='BookAppointments'">
+      <p class="para">Please fill in this form in order to request an appointment with our office.</p>
+      <ion-radio-group>
+        <div style="display: flex;flex-direction: row;margin-top: 1%;">
+
+          <div class="leftone">
+            <ion-radio slot="start" value="Myself" mode="md" class="cradio radio-gray"></ion-radio>
+            <ion-label class="txt">I am Booking For Myself</ion-label>
+          </div>
+
+          <div class="rightone">
+            <ion-radio slot="start" value="Others" mode="md" class="cradio radio-gray"></ion-radio>
+            <ion-label class="txt">I am Booking For Others</ion-label>
+          </div>
+        </div>
+
+      </ion-radio-group>
+      <div class="banner">
+        <div style="display: flex;width:35%;
+        margin: 0% auto;">
+          <p class="p1">Availability</p>
+          <p class="p2">Online</p>
+          <img src="assets/imgs/icons/google_meet_icon.svg">
+        </div>
+      </div>
+      <div class="main">
+        <p class="etext">Contact Information</p>
+        <div style="display: flex;">
+          <div class="text">First Name</div>
+          <div class="text" style="text-align: center;margin-right:15%;">Last Name</div>
+        </div>
+        <div style="display: flex;align-items: center;margin-top: 2%;">
+          <ion-input class="input1" type="text" placeholder="john"></ion-input>
+          <ion-input class="input2" type="text" placeholder="Doe"></ion-input>
+        </div>
+
+        <div class="text">Email</div>
+        <div class="box3">
+          <ion-input class="input4" type="text" placeholder="johndoe@gmail.com"></ion-input>
+        </div>
+        <div class="text">Phone Number</div>
+        <div class="box3">
+          <ion-input class="input4" type="tel" placeholder="3629652060"></ion-input>
+        </div>
+
+        <p class="etext1">Appointment Booking</p>
+        <div style="display: flex;">
+          <div class="text">Appointment Date</div>
+          <div class="text" style="text-align: end;margin-right: 3%;">Time Interval</div>
+        </div>
+        <div style="display: flex;margin-top: 1%;">
+          <div class="box4">
+            <div style="align-items: center;display: flex;
+            padding: 8px 5px 6px 10px;">
+              <div class="text1">Day</div>
+              <div style="text-align: end;">
+                <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+              </div>
+            </div>
+
+          </div>
+          <div class="box4">
+            <div style="align-items: center;display: flex;
+            padding: 8px 5px 6px 10px;">
+              <div class="text1">Month</div>
+              <div style="text-align: end;">
+                <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="box4">
+            <div style="align-items: center;display: flex;
+            padding: 8px 5px 6px 10px;">
+              <div class="text1">Year</div>
+              <div style="text-align: end;">
+                <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="box4">
+            <div style="align-items: center;display: flex;
+            padding: 8px 0px 6px 5px;">
+              <div class="text1">Morning</div>
+              <div style="text-align: end;">
+                <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="text">Appointment Details</div>
+        <div class="box3">
+          <div style="align-items: center;display: flex;padding-right: 15px;">
+            <ion-input class="input4" type="text" placeholder="CV Reviews"></ion-input>
+            <div style="text-align: end;">
+              <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+            </div>
+          </div>
+
+        </div>
+        <div class="text">Would you agree to reschedule if needed?</div>
+        <ion-radio-group value=male (ionChange)="selectgender($event)">
+          <div style="display: flex;flex-direction: row;margin-top: 1%;">
+
+            <div class="leftone1">
+              <ion-radio slot="start" value="yes" mode="md" class="cradio radio-gray"></ion-radio>
+              <ion-label class="txt">Yes</ion-label>
+            </div>
+
+            <div class="rightone1">
+              <ion-radio slot="start" value="no" mode="md" class="cradio radio-gray"></ion-radio>
+              <ion-label class="txt">No</ion-label>
+            </div>
+          </div>
+
+        </ion-radio-group>
+
+        <ion-button class="btn1">Send Appointment Request</ion-button>
+      </div>
+    </div>
+    <!---------- MyBookings ------------------>
+
+    <div *ngIf="requestsType=='MyBookings'">
+      <div class="box5">
+        <div style="align-items: center;display: flex;padding-right: 15px;">
+          <ion-input class="input4" type="text" placeholder="Booking Type"></ion-input>
+          <div style="text-align: end;">
+            <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+          </div>
+        </div>
+
+      </div>
+      <div class="box5">
+        <div style="align-items: center;display: flex;padding-right: 15px;">
+          <ion-input class="input4" type="text" placeholder="Time Interval"></ion-input>
+          <div style="text-align: end;">
+            <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="profile-info">
+        <ion-grid style="padding-bottom: 8px; ">
+          <ion-row (click)="open()">
+            <ion-col size="4" style="padding-bottom: 0px;">
+              <p class="p-size">Appointment</p>
+            </ion-col>
+            <ion-col size="4" style="padding-bottom: 0px;">
+              <p class="p-size">UI/UX Designer</p>
+            </ion-col>
+            <ion-col size="4" style="padding-top:2px; padding-bottom:0px;text-align: end; ">
+              <img src="assets/imgs/icons/up.png" *ngIf="dropdown==false" width="8px">
+              <img src="assets/imgs/icons/yellowdropdown.svg" *ngIf="dropdown==true">
+            </ion-col>
+          </ion-row>
+
+          <div *ngIf="dropdown==true" style="padding-bottom: 0px; ">
+            <ion-row>
+              <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+                <p class="p-size">Booking Type</p>
+              </ion-col>
+              <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+                <p class="p-size">
+                  <span>Self Booking</span>
+                </p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+                <p class="p-size">Appointment</p>
+              </ion-col>
+              <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+                <p class="p-size">
+                  CV Reviews
+                </p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+                <p class="p-size">Appointment Date</p>
+              </ion-col>
+              <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+                <p class="p-size">
+                  20/08/21
+                </p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+                <p class="p-size">Time Interval</p>
+              </ion-col>
+              <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+                <p class="p-size">
+                  Morning
+                </p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+                <p class="p-size">Date Booked</p>
+              </ion-col>
+              <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+                <p class="p-size">
+                  20/08/21
+                </p>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+                <p class="p-size">Actions</p>
+              </ion-col>
+              <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+                <ion-row>
+                  <ion-col size="4" style="padding:0px;">
+                    <img src="assets/imgs/icons/eye.svg">
+                  </ion-col>
+                  <ion-col size="2" style="padding:0px;">
+                    <img src="assets/imgs/icons/delete.svg">
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+
+          </div>
+        </ion-grid>
+
+
+      </div>
+    </div>
+
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button tab="tab-encounters" (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-conversations" class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button tab="tab-notifications" class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button tab="tab-profile" (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

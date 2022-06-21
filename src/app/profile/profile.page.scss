@@ -1,0 +1,327 @@
+.ctitle{
+	// text-align: center;
+  font-size: 18px;
+    color: #FABA52;
+}
+.titleclass{
+	text-align: center;
+  padding-top: 7px;
+}
+.ios{
+	.titleclass{
+		text-align: center; padding-top: 8px;
+	}
+}
+.wrapper{
+  width: 80%;
+  margin: 5% auto 15%;
+}
+.head{
+  color: #CF1818;
+  font-size: 12px;
+}
+.editimg{
+  position: absolute;
+    top: 70%;
+    left: 56%;
+}
+.field1{
+  margin-top: 1%;
+}
+.text{
+  color: #191919;
+  font-size: 12px;
+  margin-top: 3%;
+  font-weight: 500;
+  width: 100%;
+}
+.input{
+  --background: #fff;
+    --padding-top: 15px;
+    --padding-bottom: 12px;
+    --padding-start: 15px;
+    // box-shadow: rgb(0 0 0 / 35%) 0px 3px 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
+    border-radius: 5px;
+    background-image: url("/assets/imgs/icons/yellowsticker.svg");
+    background-repeat: no-repeat;
+    background-position: 93% 55%;
+    font-size: 12px;
+    opacity: 60%;
+    color: #191919;
+}
+
+.field2{
+  text-align: center;
+  background: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 5px 10px 0px;
+    height: 150px;
+    padding: 45px;
+}
+.para{
+  color: #191919;
+  font-size: 12px;
+  opacity: 60%;
+}
+.btn1{
+  width: 100%;
+  --background: #FFA00A;
+  height: 40px;
+  --border-radius: 5px;
+  margin-top: 5%;
+}
+.input1{
+  --background: #fff;
+    --padding-top: 15px;
+    --padding-bottom: 12px;
+    --padding-start: 15px;
+    // box-shadow: rgb(0 0 0 / 35%) 0px 3px 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 5px 10px 0px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 60%;
+    color: #191919;
+}
+.input2{
+  --background: #fff;
+    --padding-top: 15px;
+    --padding-bottom: 12px;
+    --padding-start: 15px;
+    // box-shadow: rgb(0 0 0 / 35%) 0px 3px 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 5px 10px 0px;
+    border-radius: 5px;
+    margin-left: 5%;
+    font-size: 12px;
+    opacity: 60%;
+    color: #191919;
+}
+.gender{
+  color: #fff;
+  margin-top: 5%;
+}
+.leftone{
+  width: 40%;
+  display: flex;
+}
+.rightone{
+  width: 50%;
+  display: flex;
+}
+.cradio{
+  width: 16px;
+  height: 16px;
+  --color-checked: #FFA00A;
+  background: #fff;
+    border-radius: 50px;
+}
+.txt{
+  font-size: 12px;
+  margin-left: 5%;
+  font-weight: 300;
+}
+
+.box{
+  background: #fff;
+  box-shadow: rgb(100 100 111 / 20%) 0px 5px 10px 0px;
+  border-radius: 5px;
+  width: 20%;
+  font-weight: 300;
+}
+.box1{
+  background: #fff;
+  box-shadow: rgb(100 100 111 / 20%) 0px 5px 10px 0px;
+  border-radius: 5px;
+  width: 40%;
+  margin-left: 5%;;
+  font-weight: 300;
+}
+.box2{
+  background: #fff;
+  box-shadow: rgb(100 100 111 / 20%) 0px 5px 10px 0px;
+  border-radius: 5px;
+  width: 30%;
+  margin-left: 5%;;
+  font-weight: 300;
+}
+.text1{
+  color: #191919;
+    font-size: 12px;
+    width: 100%;
+    font-weight: 500
+}
+.cicon{
+  font-size: 12px;
+  margin-right: 10%;
+}
+.flagbox{
+  background: #fff;
+  box-shadow: rgb(100 100 111 / 20%) 0px 5px 10px 0px;
+  border-radius: 5px;
+  width: 20%;
+  float: left;
+  font-weight: 300;
+}
+.active{
+  border-radius: 5px 5px 0px 0px !important;
+}
+.input3{
+  --background: #fff;
+    --padding-start: 15px;
+    --padding-top: 13px;
+    --padding-bottom: 10px;
+    // box-shadow: rgb(0 0 0 / 35%) 0px 3px 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 5px 10px 0px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 60%;
+    color: #191919;
+}
+.inputdiv{
+  width: 75%;
+    float: left;
+    margin-left: 5%;
+}
+.clear{
+  clear: both;
+}
+.box3{
+  background: #fff;
+  box-shadow: rgb(100 100 111 / 20%) 0px 5px 10px 0px;
+  border-radius: 5px;
+  margin-top: 3%;
+  font-weight: 300;
+}
+.input4{
+  --background:transparent;
+    --padding-top: 15px;
+    --padding-bottom: 12px;
+    --padding-start: 15px;
+    // box-shadow: rgb(0 0 0 / 35%) 0px 3px 5px;
+    // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 60%;
+    color: #191919;
+}
+.euro-text1{
+  color: #191919;
+  font-size: 12px;
+  opacity: 100% !important;
+  padding-left: 14px;
+  padding-bottom: 4px;
+}
+.atext{
+  color: #CF1818;
+  font-size: 11px;
+}
+.etext{
+  color: #CF1818;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 3%;
+}
+.btndiv{
+  display: flex;
+  justify-content: space-evenly;
+  // width: 90%;
+  //   margin: 2% auto;
+  margin-top: 2%;
+}
+.dbtn{
+  height: 25px;
+  --border-radius: 5px;
+  --background: #FFA00A;
+  // --padding-start: 8px;
+  // --padding-end: 8px;
+  font-size: 10px;
+}
+.dbtn1{
+  height: 25px;
+  --border-radius: 5px;
+  --background: #CF1818;
+  // --padding-start: 25px;
+  //   --padding-end: 30px;
+    margin-left: 2%;
+    font-size: 10px;
+}
+.btext{
+  font-size: 10px;
+  color: #F3F3F3;
+  padding-left: 3%;
+}
+.box4{
+  background: #fff;
+  box-shadow: rgb(100 100 111 / 20%) 0px 5px 10px 0px;
+  border-radius: 5px;
+  width:25%;
+  margin-right: 2%;
+  font-weight: 300;
+}
+.ltext{
+  color: #CF1818;
+  font-size: 12px;
+  width:100%;
+}
+.plus{
+  font-size: 20px;
+  color: #CF1818;
+  width:100%;
+  text-align: end;
+  margin-right: 2%;
+}
+.viewbtn{
+  height: 40px;
+  --border-radius: 5px;
+  --background: #FFA00A;
+  width: 100%;
+  margin-top: 5%;
+}
+
+
+
+ion-tabs{
+	ion-fab {
+		margin-bottom: env(safe-area-inset-bottom); /* fix notch ios*/
+		ion-fab-button {
+      --box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
+      --background: none;
+		}
+	}
+	ion-tab-bar {
+		--border: 0;
+		--background: transparent;
+		position: absolute;
+		bottom: 0;
+		left:0; right: 0;
+		width: 100%;
+		&:after{
+			content: " ";
+			width: 100%;
+			bottom: 0;
+			background: var(--ion-color-light);
+			height: env(safe-area-inset-bottom);
+			position: absolute;
+		}
+		ion-tab-button {
+      background:#fff;
+      ion-icon{
+        color:#42474F;
+      }
+		}
+		ion-tab-button.comments {
+			margin-right: 0px;
+			border-top-right-radius: 18px;
+		}
+		ion-tab-button.notifs {
+			margin-left: 0px;
+			border-top-left-radius: 18px;
+		}
+		svg {
+			width: 72px;
+			margin-top: 19px;
+			path{
+        fill:#fff;
+			}
+		}
+	}
+}

@@ -1,0 +1,129 @@
+.wrapper{
+  width: 80%;
+  margin: 15% auto 0% ;
+}
+.logodiv{
+  text-align: center;
+}
+
+.textdiv{
+  margin-top: 10%;
+  color: #FABA52;
+  text-align: center;
+}
+.text1{
+  font-size: 20px;
+  font-weight: 500;
+}
+.text2{
+  font-size: 12px;
+  font-weight: 400;
+}
+.main{
+  width: 100%;
+  margin: 10% auto;
+}
+.dialcode{
+  background: #fff;
+    // padding: 11px;
+    border-radius: 5px;
+    color: #191919;
+    font-weight: 300;
+    font-size: 12px;
+    padding: 14px 12px;
+
+}
+ion-input{
+  --background: #fff;
+    --padding-top: 15px;
+    --padding-bottom: 12px;
+    --padding-start: 15px;
+    // box-shadow: rgb(0 0 0 / 35%) 0px 3px 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
+    border-radius: 5px;
+}
+.field2{
+  margin-top: 10%
+}
+.check{
+  --border-color:#FFA00A;
+  --border-color-checked:#FFA00A;
+  --background-checked:#FFA00A;
+  --checkmark-color:#FFF;
+  --border-width: 1px;
+  --size: 15px;
+}
+.btndiv{
+	margin-top: 7%;
+}
+.btn{
+	width:100%;
+	--background:#FFA00A;
+	--border-radius: 5px;
+	--box-shadow:none;
+	color:#FFFFFF;
+	font-size:14px;
+	height:40px;
+	text-transform: capitalize;
+}
+.fp{
+  color: #FABA52;
+  font-size: 12px;
+  text-align: center;
+  margin: 10% 0%;
+}
+.simg{
+  box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+  margin-right: 5%;
+}
+
+
+
+ion-tabs {
+  // --------------Custom Semi Transparent & Rounded Tabs----------------------
+  ion-tab-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    --background: transparent;
+    border-radius: 20px 20px 0 0;
+    --border: 0;
+    ion-tab-button {
+      --background: #fff;
+      --color: var(--ion-color-medium);
+      --color-selected: var(--ion-color-dark);
+      ion-icon {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  svg {
+    width: 78px;
+    margin-top: 16px;
+    path {
+      // fill: var(--ion-color-white);
+      fill: #fff;
+    }
+  }
+
+  ion-tab-button.search {
+    margin-right: -1px;
+    margin-left: -2px;
+    border-top-right-radius: 20px;
+  }
+  ion-tab-button.wishlist {
+    margin-left: -1px;
+    margin-right: -2px;
+    border-top-left-radius: 20px;
+  }
+  ion-fab {
+    ion-fab-button {
+      // --background: linear-gradient(to bottom, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80);
+      --background: transparent;
+      --box-shadow: none;
+      ion-icon {
+        font-size: 2rem;
+      }
+    }
+  }
+}

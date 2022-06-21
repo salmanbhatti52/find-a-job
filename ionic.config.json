@@ -1,0 +1,7 @@
+{
+  "name": "findajob",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

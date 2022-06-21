@@ -1,0 +1,190 @@
+.ctitle{
+	// text-align: center;
+  font-size: 18px;
+    color: #FABA52;
+}
+.titleclass{
+	text-align: center;
+  padding-top: 7px;
+}
+.ios{
+	.titleclass{
+		text-align: center; padding-top: 8px;
+	}
+}
+.wrapper{
+  width: 90%;
+  margin: 5% auto;
+}
+
+.container{
+  width: 80%;
+  margin: 5% auto 15%;
+}
+.hulu-brand {
+    display: flex;
+    // margin: 0px 154px 0px 175px;
+    margin-left: 13%;
+}
+.hulu-div {
+  margin-top: 8%;
+  color: #191919;
+  width: 100%;
+  margin-left: 40%;
+}
+p.hulu-head {
+    margin: 0px;
+    font-size: 12px;
+    font-weight: 600;
+}
+p.hulu-corp {
+    margin: 0px;
+    font-size: 10px;
+    font-weight: normal;
+}
+img.verified-img {
+    margin-top: 10px;
+    margin-left: 6px;
+}
+.images-div{
+  width: 100%;
+    text-align: end;
+}
+.share-img{
+    // display: block;
+}
+.heart-img{
+    // display: block;
+    margin-top: 17.6px;
+}
+ion-segment {
+  padding: 5px 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  --background: #fff;
+  ion-segment-button {
+    --border-width: 0;
+    --margin-bottom: 5px;
+    --margin-top: 5px;
+    border-radius: 5px;
+    --background-checked: #FFA00A;
+    --indicator-color: transparent !important;
+    --color: #CECECE;
+    --color-checked: #fff;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+
+}
+p.para {
+    margin: 0px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #FFA00A;
+}
+img.caret-down {
+    --color: #FFA00A;
+    margin-top: 1px;
+    margin-left: 5px;
+}
+.para-caret-combo {
+    display: flex;
+    align-items: center;
+    margin-top:5px;
+}
+.para-div {
+  margin: 5px 0px 5px 0px;
+  line-height: 1.6;
+}
+p.para-data {
+    margin: 0px;
+    font-size: 10px;
+    color: #191919;
+}
+ion-col.col-head {
+    font-size: 10px;
+    font-weight: 600;
+    color: #191919;
+}
+ion-col.col-desc {
+    font-size: 10px;
+    color: #191919;
+}
+.btn1{
+  height: 40px;
+  --border-radius: 5px;
+  --background: #FFA00A;
+  width: 100%;
+}
+
+//jobs css////
+.maindiv{
+  background: #fff;
+    text-align: center;
+    margin-top: 3%;
+}
+.maininner{
+  padding: 5px 0px;
+}
+.para11{
+  margin: 0px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.para22{
+  margin: 0px;
+  font-size:8px;
+}
+.para23{
+  margin: 0px 0px 0px 5px;
+    font-size: 10px;
+}
+
+
+ion-tabs{
+	ion-fab {
+		margin-bottom: env(safe-area-inset-bottom); /* fix notch ios*/
+		ion-fab-button {
+      --box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
+      --background: none;
+		}
+	}
+	ion-tab-bar {
+		--border: 0;
+		--background: transparent;
+		position: absolute;
+		bottom: 0;
+		left:0; right: 0;
+		width: 100%;
+		&:after{
+			content: " ";
+			width: 100%;
+			bottom: 0;
+			background: var(--ion-color-light);
+			height: env(safe-area-inset-bottom);
+			position: absolute;
+		}
+		ion-tab-button {
+      background:#fff;
+      ion-icon{
+        color:#42474F;
+      }
+		}
+		ion-tab-button.comments {
+			margin-right: 0px;
+			border-top-right-radius: 18px;
+		}
+		ion-tab-button.notifs {
+			margin-left: 0px;
+			border-top-left-radius: 18px;
+		}
+		svg {
+			width: 72px;
+			margin-top: 19px;
+			path{
+        fill:#fff;
+			}
+		}
+	}
+}

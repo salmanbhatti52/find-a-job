@@ -1,0 +1,45 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>signup</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="bg">
+  <div class="wrapper">
+    <div class="logodiv">
+      <img src="/assets/imgs/logo.svg">
+    </div>
+
+    <div class="textdiv">
+      <div class="text1">Sign In</div>
+      <div class="text2">Welcome back</div>
+    </div>
+
+    <div class="main">
+      <div class="field1">
+        <ion-input class="input" type="email" placeholder="EmailID" [(ngModel)]=" email"></ion-input>
+      </div>
+      <div class="field2">
+        <ion-input class="input" type="password" placeholder="Password" [(ngModel)]=" password"></ion-input>
+      </div>
+    </div>
+    <div class="btndiv" (click)="login()">
+      <ion-button class="btn">Login</ion-button>
+    </div>
+    <p class="fp" (click)="forgot() ">Forgot Password?</p>
+
+    <div style="text-align: center;">
+      <img src="/assets/imgs/OR.svg">
+    </div>
+
+    <div style="display:flex;margin-left: 17%;margin-top:4%;margin-bottom: 8%;">
+      <img src="/assets/imgs/google.svg" class="simg">
+      <img src="/assets/imgs/facebook.svg" class="simg">
+    </div>
+    <p style="font-size:12px;text-align: center;">Don’t have an account? <br>
+      <span style="font: size 14px !important;font-weight:500;text-decoration:underline;color:#FABA52"
+        (click)="gotosignup()">Sign Up</span>
+    </p>
+  </div>
+
+</ion-content>

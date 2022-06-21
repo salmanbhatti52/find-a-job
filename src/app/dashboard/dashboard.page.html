@@ -1,0 +1,346 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col size="2">
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Dashboard</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+        <ion-menu-toggle>
+          <ion-buttons>
+            <img src="assets/imgs/icons/menu.svg" style="width: 24px;
+              height: 24px;">
+          </ion-buttons>
+        </ion-menu-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="bg">
+  <div class="wrapper">
+    <div style="display:flex;">
+      <div class="imgdiv">
+        <img src="{{userprofile}}" class="userimg">
+        <div class="text">Standard Account</div>
+      </div>
+      <div class="textdiv">
+        <div class="innertext">
+          <div class="text2">{{fullname}}</div>
+          <div style="margin-left: 3%;">
+            <img src="assets/imgs/icons/greentick.svg">
+          </div>
+        </div>
+
+        <div style="display: flex;">
+          <img src="assets/imgs/icons/briefcase.svg">
+
+          <p class="text3">Accountant</p>
+
+        </div>
+        <div style="display: flex;">
+          <img src="assets/imgs/icons/mail.svg">
+
+          <p class="text3">{{email}}</p>
+
+        </div>
+        <div style="display: flex;">
+          <img src="assets/imgs/icons/call.svg">
+
+          <p class="text3">{{phone}}</p>
+
+        </div>
+
+        <div style="display: flex;">
+          <img src="assets/imgs/icons/path.svg">
+
+          <p class="text3">{{nationality}}</p>
+
+        </div>
+
+      </div>
+      <div style="width:100%;margin-top: 1.5%;">
+        <div style="display: flex;margin-left:18%;">
+          <img src="assets/imgs/icons/greenbag.svg">
+          <div class="text2">Job Status</div>
+        </div>
+        <div
+          style="background: #fff;padding: 5px 0px;display: flex;align-items: center;margin-top: 5%;margin-left: 10%;">
+          <div class="text4">Available</div>
+          <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+        </div>
+        <div
+          style="background: #fff;padding: 5px 0px;display: flex;align-items: center;margin-top: 5%;margin-left: 10%;">
+          <div class="text5">Premium</div>
+          <ion-icon name="star" class="staricon"></ion-icon>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- ---------badge divs ------------ -->
+    <div style="display:flex;margin-top: 3%;">
+      <div class="bagediv">
+        <div class="badgeinner">
+          <img src="assets/imgs/badge.svg">
+          <div class="badgetxt">Congratulations</div>
+          <div class="badgetxt1">Michael!</div>
+          <ion-button class="btn">Complete Profile</ion-button>
+          <div class="badgetxt2">Next Step:<br>Add Employment History!</div>
+          <div style="display: flex;margin-top: 3%;">
+            <img src="assets/imgs/redimg.svg" class="barimg">
+            <img src="assets/imgs/greyimg1.svg" class="barimg">
+            <img src="assets/imgs/greyimg1.svg" class="barimg">
+            <img src="assets/imgs/greyimg.svg" class="barimg">
+          </div>
+        </div>
+
+      </div>
+      <div class="centerdiv">
+        <div class="centerinner">
+          <div style="display:flex;width: 100%;
+          align-items: center;">
+            <div style="width: 100%;">
+              <img src="assets/imgs/jobs.svg">
+            </div>
+            <div style="width: 100%;">
+              <div class="centertext">JOBSS</div>
+              <div class="centertext1">50</div>
+            </div>
+
+          </div>
+        </div>
+        <div class="centerinner1">
+          <div style="display:flex;width: 100%;
+
+          align-items: center;">
+            <div style="width: 100%;">
+              <img src="assets/imgs/chats.svg">
+            </div>
+            <div style="width: 100%;">
+              <div class="centertext">Interviews</div>
+              <div class="centertext1">20</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div style="width:100%;margin-left:3%;">
+        <div class="centerinner2">
+
+          <div style="width: 100%;">
+            <img src="assets/imgs/building.svg">
+          </div>
+          <div style="width: 100%;">
+            <div class="centertext">Companies</div>
+            <div class="centertext1">45</div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------jobs section------------- -->
+    <div class="jobsection">
+      <div style="display: flex;">
+        <div class="jobheading">Recommended Jobs</div>
+        <div class="jobtext">
+          <span (click)="findjob()">Show More ></span>
+        </div>
+      </div>
+      <div class="main" *ngFor="let job of jobs | slice:0:1;" (click)="seedetail(job.id)">
+        <div class="sticker">
+          <img src="assets/imgs/sticker.svg">
+        </div>
+        <div style="display: flex;padding: 10px 10px;">
+          <div class="mainleft">
+            <div class="mainhead">{{job.title}}</div>
+            <div class="innertext">
+              <div class="maintext">{{job.industry}}</div>
+              <div style="margin-left: 3%;">
+                <img src="assets/imgs/icons/greentick.svg">
+              </div>
+            </div>
+            <div style="display: flex;">
+
+              <img src="assets/imgs/Line.svg">
+
+              <div style="width: 100%;margin-left: 5%;">
+                <p>${{job.monthly_salary}}</p>
+                <p>Permanent, {{job.level}}</p>
+                <p style="font-weight: 500;">{{job.location}}</p>
+              </div>
+
+            </div>
+
+          </div>
+          <div style="width: 100%;text-align: end;position: relative;">
+            <img src="assets/imgs/jobimage.svg">
+            <img src="assets/imgs/icons/heart.svg" class="heart">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- second section -->
+    <div class="jobsection">
+      <div style="display: flex;">
+        <div class="jobheading">Scheduled Interview</div>
+        <div class="jobtext" (click)="interview()">Show More ></div>
+      </div>
+      <div class="main">
+        <div style="display: flex;padding: 10px 10px 0px 10px;">
+          <div class="mainleft">
+            <div class="mainhead">UX UI Designer</div>
+            <div class="innertext">
+              <div class="maintext">John Doe</div>
+              <div style="margin-left: 3%;">
+                <img src="assets/imgs/icons/greentick.svg">
+              </div>
+            </div>
+            <div style="display: flex;">
+
+              <img src="assets/imgs/Line.svg">
+
+              <div style="width: 100%;margin-left: 5%;">
+                <p>$30,000 to $40,000</p>
+                <p>Permanent, full-time</p>
+                <p style="font-weight: 500;">Lagos</p>
+              </div>
+
+            </div>
+
+          </div>
+          <div style="width: 100%;text-align: end;position: relative;">
+            <img src="assets/imgs/jobimage.svg">
+            <img src="assets/imgs/icons/heart.svg" class="heart">
+          </div>
+        </div>
+
+        <div style="display: flex;align-items: center;">
+          <div style="display: flex;align-items: center; width: 100%;padding-left: 5%;">
+            <img src="assets/imgs/greentick.svg">
+            <div style="font-size:10px;margin-left: 5%;">Intrested</div>
+          </div>
+          <div style="display: flex;align-items: center; width: 100%;">
+            <img src="assets/imgs/redcross.svg">
+            <div style="font-size:10px;margin-left: 5%;">Not Intrested</div>
+          </div>
+          <div class="scrollable-div">
+            <div *ngFor="let gList of msgsList1;let i=index">
+
+              <div [class.paddLeft]="i!=0">
+                <div class="relative ">
+                  <ion-avatar class="main-avatar">
+                    <img src="{{gList.image}}">
+                  </ion-avatar>
+                </div>
+              </div>
+            </div>
+            <span style="color:#5E5873;font-size: 12px;
+            margin-top: 2%;
+            margin-left: 3%;">+5</span>
+          </div>
+        </div>
+        <!-- <ion-row>
+          <ion-col size="4">
+            <ion-row>
+              <ion-col size="3">
+                <img src="assets/imgs/greentick.svg">
+              </ion-col>
+              <ion-col size="9" style="padding-left: 0px;
+              padding-top: 10px">
+                <div style="font-size:10px;">Intrested</div>
+              </ion-col>
+            </ion-row>
+
+          </ion-col>
+          <ion-col size="4">
+            <ion-row>
+              <ion-col size="3">
+                <img src="assets/imgs/redcross.svg">
+              </ion-col>
+              <ion-col size="9" style="padding-left: 0px;
+              padding-top: 10px">
+                <div style="font-size:10px;">Not Intrested</div>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col size="4">
+            <div class="scrollable-div">
+              <div *ngFor="let gList of msgsList1;let i=index">
+
+                <div [class.paddLeft]="i!=0">
+                  <div class="relative ">
+                    <ion-avatar class="main-avatar">
+                      <img src="{{gList.image}}">
+                    </ion-avatar>
+                  </div>
+                </div>
+              </div>
+              <span style="color:#5E5873;font-size: 12px;
+              margin-top: 2%;
+              margin-left: 3%;">+5</span>
+            </div>
+          </ion-col>
+
+        </ion-row> -->
+
+      </div>
+    </div>
+    <!-- end second section -->
+    <div class="btndiv" (click)="jobalert()">
+      <ion-button class="btn1">
+        Create Job Alert
+      </ion-button>
+    </div>
+
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

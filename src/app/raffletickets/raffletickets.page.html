@@ -1,0 +1,142 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col size="2">
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Raffle Tickets</ion-text>
+      </ion-col>
+
+      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
+        <ion-menu-toggle>
+          <ion-buttons>
+            <img src="assets/imgs/icons/menu.svg" style="width: 24px;
+              height: 24px;">
+          </ion-buttons>
+        </ion-menu-toggle>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="bg">
+  <div class="container">
+    <ion-segment mode="ios" (ionChange)="segmentChanged($event)" [(ngModel)]="checkSegment" #mySegment>
+      <ion-segment-button mode="ios" value="Raffle">
+        <ion-label>Raffle</ion-label>
+      </ion-segment-button>
+      <ion-segment-button mode="ios" value="Wins">
+        <ion-label>Wins</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div *ngIf="checkSegment=='Raffle'" style="text-align: center;">
+      <p class="para">Your Tickets</p>
+      <div class="grid-div">
+        <ion-grid style="--ion-grid-padding: 0px;">
+          <ion-row style="background-color: #613279; border-start-end-radius: 14px;
+          border-start-start-radius: 14px;">
+            <ion-col class="ion-column" size="6" style="color: white; margin: 15px auto; ">Draw date</ion-col>
+            <ion-col class="ion-column" size="6" style="color: white; margin: 15px auto;">Ticket number</ion-col>
+          </ion-row>
+          <ion-row style="background-color: #FAFAFA;">
+            <ion-col class="ion-column" size="6" style="color: #000000; margin: 14.2px auto 8.8px;">20 Jan 2020
+            </ion-col>
+            <ion-col class="ion-column" size="6" style="color: #000000; margin: 14.2px auto 8.8px;">05A9R642Y1</ion-col>
+          </ion-row>
+          <ion-row style="background-color: #FFFFFF;">
+            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">20 Jan 2020</ion-col>
+            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">05A9R642Y1</ion-col>
+          </ion-row>
+          <ion-row style="background-color: #FAFAFA;">
+            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">20 Jan 2020</ion-col>
+            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">05A9R642Y1</ion-col>
+          </ion-row>
+          <ion-row style="background-color: #FFFFFF;">
+            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">20 Jan 2020</ion-col>
+            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">05A9R642Y1</ion-col>
+          </ion-row>
+          <ion-row style="background-color: #FAFAFA; border-end-start-radius: 14px;
+          border-end-end-radius: 14px;">
+            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">20 Jan 2020</ion-col>
+            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">05A9R642Y1</ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+    </div>
+    <div *ngIf="checkSegment=='Wins'" style="text-align: center;">
+      <p class="para" style="margin: 38px auto 13px;">Recent Draw Results</p>
+      <div class="grid-div" style="width: 95%;">
+        <ion-grid style="--ion-grid-padding: 0px;">
+          <ion-row style="background-color: #613279; border-start-end-radius: 14px;
+          border-start-start-radius: 14px;">
+            <ion-col class="ion-column" size="4.5" style="color: white; margin: 15px auto; ">Draw date</ion-col>
+            <ion-col class="ion-column" size="4.5" style="color: white; margin: 15px auto;">Ticket number</ion-col>
+            <ion-col class="ion-column" size="3" style="color: white; margin: 15px auto;">Wins</ion-col>
+          </ion-row>
+          <ion-row style="background-color: #FAFAFA;">
+            <ion-col class="ion-column" size="4.5" style="color: #000000; margin: 14.2px auto 8.8px;">20 Jan 2020
+            </ion-col>
+            <ion-col class="ion-column" size="4.5" style="color: #000000; margin: 14.2px auto 8.8px;">05A9R642Y1
+            </ion-col>
+            <ion-col class="ion-column" size="3" style="color: #000000; margin: 14.2px auto 8.8px;">Win</ion-col>
+          </ion-row>
+          <ion-row style="background-color: #FFFFFF;">
+            <ion-col class="ion-column" size="4.5" style="color: #000000; margin:12px auto 11px;">20 Jan 2020</ion-col>
+            <ion-col class="ion-column" size="4.5" style="color: #000000; margin:12px auto 11px;">05A9R642Y1</ion-col>
+            <ion-col class="ion-column" size="3" style="color: #000000; margin:12px auto 11px;">Win</ion-col>
+          </ion-row>
+          <ion-row style="background-color: #FAFAFA; border-end-start-radius: 14px;
+          border-end-end-radius: 14px;">
+            <ion-col class="ion-column" size="4.5" style="color: #000000; margin:12px auto 11px;">20 Jan 2020</ion-col>
+            <ion-col class="ion-column" size="4.5" style="color: #000000; margin:12px auto 11px;">05A9R642Y1</ion-col>
+            <ion-col class="ion-column" size="3" style="color: #000000; margin:12px auto 11px;">Win</ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+<ion-footer>
+  <ion-tabs>
+
+    <ion-fab vertical="bottom" horizontal="center" translucent="true">
+      <ion-fab-button (click)="tablink(1)">
+        <img src="assets/imgs/Group.svg">
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-tab-bar slot="bottom" class="ion-no-border">
+      <ion-tab-button (click)="tablink(2)">
+        <!-- <ion-icon name="search-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/search.svg">
+      </ion-tab-button>
+
+      <ion-tab-button class="comments" (click)="tablink(3)">
+        <!-- <ion-icon name="heart-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/heartimg.svg">
+        <!-- <ion-badge *ngIf="new_message">{{new_message}}</ion-badge> -->
+      </ion-tab-button>
+
+      <svg height="50" viewBox="0 0 100 50" width="100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 0v50H0V0c.543 27.153 22.72 49 50 49S99.457 27.153 99.99 0h.01z" fill="red" fill-rule="evenodd">
+        </path>
+      </svg>
+
+      <ion-tab-button class="notifs" (click)="tablink(4)">
+        <img src="assets/imgs/icons/user.svg">
+        <!-- <ion-icon name="person-outline"></ion-icon> -->
+        <!-- <ion-badge *ngIf="new_activities">{{new_activities}}</ion-badge> -->
+      </ion-tab-button>
+
+      <ion-tab-button (click)="tablink(5)">
+        <!-- <ion-icon name="settings-outline"></ion-icon> -->
+        <img src="assets/imgs/icons/setting.svg">
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-footer>

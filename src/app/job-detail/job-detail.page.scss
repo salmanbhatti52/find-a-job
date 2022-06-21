@@ -1,0 +1,229 @@
+.ctitle{
+	// text-align: center;
+  font-size: 18px;
+    color: #FABA52;
+}
+.titleclass{
+	text-align: center;
+  padding-top: 7px;
+}
+.ios{
+	.titleclass{
+		text-align: center; padding-top: 8px;
+	}
+}
+.topicon{
+  font-size: 30px;
+  margin-top: 3px;
+  color: #fff;
+}
+.container{
+    background-color: white;
+    width: 90%;
+    margin: 5% auto 15%;
+}
+.tag{
+    text-align: right;
+    margin:0px;
+}
+.top-tag-para{
+    // display: inline-block;
+    font-size: 8px;
+    color: #191919;
+    margin: 0 13px 0 0;
+    padding-top: 5px;
+    font-weight: 300;
+}
+.first-section{
+    display: flex;
+    margin-left: 20px;
+    // margin-right: 20px;
+    padding-bottom: 18px;
+    align-items: center;
+}
+.heading-div{
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+.heading{
+    margin: 5px 0px 0px 0px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #191919;
+}
+.head-para{
+    margin: 0px 0px 7px 0px;
+    font-size: 10px;
+    font-weight: 300;
+    color: #191919;
+}
+.hulu-inc{
+    align-items: center;
+    display: flex;
+  }
+.hulu-para{
+    margin: 0px;
+    font-size: 10px;
+    font-weight: normal ;
+    color: #191919;
+}
+.verify-img{
+    margin-left: 3px;
+    height: 10.67px;
+}
+.images-div{
+  width: 100%;
+  text-align: end;
+  margin-right: 7%;
+  margin-top: 5%;
+}
+.share-img{
+    // display: block;
+}
+.heart-img{
+    // display: block;
+    margin-top: 17.6px;
+}
+.hr-cls{
+    border-color: #707070;
+    border-style: solid none none none;
+    border-width: 0.2px;
+    margin: 0px;
+    padding-bottom: 18px;
+    margin: 0 20px;
+}
+p.para-cls {
+    font-size: 11px;
+    font-weight: normal;
+    color: #191919;
+    margin: 0px;
+    margin-bottom: 6px;
+}
+.paras-div {
+    margin: 0px auto 0px 20px;
+    padding-bottom: 18px;
+}
+.flexdiv{
+  display:flex;align-items: center;
+}
+.lft{
+  margin-left: 2% !important;
+}
+p.mid-para {
+    font-size: 13px;
+    font-weight: 500;
+    color: #191919;
+    margin: 0px 20px 8px;
+}
+p.lorem-para {
+    font-size: 12px;
+    color: #191919;
+    margin: 0px 20px;
+    padding-bottom: 8px;
+    font-weight: 300;
+}
+img.chevron {
+    height: 10px;
+    display: inline-block;
+    color: #CF1818;
+}
+p.chevron-para {
+    margin: 0px 0px 0px 3px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 300;
+    color: #CF1818;
+}
+.chevron-cls {
+    align-items: center;
+    margin: 0px 20px 0px;
+    padding-bottom: 18px;
+}
+.badges {
+    margin: 0px 23px 0px 20px;
+    padding-bottom: 24px;
+}
+.btn-div{
+    margin:0px;
+    padding-bottom:25px;
+}
+.badge{
+    --background: white;
+    color: #191919;
+    font-size: 12px;
+    font-weight: 300;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #191919;
+    margin-right: 5px;
+    // --padding-start: 5px;
+    // --padding-end: 5px;
+    --padding-top: 5px;
+    --padding-bottom: 5px;
+}
+.cta-button{
+    display: block;
+    --background: #CF1818;
+    margin: 0px 30px 22px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: capitalize;
+    --border-radius: 5px;
+    height: 40px;
+}
+.btn-css{
+    --background:#FFA00A;
+    margin: 0px 30px 0px;
+    --border-radius: 5px;
+    height: 40px;
+}
+
+
+ion-tabs{
+	ion-fab {
+		margin-bottom: env(safe-area-inset-bottom); /* fix notch ios*/
+		ion-fab-button {
+      --box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
+      --background: none;
+		}
+	}
+	ion-tab-bar {
+		--border: 0;
+		--background: transparent;
+		position: absolute;
+		bottom: 0;
+		left:0; right: 0;
+		width: 100%;
+		&:after{
+			content: " ";
+			width: 100%;
+			bottom: 0;
+			background: var(--ion-color-light);
+			height: env(safe-area-inset-bottom);
+			position: absolute;
+		}
+		ion-tab-button {
+      background:#fff;
+      ion-icon{
+        color:#42474F;
+      }
+		}
+		ion-tab-button.comments {
+			margin-right: 0px;
+			border-top-right-radius: 18px;
+		}
+		ion-tab-button.notifs {
+			margin-left: 0px;
+			border-top-left-radius: 18px;
+		}
+		svg {
+			width: 72px;
+			margin-top: 19px;
+			path{
+        fill:#fff;
+			}
+		}
+	}
+}
