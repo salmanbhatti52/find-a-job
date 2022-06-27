@@ -69,6 +69,14 @@ export class DashboardPage implements OnInit {
     })
   }
 
+  // getusers() {
+  //   this.rest.getRequest('users', localStorage.getItem('auth_token')).subscribe((data: any) => {
+
+  //     console.log('getusers data==', data);
+  //     this.jobs = data.jobs
+
+  //   })
+  // }
   getjobs() {
     this.rest.getRequest('jobs', localStorage.getItem('auth_token')).subscribe((data: any) => {
 

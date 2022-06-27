@@ -1,0 +1,6 @@
+{
+	"appId": "com.findajob.app",
+	"appName": "findajob",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

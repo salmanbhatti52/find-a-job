@@ -25,15 +25,17 @@
   <div class="wrapper">
     <div style="text-align: center;">
       <div class="head">Basic Information</div>
-      <div style="position: relative;margin-top: 3%;">
-        <img src="assets/imgs/andrew.png">
+      <div style="position: relative;margin-top: 3%;" (click)="chooseImage()">
+        <img src={{profileimage}} class="cimg">
         <img src="assets/imgs/icons/edit.svg" class="editimg">
+
       </div>
     </div>
     <div class="main">
       <div class="text">NIN number</div>
       <div class="field1">
-        <ion-input class="input" type="text" placeholder="National Identity Number (NIN)"></ion-input>
+        <ion-input class="input" type="text" placeholder="National Identity Number (NIN)" [(ngModel)]="identitynumber">
+        </ion-input>
       </div>
       <div class="field2">
         <div>
@@ -45,44 +47,83 @@
         Verify ID
       </ion-button>
       <div style="display: flex;align-items: center;margin-top: 2%;">
-        <ion-input class="input1" type="text" placeholder="john"></ion-input>
-        <ion-input class="input2" type="text" placeholder="Doe"></ion-input>
+        <ion-input class="input1" type="text" placeholder="john" [(ngModel)]="firstname"></ion-input>
+        <ion-input class="input2" type="text" placeholder="Doe" [(ngModel)]="lastname"></ion-input>
       </div>
 
       <div class="text">Date of Birth</div>
-      <div style="display: flex;margin-top: 1%;">
+      <div style="margin-top: 1%;">
         <div class="box">
           <div style="align-items: center;display: flex;
-          padding: 8px 5px 6px 15px;">
-            <div class="text1">21</div>
+          padding: 8px 5px 6px 15px;" *ngIf="sdate==false">
+            <div class="text1" (click)="getdate()" *ngIf="showdate==false">21</div>
+            <div class="text1" (click)="getdate()" *ngIf="showdate==true">{{daydate}}
+            </div>
             <div style="width: 100%;text-align: end;">
               <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
             </div>
           </div>
         </div>
+        <!------------ date array ---------------------->
+        <div class="date" *ngIf="sdate==true">
+          <div *ngFor="let date of datearr">
+            <div class="atext1" (click)="selectdate(date.day)">
+              <p style="margin: 5px 0px;">{{date.day}}</p>
+            </div>
+          </div>
+
+          <!-- <div class="icondiv">
+            <ion-icon name="chevron-up-outline"></ion-icon>
+          </div> -->
+        </div>
 
         <div class="box1">
           <div style="align-items: center;display: flex;
-          padding: 8px 10px 6px 15px;">
-            <div class="text1">july</div>
+          padding: 8px 10px 6px 15px;" *ngIf="monthdiv==false">
+            <div class="text1" (click)="getmonth()" *ngIf="showmonth==false">july</div>
+            <div class="text1" (click)="getmonth()" *ngIf="showmonth==true">{{smonth}}</div>
             <div style="text-align: end;">
               <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
             </div>
           </div>
 
+        </div>
+        <div class="month1" *ngIf="monthdiv==true">
+          <div *ngFor="let month of monthDate">
+            <div class="atext1" (click)="selectmonth(month.month)">
+              <p style="margin: 5px 0px;">{{month.month}}</p>
+            </div>
+          </div>
+
+          <!-- <div class="icondiv">
+            <ion-icon name="chevron-up-outline"></ion-icon>
+          </div> -->
         </div>
 
         <div class="box2">
           <div style="align-items: center;display: flex;
-          padding: 8px 10px 6px 15px;">
-            <div class="text1">1992</div>
+          padding: 8px 10px 6px 15px;" *ngIf="yeardiv==false">
+            <div class="text1" (click)="getyear()" *ngIf="showyear==false">1992</div>
+            <div class="text1" (click)="getyear()" *ngIf="showyear==true">{{syear}}</div>
             <div style="text-align: end;">
               <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
             </div>
           </div>
 
         </div>
+        <!-------------------- year array --------------------->
+        <div class="year1" *ngIf="yeardiv==true">
+          <div *ngFor="let year of yearDate">
+            <div class="atext1" (click)="selectyear(year.year)">
+              <p style="margin: 5px 0px;">{{year.year}}</p>
+            </div>
+          </div>
 
+          <!-- <div class="icondiv">
+            <ion-icon name="chevron-up-outline"></ion-icon>
+          </div> -->
+        </div>
+        <div class="clear"></div>
       </div>
       <div class="text">Gender</div>
       <ion-radio-group value=male (ionChange)="selectgender($event)">
@@ -101,7 +142,7 @@
 
       </ion-radio-group>
       <div style="width:100%;margin-top: 3%;">
-        <div class="flagbox" [class.active]="showflags==true">
+        <div class="flagbox" [class.active]="showflags==true" [class.red]="nation==true">
           <div style="align-items: center;display: flex;
           padding: 8px 5px 6px 15px;" (click)="openfflaglist()">
             <div class="text1">
@@ -117,7 +158,7 @@
           </div>
         </div>
         <div class="inputdiv">
-          <ion-input class="input3" type="tel" placeholder="Phone Number"></ion-input>
+          <ion-input class="input3" type="tel" placeholder="Phone Number" [(ngModel)]="phonenumber"></ion-input>
         </div>
         <div class="clear"></div>
       </div>
@@ -135,21 +176,37 @@
       </div>
       <!-- flag list shown -->
 
-      <div class="box3">
-        <div style="align-items: center;display: flex;padding-right: 15px;">
-          <ion-input class="input4" type="text" placeholder="Choose Job seeker status"></ion-input>
+      <div class="box3" (click)="Jobseekerlist()">
+        <div style="align-items: center;display: flex;justify-content: space-between;
+        padding: 9px 14px;">
+          <div class="input4">{{choosejobseeker}}</div>
           <div style="text-align: end;">
-            <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+            <ion-icon name="caret-down-outline" class="cicon" *ngIf="!slist"></ion-icon>
+            <ion-icon name="caret-up-outline" class="cicon" *ngIf="slist"></ion-icon>
+          </div>
+        </div>
+
+        <div *ngIf="slist==true">
+          <div *ngFor="let list of jobseekerarray" (click)="selectjobseeker(list)">
+            <div class="euro-text1">{{list.seeker}}</div>
           </div>
         </div>
 
       </div>
 
-      <div class="box3">
-        <div style="align-items: center;display: flex;padding-right: 15px;">
-          <ion-input class="input4" type="text" placeholder="State of origin"></ion-input>
+      <div class="box3" (click)="stateoriginlist()">
+        <div style="align-items: center;display: flex;justify-content: space-between;
+        padding: 9px 14px;">
+          <div class="input4">{{choosestate}}</div>
           <div style="text-align: end;">
-            <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
+            <ion-icon name="caret-down-outline" class="cicon" *ngIf="!statelist"></ion-icon>
+            <ion-icon name="caret-up-outline" class="cicon" *ngIf="statelist"></ion-icon>
+          </div>
+        </div>
+
+        <div *ngIf="statelist==true">
+          <div *ngFor="let list of statearray" (click)="selectstate(list)">
+            <div class="euro-text1">{{list.name}}</div>
           </div>
         </div>
 
@@ -250,13 +307,45 @@
 
       <div class="text">Secondary School Name</div>
       <div class="box3">
-        <ion-input class="input4" type="text" placeholder="St. Nicholas Secondary School"></ion-input>
+        <ion-input class="input4" type="text" placeholder="St. Nicholas Secondary School" [(ngModel)]="institutename">
+        </ion-input>
       </div>
+
+      <div class="text">Minimum Qualification</div>
+      <div class="box3">
+        <ion-input class="input4" type="text" placeholder="St. Nicholas Secondary School"
+          [(ngModel)]="min_qualification"></ion-input>
+      </div>
+
       <div style="display: flex;">
         <div class="text">Start Year</div>
         <div class="text">End Year</div>
       </div>
-      <div style="display: flex;margin-top: 1%;">
+      <div style="display: flex;">
+        <div class="item-picker" (click)="startPicker = !startPicker">
+
+          <ion-text class="ion-txt" style="font-size: 12px;">{{ starteddate }}</ion-text>
+
+
+        </div>
+        <div class="item-picker" (click)="endPicker = !endPicker">
+
+          <ion-text class="ion-txt" style="font-size: 12px;">{{ endeddate }}</ion-text>
+
+
+        </div>
+      </div>
+
+      <ion-datetime class="item-picker" style="margin:10px auto 0px; color: black;" presentation="date"
+        *ngIf="startPicker" #datetime [value]="dateValue" size="cover" (ionChange)="startdate(datetime.value)"
+        showDefaultButtons="true" (ionCancel)="startPicker=false" max="2050-05-31T23:59:59">
+      </ion-datetime>
+      <ion-datetime class="item-picker" style="margin:10px auto 0px; color: black;" presentation="date"
+        *ngIf="endPicker" #datetime [value]="dateValue" size="cover" (ionChange)="enddate(datetime.value)"
+        showDefaultButtons="true" (ionCancel)="endPicker=false" max="2050-05-31T23:59:59">
+      </ion-datetime>
+
+      <!-- <div style="display: flex;margin-top: 1%;">
         <div class="box4">
           <div style="align-items: center;display: flex;
           padding: 8px 10px 6px 15px;">
@@ -304,7 +393,8 @@
       <div style="display: flex;margin-top: 3%;align-items: center;">
         <div class="ltext">Employment History</div>
         <div class="plus">+</div>
-      </div>
+      </div> -->
+
       <div style="display: flex;margin-top: 3%;align-items: center;">
         <div class="ltext">Certificates & Awards</div>
         <div class="plus">+</div>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">findajob</string>
+    <string name="title_activity_main">findajob</string>
+    <string name="package_name">com.findajob.app</string>
+    <string name="custom_url_scheme">com.findajob.app</string>
+</resources>

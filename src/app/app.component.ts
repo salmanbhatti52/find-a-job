@@ -45,6 +45,8 @@ export class AppComponent {
   menunbtn() {
     this.menuCtrl.close();
   }
+
+
   openpage(p) {
     console.log('page===', p.title);
 

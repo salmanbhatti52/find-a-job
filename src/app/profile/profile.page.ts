@@ -1,8 +1,19 @@
-import { NavController, ModalController } from '@ionic/angular';
+import { NavController, ModalController, AlertController, Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Countries, Country } from "./interface";
 import { PopupPage } from '../popup/popup.page';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Filesystem, Directory } from '@capacitor/filesystem';
+import { ExtrasService } from '../services/extras.service';
+import { RestService } from '../services/rest.service';
+import { IonDatetime } from '@ionic/angular';
+import { format, parseISO, getDate, getMonth, getYear } from 'date-fns';
+
+import axios from 'axios';
+const IMAGE_DIR = 'stored-images';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -11,10 +22,11 @@ import { PopupPage } from '../popup/popup.page';
 export class ProfilePage implements OnInit {
   allItems: Array<Country> = [];
   private items: Array<Country> = [];
-
+  safeUrl: SafeResourceUrl;
   choosereligion = 'Choose your Religion';
   choosetribe = 'Choose your tribe'
-  Complexion = 'Complexion'
+  Complexion = 'Complexion';
+  choosejobseeker = 'Choose Job seeker status';
 
   religionarray = [{ religion: 'Christian' }, { religion: ' Muslim' }, { religion: ' Hindu' }, { religion: ' Atheist' }, { religion: ' Traditional' }]
   tribearray = [
@@ -23,31 +35,103 @@ export class ProfilePage implements OnInit {
   complexionarray = [
     { complexion: 'Light Dark' }, { complexion: ' Very Dark' },
   ]
+  jobseekerarray = [
+    { seeker: 'looking for work' }, { seeker: ' not looking work' }, { seeker: ' employed but looking for work' }
+  ]
+  yearDate = [
+    { year: 1960 }, { year: 1961 }, { year: 1962 }, { year: 1963 }, { year: 1964 }, { year: 1965 }, { year: 1966 }, { year: 1967 }, { year: 1968 }, { year: 1969 }, { year: 1970 }, { year: 1971 }, { year: 1972 }, { year: 1973 }, { year: 1974 }, { year: 1975 }, { year: 1976 }, { year: 1977 }, { year: 1978 }, { year: 1979 }, { year: 1980 }, { year: 1981 }, { year: 1982 }, { year: 1983 }, { year: 1984 }, { year: 1985 }, { year: 1986 }, { year: 1987 }, { year: 1988 }, { year: 1989 }, { year: 1990 }, { year: 1991 }, { year: 1992 }, { year: 1993 }, { year: 1994 }, { year: 1995 }, { year: 1996 }, { year: 1997 }, { year: 1998 }, { year: 1999 }, { year: 2000 }, { year: 2001 }, { year: 2002 }, { year: 2003 }, { year: 2004 }, { year: 2005 }, { year: 2006 }, { year: 2007 }, { year: 2008 }, { year: 2009 }, { year: 2010 }, { year: 2011 }, { year: 2012 }, { year: 2013 }, { year: 2014 }, { year: 2015 }, { year: 2016 }, { year: 2017 }, { year: 2018 }, { year: 2019 }, { year: 2020 }, { year: 2021 }, { year: 2022 }, { year: 2023 }, { year: 2024 }, { year: 2025 }, { year: 2026 }, { year: 2027 }, { year: 2028 }, { year: 2029 }, { year: 2030 }, { year: 2031 }, { year: 2032 }, { year: 2033 }, { year: 2034 }, { year: 2035 }
+  ];
+  datearr = [{ day: 1 }, { day: 2 }, { day: 3 }, { day: 4 }, { day: 5 }, { day: 6 }, { day: 7 }, { day: 8 }, { day: 9 }, { day: 10 },
+  { day: 11 }, { day: 12 }, { day: 13 }, { day: 14 }, { day: 15 }, { day: 16 }, { day: 17 }, { day: 18 }, { day: 19 }, { day: 20 },
+  { day: 21 }, { day: 22 }, { day: 23 }, { day: 24 }, { day: 25 }, { day: 26 }, { day: 27 }, { day: 28 }, { day: 29 }, { day: 30 },
+  { day: 31 }
+  ]
+  monthDate = [{ month: '01' }, { month: '02' }, { month: '03' }, { month: '04' }, { month: '05' }, { month: '06' }, { month: '07' },
+  { month: '08' }, { month: '09' }, { month: '10' }, { month: '11' }, { month: '12' },
+  ]
+
   list = false
   list1 = false
-  list2 = false
+  list2 = false;
+  slist = false;
+  statelist = false;
+
   sdate = false;
   yeardiv = false;
   monthdiv = false;
+
   syear: any = '';
   daydate: any = '';
+
   showdate = false;
   showyear = false;
   showmonth = false;
 
   showflags = false;
-
+  nation = false;
   flaglist = false
   flagimage: any;
   showimage = false;
   upicon = false;
-  constructor(private http: HttpClient,
-    public navCtrl: NavController,
-    public modal: ModalController) { }
+  profileimage: any = 'assets/imgs/andrew.png';
 
-  ngOnInit() {
+  picurl: any;
+  identitynumber = '';
+  firstname = '';
+  lastname = '';
+  dob = '';
+  gender = '';
+  nationality = '';
+  phonenumber = ''
+  smonth = '';
+
+  callingcode: any;
+
+  institutename = '';
+  startPicker = false;
+  endPicker = false;
+  dateValue = format(new Date(), 'yyyy-MM-dd');
+  starteddate = '';
+  endeddate = '';
+  choosestate = '';
+  statearray: any;
+  min_qualification: '';
+  description: any;
+  constructor(private http: HttpClient,
+    public platform: Platform,
+    public navCtrl: NavController,
+    public modal: ModalController,
+    private sanitizer: DomSanitizer,
+    public alertCtrl: AlertController,
+    public extra: ExtrasService,
+    public rest: RestService) {
 
   }
+
+  ngOnInit() {
+    this.setToday();
+
+  }
+
+  setToday() {
+    this.starteddate = 'Choose start date'
+    this.endeddate = 'Choose end date';
+    this.choosestate = 'State of origin'
+  }
+
+
+  startdate(value) {
+    this.dateValue = value;
+    this.starteddate = format(parseISO(value), ' yyyy-MM-d')
+    this.startPicker = false;
+  }
+
+  enddate(value) {
+    this.dateValue = value;
+    this.endeddate = format(parseISO(value), ' yyyy-MM-d')
+    this.endPicker = false;
+  }
+
   openfflaglist() {
 
     if (this.upicon == false) {
@@ -88,11 +172,14 @@ export class ProfilePage implements OnInit {
 
   }
   viewDetails(item) {
-    // console.log('code===', item)
+    // console.log('code===', item.callingCodes[0])
     this.flaglist = false
     this.flagimage = item.flag
     this.showimage = true;
     this.upicon = false;
+    this.nationality = item.name
+    this.callingcode = '+' + item.callingCodes[0];
+    console.log('code===', this.callingcode)
   }
 
   religionlist() {
@@ -101,6 +188,62 @@ export class ProfilePage implements OnInit {
     } else {
       this.list = false
     }
+  }
+
+  Jobseekerlist() {
+    if (this.slist == false) {
+      this.slist = true
+    } else {
+      this.slist = false
+    }
+  }
+  stateoriginlist() {
+    if (this.statelist == false) {
+      this.statelist = true
+      this.rest.getRequest('states', localStorage.getItem('auth_token')).subscribe((data: any) => {
+        console.log('state array==', data)
+        this.statearray = data.states;
+      })
+    } else {
+      this.statelist = false
+    }
+  }
+
+  getdate() {
+
+    this.sdate = true;
+  }
+  selectdate(daydate) {
+    this.daydate = daydate
+
+    this.sdate = false
+    this.showdate = true
+  }
+  getmonth() {
+    this.monthdiv = true
+  }
+  selectmonth(month) {
+    console.log('year', month)
+    this.smonth = month
+
+    this.monthdiv = false
+    this.showmonth = true
+  }
+  selectyear(year) {
+    console.log('year', year)
+    this.syear = year
+
+    this.yeardiv = false
+    this.showyear = true
+  }
+
+  getyear() {
+    this.yeardiv = true
+  }
+
+  selectgender(ev) {
+    console.log('value=', ev.detail.value);
+    this.gender = ev.detail.value
   }
   tribelist() {
     if (this.list1 == false) {
@@ -121,6 +264,10 @@ export class ProfilePage implements OnInit {
     this.choosereligion = list.religion;
     console.log('slected type', this.choosereligion);
   }
+  selectjobseeker(list) {
+    this.choosejobseeker = list.seeker;
+    console.log('slected type', this.choosejobseeker);
+  }
   selecttribe(list) {
     this.choosetribe = list.tribe
     console.log('slected type', this.choosetribe);
@@ -129,9 +276,201 @@ export class ProfilePage implements OnInit {
     this.Complexion = list.complexion
     console.log('slected type', this.Complexion);
   }
-  previewprofile() {
-    this.navCtrl.navigateForward('profile-preview')
+
+  selectstate(list) {
+    this.choosestate = list.name
+    console.log('slected type state', this.choosestate);
   }
+
+
+  previewprofile() {
+
+    if (this.identitynumber == '') {
+      this.extra.presentToast('Identity number required');
+    }
+    else if (this.firstname == '') {
+      this.extra.presentToast('Firstname is required');
+    }
+    else if (this.lastname == '') {
+      this.extra.presentToast('Lastname is required');
+    }
+    else if (this.daydate == '') {
+      this.extra.presentToast('Date is required');
+    }
+    else if (this.smonth == '') {
+      this.extra.presentToast('Month is required');
+    }
+    else if (this.syear == '') {
+      this.extra.presentToast('Year is required');
+    }
+    else if (this.gender == '') {
+      this.extra.presentToast('Please specified gender');
+    }
+    else if (this.nationality == '') {
+      this.nation = true;
+      this.extra.presentToast('Select your nationality');
+    }
+    else if (this.phonenumber == '') {
+      this.extra.presentToast('Phone number required');
+    } else if (this.choosejobseeker == 'Choose Job seeker status') {
+      this.extra.presentToast('Select job seeker status')
+    } else {
+      let datasend = {
+        identification_type: this.choosejobseeker,
+        identification_no: this.identitynumber,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        dofb: this.syear + '-' + this.smonth + '-' + this.daydate,
+        gender: this.gender,
+        phone: this.phonenumber,
+        nationality: this.nationality,
+        profile_image: this.picurl,
+        state: this.choosestate,
+        seeker_status: this.choosejobseeker
+      }
+
+      this.rest.sendRequest('update-profile', datasend, localStorage.getItem('auth_token')).subscribe((res: any) => {
+        console.log('profile update response--', res)
+
+        this.addeducation()
+      })
+    }
+    setInterval(() => {
+      this.nation = false
+    }, 4000);
+
+  }
+
+  addeducation() {
+    if (this.institutename == '') {
+      this.extra.presentToast('Enter your institute');
+    } else if (this.min_qualification == '') {
+      this.extra.presentToast('Enter your minimum qualification ');
+    }
+    else if (this.starteddate == 'Choose start date') {
+      this.extra.presentToast('Choose start date');
+    } else if (this.endeddate == 'Choose end date') {
+      this.extra.presentToast('Choose end date');
+    } else {
+      let datatosend = {
+        institution: this.institutename,
+        min_qualification: this.min_qualification,
+        start_date: this.starteddate,
+        end_date: this.endeddate,
+        description: 'heloow'
+      }
+      this.rest.sendRequest('add-education', datatosend, localStorage.getItem('auth_token')).subscribe((res: any) => {
+        console.log('education update response--', res)
+
+      })
+    }
+
+  }
+  async chooseImage() {
+
+    let confirm = await this.alertCtrl.create({
+      header: 'Upload Image',
+      cssClass: 'camera-alert',
+      buttons: [
+        {
+          text: 'Camera',
+          handler: async () => {
+            console.log('came inside Camera');
+            const image = await Camera.getPhoto({
+              quality: 75,
+              allowEditing: false,
+              resultType: CameraResultType.DataUrl,
+              source: CameraSource.Camera,
+            }).then(res => {
+              this.profileimage = res.dataUrl
+              this.picurl = res.dataUrl
+              // console.log('image uri==', res.dataUrl);
+              // this.saveimage(res.dataUrl)
+            })
+          }
+        },
+        {
+          text: 'Gallery',
+          handler: async () => {
+            console.log('came inside yes');
+
+            const image = await Camera.getPhoto({
+              quality: 75,
+              allowEditing: false,
+              resultType: CameraResultType.DataUrl,
+              source: CameraSource.Photos,
+            }).then(res => {
+              this.profileimage = res.dataUrl
+              this.picurl = res.dataUrl
+              // console.log('image uri==', res.dataUrl);
+              // this.saveimage(res.dataUrl)
+            })
+
+
+            // if (image) {
+            //   // this.saveimage(image)
+
+
+            // }
+          }
+        },
+      ]
+    })
+    await confirm.present();
+
+  }
+
+
+  async saveimage(photo) {
+    // const base64Data = await this.readAsBase64(photo);
+    // console.log('base64 data==', base64Data);
+    // this.profileimage = `data:image/png;base64,${base64Data}`
+    // this.profileimage = this.sanitizer.bypassSecurityTrustResourceUrl(value);
+    const fileName = new Date().getTime() + '.png';
+    const savedFile = await Filesystem.writeFile({
+      path: `${IMAGE_DIR}/${fileName}`,
+      data: photo.toString(),
+      directory: Directory.Documents,
+      recursive: true
+    });
+
+    console.log('savedFile data==', savedFile)
+    let imageget = savedFile.uri.split('/')
+    console.log('imageget', imageget);
+    this.picurl = imageget[8]
+    console.log('picurl==', this.picurl)
+
+  }
+
+  async readAsBase64(photo) {
+    if (this.platform.is('hybrid')) {
+      const file = await Filesystem.readFile({
+        path: photo.path
+      })
+      return file.data;
+    } else {
+      const response = await fetch(photo.webPath);
+      const blob = await response.blob();
+
+      return await this.convertBlobToBase64(blob) as string;
+    }
+
+
+  }
+
+  convertBlobToBase64 = (blob: Blob) => new Promise((resolve, reject) => {
+    const reader = new FileReader;
+    reader.onerror = reject;
+    reader.onload = () => {
+      resolve(reader.result);
+    };
+    reader.readAsDataURL(blob);
+  });
+
+
+  // previewprofile() {
+  //   this.navCtrl.navigateForward('profile-preview')
+  // }
 
 
   tablink(type) {
