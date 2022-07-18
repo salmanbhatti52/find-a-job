@@ -4,6 +4,7 @@ import { Chooser } from '@awesome-cordova-plugins/chooser/ngx';
 import { RestService } from '../services/rest.service';
 import { ExtrasService } from '../services/extras.service';
 import * as _ from 'lodash';
+import * as moment from 'moment';
 @Component({
   selector: 'app-myresumes',
   templateUrl: './myresumes.page.html',
@@ -133,7 +134,8 @@ export class MyresumesPage implements OnInit {
             id: this.media[i].id,
             collectionname: this.media[i].collection_name,
             name: this.media[i].name,
-            filesize: this.media[i].size
+            filesize: this.media[i].size / 1024,
+            date: moment(this.media[i].created_at).format('DD MMM, YYYY')
           }
           this.resumes.push(datato)
         }
