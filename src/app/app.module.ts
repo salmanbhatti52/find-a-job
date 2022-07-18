@@ -12,6 +12,7 @@ import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
 import { LocationAccuracy } from '@awesome-cordova-plugins/location-accuracy/ngx';
 import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
+import { Chooser } from '@awesome-cordova-plugins/chooser/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -23,6 +24,7 @@ import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
     AndroidPermissions,
     LocationAccuracy,
     NativeGeocoder,
+    Chooser,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],

@@ -150,6 +150,18 @@ const routes: Routes = [
   {
     path: 'ourservices',
     loadChildren: () => import('./ourservices/ourservices.module').then( m => m.OurservicesPageModule)
+  },
+  {
+    path: 'employmenthistory',
+    loadChildren: () => import('./employmenthistory/employmenthistory.module').then( m => m.EmploymenthistoryPageModule)
+  },
+  {
+    path: 'addcertificate',
+    loadChildren: () => import('./addcertificate/addcertificate.module').then( m => m.AddcertificatePageModule)
+  },
+  {
+    path: 'userskills',
+    loadChildren: () => import('./userskills/userskills.module').then( m => m.UserskillsPageModule)
   }
 ];
 

@@ -92,5 +92,21 @@ export class RestService {
     });
   }
 
+  delete(action, param, token) {
+    let header;
+    header = new HttpHeaders({
+      "Authorization": "Bearer " + token,
+    });
+    header.append("Access-Control-Allow-Origin", "*");
+    header.append(
+      "Access-Control-Allow-Methods",
+      "POST, GET, DELETE, PUT,OPTIONS"
+    );
+    let url = `${this.baseURL}/${action}/${param}`;
+    return this.http.delete(url, {
+      headers: header,
+    });
+  }
+
 
 }

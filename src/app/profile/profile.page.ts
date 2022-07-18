@@ -122,7 +122,7 @@ export class ProfilePage implements OnInit {
 
   startdate(value) {
     this.dateValue = value;
-    this.starteddate = format(parseISO(value), ' yyyy-MM-d')
+    this.starteddate = format(parseISO(value), ' yyyy-MM-d');
     this.startPicker = false;
   }
 
@@ -329,11 +329,10 @@ export class ProfilePage implements OnInit {
         seeker_status: this.choosejobseeker
       }
 
-      this.rest.sendRequest('update-profile', datasend, localStorage.getItem('auth_token')).subscribe((res: any) => {
-        console.log('profile update response--', res)
 
-        this.addeducation()
-      })
+
+      this.addeducation(datasend)
+
     }
     setInterval(() => {
       this.nation = false
@@ -341,7 +340,7 @@ export class ProfilePage implements OnInit {
 
   }
 
-  addeducation() {
+  addeducation(datasend) {
     if (this.institutename == '') {
       this.extra.presentToast('Enter your institute');
     } else if (this.min_qualification == '') {
@@ -359,10 +358,27 @@ export class ProfilePage implements OnInit {
         end_date: this.endeddate,
         description: 'heloow'
       }
-      this.rest.sendRequest('add-education', datatosend, localStorage.getItem('auth_token')).subscribe((res: any) => {
-        console.log('education update response--', res)
+      this.rest.sendRequest('update-profile', datasend, localStorage.getItem('auth_token')).subscribe((res: any) => {
+        console.log('profile update response--', res)
+        if (res.status == 'true') {
+          this.extra.presentToast(res.message);
+          //add education api///
+          this.rest.sendRequest('add-education', datatosend, localStorage.getItem('auth_token')).subscribe((res: any) => {
+            console.log('education update response--', res);
+            if (res.status == 'true') {
+              this.navCtrl.navigateForward('profile-preview');
+            } else {
+              this.extra.presentToast(res.message);
+            }
+
+          })
+          ////////////////////////
+        } else {
+          this.extra.presentToast(res.message);
+        }
 
       })
+
     }
 
   }
@@ -401,8 +417,12 @@ export class ProfilePage implements OnInit {
               source: CameraSource.Photos,
             }).then(res => {
               this.profileimage = res.dataUrl
-              this.picurl = res.dataUrl
-              // console.log('image uri==', res.dataUrl);
+              let picurl1 = res.dataUrl
+              console.log('image uri==', res.dataUrl);
+              let picurl2 = picurl1.split(',');
+              this.picurl = picurl2[1]
+              console.log('picurlw12', this.picurl);
+
               // this.saveimage(res.dataUrl)
             })
 
@@ -472,6 +492,15 @@ export class ProfilePage implements OnInit {
   //   this.navCtrl.navigateForward('profile-preview')
   // }
 
+  employmenthistory() {
+    this.navCtrl.navigateForward('employmenthistory')
+  }
+  certificate() {
+    this.navCtrl.navigateForward('addcertificate')
+  }
+  skills() {
+    this.navCtrl.navigateForward('userskills')
+  }
 
   tablink(type) {
     if (type == 1) {

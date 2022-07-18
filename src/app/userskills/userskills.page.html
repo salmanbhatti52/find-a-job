@@ -1,0 +1,35 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col style="padding-top:10px;text-align: center;" size="2">
+
+        <img src="assets/imgs/icons/back.svg" class="topicon" (click)="goback()">
+
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Add Skills</ion-text>
+      </ion-col>
+
+      <ion-col size="2">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="bg">
+  <div class="wrapper">
+    <div class="text">Languages & Skills</div>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="type here.." [(ngModel)]="skill"></ion-input>
+    </div>
+
+    <div class="text">Proficiency</div>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="type here.." [(ngModel)]="proficiency"></ion-input>
+    </div>
+
+    <ion-button class="btn" (click)="add()">Add</ion-button>
+  </div>
+</ion-content>

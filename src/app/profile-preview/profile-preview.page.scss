@@ -60,13 +60,15 @@
     background-color: #FABA52;
     font-size:12px;
     font-weight: normal;
-    border-radius:100px;
+    // border-radius:100px;
     contain: none;
+    color: #fff;
 }
 .badge-style1{
-    margin: 10px 10px 0px 15px;
-    height: 30px;
-    width: 72px;
+  margin: 10px 0px 0px 15px;
+  /* height: 30px; */
+  /* width: 72px; */
+  padding: 10px;
 }
 .badge-style2{
     margin: 10px 10px 0px 0px;
@@ -101,7 +103,8 @@
     font-weight: normal;
     margin: 0px;
     color: #444444;
-    font-weight: 300;
+    font-weight: 500;
+    width: 100%;
 }
 .edu-detail2{
     display: flex;
@@ -120,6 +123,11 @@
 .last-section{
     background-color: white;
     padding: 15px;
+}
+.delimg{
+  margin-right: 3%;
+    width: 10px;
+    height: 10px;
 }
 
 ion-tabs{

@@ -1,0 +1,126 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col style="padding-top:10px;text-align: center;" size="2">
+
+        <img src="assets/imgs/icons/back.svg" class="topicon" (click)="goback()">
+
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Employment History</ion-text>
+      </ion-col>
+
+      <ion-col size="2">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="bg">
+  <div class="wrapper">
+    <div class="text">Employer Name</div>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="Enter Name" [(ngModel)]="employer_name"></ion-input>
+    </div>
+
+    <div class="text">Job Title</div>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="Enter Title" [(ngModel)]="job_title"></ion-input>
+    </div>
+
+    <div class="text">Job Level</div>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="Enter Level" [(ngModel)]="job_level"></ion-input>
+    </div>
+
+    <div class="text">Country</div>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="Country Name" [(ngModel)]="country"></ion-input>
+    </div>
+
+    <div class="text">Industry</div>
+    <div class="box3" (click)="Industrylist()">
+      <div style="align-items: center;display: flex;justify-content: space-between;
+      padding: 9px 14px;">
+        <input class="input4" type="text" placeholder="Industry Name" [value]="industryname" [(ngModel)]="industryname"
+          readonly>
+        <div style="text-align: end;">
+          <ion-icon name="caret-down-outline" class="cicon" *ngIf="!list1"></ion-icon>
+          <ion-icon name="caret-up-outline" class="cicon" *ngIf="list1"></ion-icon>
+        </div>
+      </div>
+      <div *ngIf="list1==true">
+        <div *ngFor="let list of industries" (click)="selectIndustry(list)">
+          <div class="euro-text1">{{list.name}}</div>
+        </div>
+      </div>
+    </div>
+    <!-- end of list div --->
+
+    <div class="text">Function</div>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="Function" [(ngModel)]="function"></ion-input>
+    </div>
+
+    <div class="text">Monthly Salary</div>
+    <div class="box3">
+      <ion-input class="input4" type="number" placeholder="Monthly Salary" [(ngModel)]="monthly_salary"></ion-input>
+    </div>
+
+    <div class="text">Work Type</div>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="Full/Half Time" [(ngModel)]="work_type"></ion-input>
+    </div>
+
+    <div class="text">City</div>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="City Name" [(ngModel)]="city"></ion-input>
+    </div>
+
+    <div style="display: flex;">
+      <div class="text">Start Date</div>
+      <div class="text">End Date</div>
+    </div>
+    <div style="display: flex;">
+      <div class="item-picker" (click)="startPicker = !startPicker">
+
+        <ion-text class="ion-txt" style="font-size: 12px;">{{ starteddate }}</ion-text>
+
+
+      </div>
+      <div class="item-picker" (click)="endPicker = !endPicker">
+
+        <ion-text class="ion-txt" style="font-size: 12px;">{{ endeddate }}</ion-text>
+
+
+      </div>
+    </div>
+
+    <ion-datetime class="item-picker" style="margin:10px auto 0px; color: black;" presentation="date"
+      *ngIf="startPicker" #datetime [value]="dateValue" size="cover" (ionChange)="startdate(datetime.value)"
+      showDefaultButtons="true" (ionCancel)="startPicker=false" max="2050-05-31T23:59:59">
+    </ion-datetime>
+    <ion-datetime class="item-picker" style="margin:10px auto 0px; color: black;" presentation="date" *ngIf="endPicker"
+      #datetime [value]="dateValue" size="cover" (ionChange)="enddate(datetime.value)" showDefaultButtons="true"
+      (ionCancel)="endPicker=false" max="2050-05-31T23:59:59">
+    </ion-datetime>
+
+    <div class="text">Currently Working</div>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="Currently Working" [(ngModel)]="currently_work_here">
+      </ion-input>
+    </div>
+
+    <div class="text">Responsibilities</div>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="Your Responsibilities" [(ngModel)]="responsibilities">
+      </ion-input>
+    </div>
+
+    <div>
+      <ion-button class="btn" (click)="add()">Add</ion-button>
+    </div>
+  </div>
+</ion-content>

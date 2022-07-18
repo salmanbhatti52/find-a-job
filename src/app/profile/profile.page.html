@@ -276,7 +276,7 @@
       </div>
 
       <div class="text">Disability</div>
-      <ion-radio-group value=male (ionChange)="selectgender($event)">
+      <ion-radio-group value=male (ionChange)="selectdisability($event)">
         <div style="display: flex;flex-direction: row;margin-top: 1%;">
 
           <div class="leftone">
@@ -395,11 +395,16 @@
         <div class="plus">+</div>
       </div> -->
 
-      <div style="display: flex;margin-top: 3%;align-items: center;">
+      <div style="display: flex;margin-top: 3%;align-items: center;" (click)="employmenthistory()">
+        <div class="ltext">Employment History</div>
+        <div class="plus">+</div>
+      </div>
+
+      <div style="display: flex;margin-top: 3%;align-items: center;" (click)="certificate()">
         <div class="ltext">Certificates & Awards</div>
         <div class="plus">+</div>
       </div>
-      <div style="display: flex;margin-top: 3%;align-items: center;">
+      <div style="display: flex;margin-top: 3%;align-items: center;" (click)="skills()">
         <div class="ltext">Language & Skills</div>
         <div class="plus">+</div>
       </div>

@@ -40,7 +40,16 @@ export class AppComponent {
   appsubPages = [];
   // public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(public menuCtrl: MenuController,
-    public navCtrl: NavController) { }
+    public navCtrl: NavController) {
+
+    console.log(localStorage.getItem('userid'));
+
+    if (localStorage.getItem('userid') != '' || null) {
+      this.navCtrl.navigateRoot('dashboard')
+    } else {
+      this.navCtrl.navigateRoot('signin');
+    }
+  }
 
   menunbtn() {
     this.menuCtrl.close();

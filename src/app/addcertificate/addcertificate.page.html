@@ -1,0 +1,56 @@
+<ion-header [translucent]="true" class="ion-no-border cheader">
+  <ion-toolbar class="headBgGlobal">
+    <ion-row>
+      <ion-col style="padding-top:10px;text-align: center;" size="2">
+
+        <img src="assets/imgs/icons/back.svg" class="topicon" (click)="goback()">
+
+      </ion-col>
+
+      <ion-col class="titleclass" size="8">
+        <ion-text class="ctitle">Add Certificate</ion-text>
+      </ion-col>
+
+      <ion-col size="2">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content class="bg">
+  <div class="wrapper">
+    <div class="text">Certificate</div>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="type here.." [(ngModel)]="certificate"></ion-input>
+    </div>
+
+    <div class="text">Start Date</div>
+    <div class="box3" (click)="startPicker = !startPicker">
+      <ion-input class="input4" type="text" placeholder="Choose start date" [value]="starteddate"
+        [(ngModel)]="starteddate" readonly></ion-input>
+    </div>
+
+    <div class="text">Start Date</div>
+    <div class="box3" (click)="endPicker = !endPicker">
+      <ion-input class="input4" type="text" placeholder="Choose end date" [value]="endeddate" [(ngModel)]="endeddate"
+        readonly></ion-input>
+    </div>
+
+    <!-- datepicker modal -->
+    <ion-datetime class="item-picker" style="margin:10px auto 0px; color: black;" presentation="date"
+      *ngIf="startPicker" #datetime [value]="dateValue" size="cover" (ionChange)="startdate(datetime.value)"
+      showDefaultButtons="true" (ionCancel)="startPicker=false" max="2050-05-31T23:59:59">
+    </ion-datetime>
+    <ion-datetime class="item-picker" style="margin:10px auto 0px; color: black;" presentation="date" *ngIf="endPicker"
+      #datetime [value]="dateValue" size="cover" (ionChange)="enddate(datetime.value)" showDefaultButtons="true"
+      (ionCancel)="endPicker=false" max="2050-05-31T23:59:59">
+    </ion-datetime>
+    <!-- datepicker modal -->
+
+    <div>
+      <ion-button class="btn" (click)="add()">Add</ion-button>
+    </div>
+  </div>
+</ion-content>

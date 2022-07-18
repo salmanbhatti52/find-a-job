@@ -1,5 +1,7 @@
 import { NavController, MenuController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { RestService } from '../services/rest.service';
+import { ExtrasService } from '../services/extras.service';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -11,8 +13,16 @@ export class ForgotpasswordPage implements OnInit {
   displayEmailSend = true;
   displayPinCode = false;
   displayChangePassword = false;
+
+  email = '';
+  emailError = {
+    status: false,
+    message: "",
+  };
   constructor(public navCtrl: NavController,
-    public menuCtrl: MenuController) { }
+    public menuCtrl: MenuController,
+    public rest: RestService,
+    public loading: ExtrasService) { }
 
   ngOnInit() {
   }
@@ -25,8 +35,36 @@ export class ForgotpasswordPage implements OnInit {
     this.menuCtrl.enable(true);
   }
   sendEmail() {
-    this.displayEmailSend = false;
-    this.displayPinCode = true;
+    if (this.email) {
+      if (!this.validateEmail(this.email)) {
+        this.loading.presentToast("Invalid Email address.")
+      }
+
+      let Data = {
+        email: this.email
+      }
+      this.rest.sendRequest("forgot-password", Data).subscribe(
+        (data: any) => {
+          console.log('forgot_password data', data);
+          // if (data.status == 'Success') {
+          //   this.displayEmailSend = false;
+          //   this.displayPinCode = true;
+          // }
+          // if (data.status == 'error') {
+          //   this.loading.hideLoader();
+          //   // console.log('signup request data:',data.status);
+          // }
+
+        }, (err) => {
+
+        }
+      );
+
+    }
+    if (!this.email) {
+      this.loading.presentToast("Email address is required");
+    }
+
   }
   ok() {
     this.displayChangePassword = true;
@@ -56,6 +94,13 @@ export class ForgotpasswordPage implements OnInit {
       elNext.setFocus();
     }
   }
+
+  validateEmail(email) {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
   reset() {
     this.navCtrl.navigateRoot('signin');
   }

@@ -41,6 +41,8 @@ export class DashboardPage implements OnInit {
   nationality: any;
   userimg: any;
   userprofile: any;
+  media: any;
+  mediaarray = [];
   constructor(public navCtrl: NavController,
     public menuCtrl: MenuController,
     public rest: RestService) { }
@@ -65,7 +67,6 @@ export class DashboardPage implements OnInit {
       this.userprofile = data.user.profile_image;
       // }
 
-
     })
   }
 
@@ -84,6 +85,7 @@ export class DashboardPage implements OnInit {
       this.jobs = data.jobs
 
     })
+
   }
 
   seedetail(jobid) {
