@@ -52,6 +52,9 @@ export class JobDetailPage implements OnInit {
       this.level = data.job.level;
       this.summary = data.job.summary
 
+      // let strtoarray = data.job.requirement.split(' ')
+      // console.log('strtoarray=', strtoarray);
+
     })
   }
 

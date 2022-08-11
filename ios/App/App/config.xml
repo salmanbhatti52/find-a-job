@@ -2,6 +2,10 @@
 <widget version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <access origin="*" />
   
+  <feature name="Camera">
+    <param name="ios-package" value="CDVCamera"/>
+  </feature>
+
   <feature name="Chooser">
     <param name="ios-package" value="Chooser"/>
   </feature>
@@ -16,6 +20,10 @@
 
   <feature name="RequestLocationAccuracy">
     <param name="ios-package" value="RequestLocationAccuracy"/>
+  </feature>
+
+  <feature name="VideoEditor">
+    <param name="ios-package" value="VideoEditor"/>
   </feature>
 
   

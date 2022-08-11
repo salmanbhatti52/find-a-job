@@ -10,6 +10,7 @@ import { ExtrasService } from '../services/extras.service';
 import { RestService } from '../services/rest.service';
 import { IonDatetime } from '@ionic/angular';
 import { format, parseISO, getDate, getMonth, getYear } from 'date-fns';
+import { CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
 
 import axios from 'axios';
 const IMAGE_DIR = 'stored-images';
@@ -104,7 +105,8 @@ export class ProfilePage implements OnInit {
     private sanitizer: DomSanitizer,
     public alertCtrl: AlertController,
     public extra: ExtrasService,
-    public rest: RestService) {
+    public rest: RestService,
+  ) {
 
   }
 
@@ -396,7 +398,7 @@ export class ProfilePage implements OnInit {
               quality: 75,
               allowEditing: false,
               resultType: CameraResultType.DataUrl,
-              source: CameraSource.Camera,
+              source: CameraSource.Camera
             }).then(res => {
               this.profileimage = res.dataUrl
               this.picurl = res.dataUrl

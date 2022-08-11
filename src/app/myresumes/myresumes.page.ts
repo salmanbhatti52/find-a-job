@@ -1,8 +1,11 @@
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chooser } from '@awesome-cordova-plugins/chooser/ngx';
 import { RestService } from '../services/rest.service';
 import { ExtrasService } from '../services/extras.service';
+import { Camera, CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
+import { VideoEditor } from '@awesome-cordova-plugins/video-editor/ngx';
+import { Filesystem, Directory } from '@capacitor/filesystem';
 import * as _ from 'lodash';
 import * as moment from 'moment';
 @Component({
@@ -15,7 +18,7 @@ export class MyresumesPage implements OnInit {
   requestsType: any;
   filetype: any;
   title = '';
-  file = false;
+  efile = false;
 
   imageError: string;
   isImageSaved: boolean;
@@ -23,10 +26,26 @@ export class MyresumesPage implements OnInit {
   media: any;
   resumes = [];
   userId: any;
+
+  galleryOptions: CameraOptions = {
+    sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+    destinationType: this.camera.DestinationType.FILE_URI,
+    quality: 100,
+    allowEdit: true,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.VIDEO,
+    correctOrientation: true
+  }
+  thumbpic: any;
+  base64Data: Promise<string>;
+  videobase64: any;
   constructor(public navCtrl: NavController,
     private chooser: Chooser,
     public rest: RestService,
-    public extra: ExtrasService) { }
+    public extra: ExtrasService,
+    private camera: Camera,
+    private videoEditor: VideoEditor,
+    public platform: Platform) { }
 
   ngOnInit() {
     this.userId = localStorage.getItem('userid');
@@ -71,7 +90,7 @@ export class MyresumesPage implements OnInit {
     } else {
       if (fileInput.target.files && fileInput.target.files[0]) {
         // Size Filter Bytes
-        this.file = true;
+        this.efile = true;
         console.log('file type', fileInput.target.files[0].type);
         this.filetype = fileInput.target.files[0].type
         const max_size = 10485760;
@@ -106,6 +125,84 @@ export class MyresumesPage implements OnInit {
     }
 
   }
+
+  async uploadvideo() {
+    // console.log('video from gallery is = ', imageData);
+    console.log('dasdsadsadsad');
+    if (this.title == '') {
+      this.extra.presentToast('Title is required');
+    } else {
+      this.rest.requestNecessaryPermissions().then(() => {
+        this.camera.getPicture(this.galleryOptions)
+          .then(async imageData => {
+            const base64Data = await this.readAsBase64(imageData);
+            console.log('base64 data==', base64Data);
+            let splitvideo = base64Data.split(',');
+            this.videobase64 = splitvideo[1]
+            console.log('this.videobase64= ', this.videobase64);
+            this.sendvideo(this.videobase64)
+            let thumbnail = this.randomnumberGenerator();
+            this.thumbpic = '';
+            this.videoEditor.createThumbnail({
+              fileUri: imageData,
+              outputFileName: thumbnail,
+              atTime: 3,
+              width: 320,
+              height: 480,
+              quality: 100,
+            }).then(res => {
+              console.log('thumbpic', this.thumbpic);
+              let datatosubmit = {
+                type: 1,
+                picture: imageData,
+                thumb: this.thumbpic,
+                plainthumb: res,
+                title: this.title
+              }
+              console.log('thumbnail image = ', res);
+              console.log('data to submit is = ', datatosubmit);
+
+            });
+          }, err => {
+            console.log('error-==', err);
+
+          })
+      });
+    }
+
+
+  }
+
+  async readAsBase64(photo) {
+
+    // if (this.platform.is('hybrid')) {
+    //   console.log('in base 64 hybrid==', photo);
+    //   const file = await Filesystem.readFile({
+    //     path: 'file://' + photo
+    //   })
+    //   console.log('file path==', file);
+
+    //   return file.data;
+    // } else {
+    console.log('in base 64==', photo);
+    const response = await fetch(photo);
+    const blob = await response.blob();
+
+    return await this.convertBlobToBase64(blob) as string;
+    // }
+
+
+  }
+
+  convertBlobToBase64 = (blob: Blob) => new Promise((resolve, reject) => {
+    const reader = new FileReader;
+    reader.onerror = reject;
+    reader.onload = () => {
+      resolve(reader.result);
+    };
+    reader.readAsDataURL(blob);
+  });
+
   uploadfile(filetype) {
     let datatosend = {
       title: this.title,
@@ -114,22 +211,42 @@ export class MyresumesPage implements OnInit {
     this.rest.sendRequest('add-cvpdf', datatosend, localStorage.getItem('auth_token')).subscribe((data: any) => {
       console.log('data cv resosne====', data);
       if (data.status == 'true') {
-        this.extra.presentToast(data.message)
+        this.efile = false;
+        this.extra.presentToast(data.message);
+        this.getuserdetails()
       } else {
-        this.extra.presentToast(data.message)
+        this.extra.presentToast(data.message);
       }
 
     })
   }
 
+  sendvideo(videourl) {
+    let datatosend = {
+      title: this.title,
+      resume: videourl
+    }
+    this.rest.sendRequest('add-videocv', datatosend, localStorage.getItem('auth_token')).subscribe((data: any) => {
+      console.log('data cv resosne====', data);
+      if (data.status == 'true') {
+        this.efile = false;
+        this.extra.presentToast(data.message);
+        this.getuserdetails()
+      } else {
+        this.extra.presentToast(data.message);
+      }
+
+    })
+  }
   getuserdetails() {
+    this.resumes = []
     this.rest.userdetail('getuser', this.userId, localStorage.getItem('auth_token')).subscribe((data: any) => {
 
       console.log('getuser data==', data);
 
       this.media = data.user.media
       for (var i = 0; i < this.media.length; i++) {
-        if (this.media[i].collection_name == 'resumes') {
+        if (this.media[i].collection_name == 'resumes' || this.media[i].collection_name == 'video-resumes') {
           let datato = {
             id: this.media[i].id,
             collectionname: this.media[i].collection_name,
@@ -149,9 +266,36 @@ export class MyresumesPage implements OnInit {
     })
   }
 
+  endurl: any
+  delresume(i, resume) {
+    console.log('resume id==', resume.id);
+    if (resume.collectionname == 'resumes') {
+      this.endurl = 'delete-cv'
+      this.deleteresumeapi(i, this.endurl, resume.id)
+    } else {
+      this.endurl = 'delete-videocv';
+      this.deleteresumeapi(i, this.endurl, resume.id)
+    }
+  }
+  deleteresumeapi(index, endpoint, id) {
+    this.rest.delete(this.endurl, id, localStorage.getItem('auth_token')).subscribe((data: any) => {
+      console.log('delete-employment==', data);
+      this.extra.presentToast(data.message)
+      let splice = this.resumes.splice(index, 1)
+      // console.log('splice index', splice);
 
+    })
+  }
 
+  randomnumberGenerator() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
+    for (var i = 0; i < 10; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+  }
 
   tablink(type) {
     if (type == 1) {

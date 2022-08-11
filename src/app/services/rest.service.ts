@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
 @Injectable({
   providedIn: 'root'
 })
 export class RestService {
   baseURL = "https://findajob.ng/api";
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient,
+    private androidPermissions: AndroidPermissions) { }
 
   sendRequest(action, data?, token?) {
 
@@ -106,6 +108,22 @@ export class RestService {
     return this.http.delete(url, {
       headers: header,
     });
+  }
+
+
+
+
+  requestNecessaryPermissions() {
+
+    // Change this array to conform with the permissions you need
+    let androidPermissionsList = [
+      this.androidPermissions.PERMISSION.CAMERA,
+      this.androidPermissions.PERMISSION.ACCESS_FINE_LOCATION,
+      this.androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE,
+      this.androidPermissions.PERMISSION.READ_PHONE_STATE
+    ];
+
+    return this.androidPermissions.requestPermissions(androidPermissionsList);
   }
 
 

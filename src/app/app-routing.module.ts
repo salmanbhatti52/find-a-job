@@ -162,6 +162,10 @@ const routes: Routes = [
   {
     path: 'userskills',
     loadChildren: () => import('./userskills/userskills.module').then( m => m.UserskillsPageModule)
+  },
+  {
+    path: 'searchedjobs',
+    loadChildren: () => import('./searchedjobs/searchedjobs.module').then( m => m.SearchedjobsPageModule)
   }
 ];
 

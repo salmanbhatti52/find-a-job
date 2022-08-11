@@ -40,20 +40,22 @@
           <ion-input class="input" type="text" placeholder="Title" [(ngModel)]="title"></ion-input>
         </div>
         <div style="text-align: center;">
-          <div class="filediv" [class.active]="file==true">
-            <img src="assets/imgs/icons/file.svg" *ngIf="file==false">
-            <div *ngIf="file==true">
+          <div class="filediv" [class.active]="efile==true">
+            <img src="assets/imgs/icons/file.svg" *ngIf="efile==false">
+            <div *ngIf="efile==true">
               <img src="assets/imgs/docs.png"
                 *ngIf="filetype=='application/vnd.openxmlformats-officedocument.wordprocessingml.document'">
               <img src="assets/imgs/pdf.png" *ngIf="filetype=='application/pdf'">
             </div>
-            <p *ngIf="file==false" style="margin:0px;">No File Chosen</p>
+            <p *ngIf="efile==false" style="margin:0px;">No File Chosen</p>
           </div>
         </div>
         <p class="para2">Optionally upload a CV no larger than 10MB for file types .pdf .doc .docx .rtf</p>
 
         <!-- <ion-button class="btn" (click)="fileselected()">Choose File</ion-button> -->
         <input type="file" (change)="fileChangeEvent($event)" class="custom-file-input">
+        <ion-button class="btn" (click)="uploadvideo()">Upload Resume(video) <span
+            style="color: #fff;font-size: 8px;font-weight: 300;margin: 0px;">optional</span></ion-button>
         <ion-button class="btn1">Cancel</ion-button>
 
       </div>
@@ -67,10 +69,10 @@
             <ion-col class="ion-column" size="4">Uploaded Date</ion-col>
             <ion-col class="ion-column" size="2">Action</ion-col>
           </ion-row>
-          <ion-row style="background-color: #FAFAFA;" *ngFor="let media of resumes">
+          <ion-row style="background-color: #FAFAFA;" *ngFor="let media of resumes;let i=index;">
             <!-- <div *ngIf="media.collectionname=='resumes'"> -->
             <ion-col class="ion-column1" size="3" style="display: flex;">
-              <ion-checkbox mode="md" class="check" checked="true"></ion-checkbox>
+              <ion-checkbox mode="md" class="check"></ion-checkbox>
               <span style="margin-left: 5%;">{{media.name}}</span>
             </ion-col>
             <ion-col class="ion-column1" size="2">{{media.filesize.toFixed(0)}}KB</ion-col>
@@ -81,7 +83,7 @@
                   <img src="assets/imgs/icons/download.svg">
                 </ion-col>
                 <ion-col size="6" style="padding: 0px;text-align: end;">
-                  <img src="assets/imgs/icons/delete.svg">
+                  <img src="assets/imgs/icons/delete.svg" (click)="delresume(i,media)">
                 </ion-col>
               </ion-row>
             </ion-col>

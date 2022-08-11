@@ -47,7 +47,13 @@ export class FindajobPage implements OnInit {
       cssClass: 'filterclass',
     });
     modal.onDidDismiss().then((data) => {
-      console.log('data', data)
+      console.log('data', data);
+      if (data.data != undefined) {
+        this.navCtrl.navigateForward(['searchedjobs', {
+          date: data.data
+        }]);
+      }
+
     });
     return await modal.present();
   }

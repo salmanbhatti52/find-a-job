@@ -44,10 +44,10 @@ export class AppComponent {
 
     console.log(localStorage.getItem('userid'));
 
-    if (localStorage.getItem('userid') != '' || null) {
-      this.navCtrl.navigateRoot('dashboard')
+    if (localStorage.getItem('userid') == '' || localStorage.getItem('userid') == null) {
+      this.navCtrl.navigateRoot('signin')
     } else {
-      this.navCtrl.navigateRoot('signin');
+      this.navCtrl.navigateRoot('dashboard');
     }
   }
 

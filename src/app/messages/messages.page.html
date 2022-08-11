@@ -23,7 +23,7 @@
 
 <ion-content class="bg">
 
-  <div class="msg-div" (click)="seemessges()">
+  <div class="msg-div" (click)="seemessges()" *ngIf="chat!=null">
     <img class="intuit-img" src="assets/imgs/intuit.png" alt="intuit-logo">
     <div class="intuit-content">
       <h1 class="text">Intuit</h1>
@@ -36,20 +36,19 @@
       <p class="time-stamp">05:00PM</p>
     </div>
   </div>
-
-  <div class="msg-div" style="margin-top: 10px; background-color: #FFFFFF;">
+  <div *ngIf="chat==null" style="text-align: center;
+  background-color: #fff;
+  padding: 20px;">No chat found</div>
+  <!-- <div class="msg-div" style="margin-top: 10px; background-color: #FFFFFF;">
     <img class="intuit-img" src="assets/imgs/oracle.png" alt="oracle-logo">
     <div class="intuit-content">
       <h1 class="text">Oracle</h1>
       <p class="intuit-msg">Welcome on board</p>
     </div>
     <div class="intuit-stamp" style="margin: 30px 12px 10px 0px">
-      <!-- <div class="msg-count">
-        <div class="count">2</div>
-      </div> -->
       <p class="time-stamp">05:00PM</p>
     </div>
-  </div>
+  </div> -->
 
 
 </ion-content>

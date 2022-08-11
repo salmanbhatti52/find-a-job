@@ -13,6 +13,8 @@ import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions
 import { LocationAccuracy } from '@awesome-cordova-plugins/location-accuracy/ngx';
 import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
 import { Chooser } from '@awesome-cordova-plugins/chooser/ngx';
+import { Camera } from '@awesome-cordova-plugins/camera/ngx';
+import { VideoEditor } from '@awesome-cordova-plugins/video-editor/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -25,6 +27,8 @@ import { Chooser } from '@awesome-cordova-plugins/chooser/ngx';
     LocationAccuracy,
     NativeGeocoder,
     Chooser,
+    Camera,
+    VideoEditor,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],

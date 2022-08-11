@@ -1,5 +1,7 @@
 import { NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { RestService } from '../services/rest.service';
+import { ExtrasService } from '../services/extras.service';
 
 @Component({
   selector: 'app-messages',
@@ -7,14 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./messages.page.scss'],
 })
 export class MessagesPage implements OnInit {
+  userId: any;
+  chat: any;
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController,
+    public rest: RestService,
+    public extra: ExtrasService) { }
 
   ngOnInit() {
+    this.userId = localStorage.getItem('userid');
+    this.getchats(this.userId)
   }
 
   seemessges() {
     this.navCtrl.navigateRoot('message');
+  }
+  getchats(userid) {
+    this.rest.userdetail('get-userchat', userid, localStorage.getItem('auth_token')).subscribe((data: any) => {
+      console.log('chats response====', data);
+      this.chat = data.chat
+    })
   }
   tablink(type) {
     if (type == 1) {

@@ -19,6 +19,9 @@ export class ForgotpasswordPage implements OnInit {
     status: false,
     message: "",
   };
+  password: any;
+  confirmpassword: any;
+  token: any;
   constructor(public navCtrl: NavController,
     public menuCtrl: MenuController,
     public rest: RestService,
@@ -35,6 +38,7 @@ export class ForgotpasswordPage implements OnInit {
     this.menuCtrl.enable(true);
   }
   sendEmail() {
+
     if (this.email) {
       if (!this.validateEmail(this.email)) {
         this.loading.presentToast("Invalid Email address.")
@@ -46,15 +50,9 @@ export class ForgotpasswordPage implements OnInit {
       this.rest.sendRequest("forgot-password", Data).subscribe(
         (data: any) => {
           console.log('forgot_password data', data);
-          // if (data.status == 'Success') {
-          //   this.displayEmailSend = false;
-          //   this.displayPinCode = true;
-          // }
-          // if (data.status == 'error') {
-          //   this.loading.hideLoader();
-          //   // console.log('signup request data:',data.status);
-          // }
-
+          this.loading.presentToast(data.status);
+          this.displayChangePassword = true;
+          this.displayEmailSend = false;
         }, (err) => {
 
         }
@@ -74,12 +72,13 @@ export class ForgotpasswordPage implements OnInit {
     if (this.displayEmailSend) {
       this.navCtrl.navigateRoot('signin');
     }
-    if (this.displayPinCode) {
-      this.displayEmailSend = true;
-      this.displayPinCode = false;
-    }
+    // if (this.displayPinCode) {
+    //   this.displayEmailSend = true;
+    //   this.displayPinCode = false;
+    // }
     if (this.displayChangePassword) {
-      this.displayPinCode = true;
+      // this.displayPinCode = true;
+      this.displayEmailSend = true;
       this.displayChangePassword = false;
     }
   }
@@ -102,7 +101,22 @@ export class ForgotpasswordPage implements OnInit {
   }
 
   reset() {
-    this.navCtrl.navigateRoot('signin');
+    let Data = {
+      email: this.email,
+      password: this.password,
+      password_confirmation: this.confirmpassword,
+      token: this.token
+    }
+    this.rest.sendRequest("reset-user-password", Data).subscribe(
+      (data: any) => {
+        console.log('forgot_password data', data);
+        this.loading.presentToast(data.message);
+        this.navCtrl.navigateRoot('signin');
+      }, (err) => {
+
+      }
+    );
+
   }
 
 }

@@ -8,16 +8,10 @@
       </ion-col>
 
       <ion-col class="titleclass" size="8">
-        <ion-text class="ctitle">Job Alert</ion-text>
+        <ion-text class="ctitle">Searched Jobs</ion-text>
       </ion-col>
 
-      <ion-col size="2" style="padding-top:8px;padding-left:20px;">
-        <ion-menu-toggle>
-          <ion-buttons>
-            <img src="assets/imgs/icons/menu.svg" style="width: 24px;
-              height: 24px;">
-          </ion-buttons>
-        </ion-menu-toggle>
+      <ion-col size="2">
       </ion-col>
     </ion-row>
   </ion-toolbar>
@@ -26,20 +20,48 @@
 
 <ion-content class="bg">
   <div class="wrapper">
-    <div class="logo">
-      <img src="assets/imgs/joblogo.svg">
+    <div class="search-div">
+      <div style="width:100%;">
+        <ion-input class="search-box" placeholder="Search here"><span class="arrow-span">
+            <ion-icon name="search-outline"></ion-icon>
+          </span></ion-input>
+      </div>
     </div>
-    <div class="field1">
-      <ion-input class="input" type="text" placeholder="Job Role" [(ngModel)]="jobrole"></ion-input>
+    <div class="main" *ngFor="let job of jobs" (click)="seedetail(job.id)">
+      <!-- <div class="sticker">
+        <img src="assets/imgs/sticker.svg">
+      </div> -->
+      <div style="display: flex;padding: 10px 10px;">
+        <div class="mainleft">
+          <div class="mainhead">{{job.title}}</div>
+          <div class="innertext">
+            <div class="maintext">{{job.industry}}</div>
+            <div style="margin-left: 3%;">
+              <img src="assets/imgs/icons/greentick.svg">
+            </div>
+          </div>
+          <div style="display: flex;">
+
+            <img src="assets/imgs/Line.svg">
+
+            <div style="width: 100%;margin-left: 5%;">
+              <p>${{job.monthly_salary}}</p>
+              <p>Permanent, full-time</p>
+              <p style="font-weight: 500;">{{job.location}}</p>
+            </div>
+
+          </div>
+
+        </div>
+        <div style="width: 100%;text-align: end;position: relative;">
+          <img src="assets/imgs/jobimage.svg">
+          <img src="assets/imgs/icons/heart.svg" class="heart">
+        </div>
+      </div>
+
     </div>
 
-    <div class="field1">
-      <ion-input class="input1" type="text" placeholder="Location" [(ngModel)]="joblocation"></ion-input>
-    </div>
 
-    <div style="width: 80%;margin: 5% auto;">
-      <ion-button class="btn" (click)="create()">Create Alert</ion-button>
-    </div>
   </div>
 </ion-content>
 <ion-footer>

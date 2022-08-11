@@ -1,5 +1,7 @@
 import { NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { RestService } from '../services/rest.service';
+import { ExtrasService } from '../services/extras.service';
 
 @Component({
   selector: 'app-interviews',
@@ -33,11 +35,20 @@ export class InterviewsPage implements OnInit {
     }
 
   ]
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController,
+    public rest: RestService,
+    public extra: ExtrasService) { }
 
   ngOnInit() {
+    this.interviews()
   }
 
+  interviews() {
+    this.rest.getRequest('get-userinterview', localStorage.getItem('auth_token')).subscribe((data: any) => {
+      console.log('interviews', data);
+
+    })
+  }
   tablink(type) {
     if (type == 1) {
       this.navCtrl.navigateRoot('dashboard');

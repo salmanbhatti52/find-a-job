@@ -1,6 +1,7 @@
 import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-
+import * as moment from 'moment';
+import { RestService } from '../services/rest.service';
 @Component({
   selector: 'app-filterjob',
   templateUrl: './filterjob.page.html',
@@ -23,7 +24,13 @@ export class FilterjobPage implements OnInit {
   posteddate = [{ date: 'Today', status: 'unchecked' }, { date: 'Last three days', status: 'unchecked' }, { date: 'Last week', status: 'unchecked' }, { date: 'Last two weeks', status: 'unchecked' }, { date: 'Any time', status: 'unchecked' }]
 
   jobsarray = [];
-  constructor(public modalCtrl: ModalController) { }
+  startPicker = false;
+  dateValue: any;
+  date = false;
+  selectdate = 'Selectdate';
+  sdate: any;
+  constructor(public modalCtrl: ModalController,
+    public rest: RestService) { }
 
   ngOnInit() {
   }
@@ -84,4 +91,16 @@ export class FilterjobPage implements OnInit {
     }
   }
 
+  startdate(value) {
+    this.dateValue = value;
+    this.date = true;
+    this.sdate = moment(this.dateValue).format('YYYY-MM-DD');
+    this.startPicker = false;
+
+  }
+
+  showjobs() {
+
+    this.modalCtrl.dismiss(this.sdate);
+  }
 }

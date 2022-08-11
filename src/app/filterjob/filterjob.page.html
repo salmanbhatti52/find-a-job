@@ -65,10 +65,18 @@
 
     <div class="text2">Posted date</div>
     <div class="badges">
-      <ion-badge class="badge" *ngFor="let date of posteddate" [class.active]="date.status=='checked'"
-        (click)="postbydate(date)">{{date.date}}</ion-badge>
+      <!-- <ion-badge class="badge" *ngFor="let date of posteddate" [class.active]="date.status=='checked'"
+        (click)="postbydate(date)">{{date.date}}</ion-badge> -->
+      <ion-badge class="badge" (click)="startPicker = !startPicker" *ngIf="date==false">{{selectdate}}
+      </ion-badge>
+      <ion-badge class="badge" (click)="startPicker = !startPicker" *ngIf="date==true">{{sdate}}
+      </ion-badge>
       <hr>
     </div>
+    <ion-datetime class="item-picker" style="color: black;" presentation="date" *ngIf="startPicker" #datetime
+      [value]="dateValue" size="cover" (ionChange)="startdate(datetime.value)" showDefaultButtons="true"
+      (ionCancel)="startPicker=false">
+    </ion-datetime>
 
     <div class="btndiv">
       <ion-button class="btn" (click)="showjobs()">
