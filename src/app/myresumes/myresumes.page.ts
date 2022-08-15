@@ -19,12 +19,14 @@ export class MyresumesPage implements OnInit {
   filetype: any;
   title = '';
   efile = false;
+  lettertitle = '';
 
   imageError: string;
   isImageSaved: boolean;
   cardImageBase64: string;
   media: any;
   resumes = [];
+  coverletters = [];
   userId: any;
 
   galleryOptions: CameraOptions = {
@@ -83,7 +85,7 @@ export class MyresumesPage implements OnInit {
   }
 
 
-
+  ///upload resume////
   fileChangeEvent(fileInput: any) {
     if (this.title == '') {
       this.extra.presentToast('Title is required');
@@ -124,6 +126,44 @@ export class MyresumesPage implements OnInit {
       }
     }
 
+  }
+
+  ///cover letter///
+  uploadcoverletter(fileInput: any) {
+    if (fileInput.target.files && fileInput.target.files[0]) {
+      // Size Filter Bytes
+      console.log('file type', fileInput.target.files[0].type);
+      this.filetype = fileInput.target.files[0].type
+      const max_size = 10485760;
+      const allowed_types = ['application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/pdf', 'application/msword', 'image/jpg', 'image/jpeg', 'image/png'];
+      const max_height = 15200;
+      const max_width = 25600;
+      if (fileInput.target.files[0].size > max_size) {
+        this.extra.presentToast('Upload a CV no larger than 10MB')
+
+      }
+
+      else if (!_.includes(allowed_types, fileInput.target.files[0].type)) {
+        this.extra.presentToast('upload type is not correct')
+      } else {
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+          console.log('file on load===', e);
+          const image = new Image();
+          image.src = e.target.result;
+
+          const imgBase64Path = e.target.result.split(',');
+          this.cardImageBase64 = imgBase64Path[1];
+          // console.log('dsadasdasd', this.cardImageBase64);
+
+        };
+
+        reader.readAsDataURL(fileInput.target.files[0]);
+      }
+
+    } else {
+      alert('not valid')
+    }
   }
 
   async uploadvideo() {
@@ -212,6 +252,7 @@ export class MyresumesPage implements OnInit {
       console.log('data cv resosne====', data);
       if (data.status == 'true') {
         this.efile = false;
+        this.title = '';
         this.extra.presentToast(data.message);
         this.getuserdetails()
       } else {
@@ -219,6 +260,29 @@ export class MyresumesPage implements OnInit {
       }
 
     })
+  }
+
+  saveletter() {
+    if (this.lettertitle == '') {
+      this.extra.presentToast('Title is required');
+    } else {
+      let datatosend = {
+        title: this.lettertitle,
+        coverletter: this.cardImageBase64
+      }
+      this.rest.sendRequest('add-coverletter', datatosend, localStorage.getItem('auth_token')).subscribe((data: any) => {
+        console.log('data cv resosne====', data);
+        if (data.status == 'true') {
+          this.lettertitle = '';
+          this.extra.presentToast(data.message);
+          this.getuserdetails()
+        } else {
+          this.extra.presentToast(data.message);
+        }
+
+      })
+    }
+
   }
 
   sendvideo(videourl) {
@@ -240,6 +304,7 @@ export class MyresumesPage implements OnInit {
   }
   getuserdetails() {
     this.resumes = []
+    this.coverletters = []
     this.rest.userdetail('getuser', this.userId, localStorage.getItem('auth_token')).subscribe((data: any) => {
 
       console.log('getuser data==', data);
@@ -255,8 +320,17 @@ export class MyresumesPage implements OnInit {
             date: moment(this.media[i].created_at).format('DD MMM, YYYY')
           }
           this.resumes.push(datato)
+        } if (this.media[i].collection_name == 'coverletters') {
+          let datato = {
+            id: this.media[i].uuid,
+            collectionname: this.media[i].collection_name,
+            name: this.media[i].name,
+            filesize: this.media[i].size / 1024,
+            date: moment(this.media[i].created_at).format('DD MMM, YYYY')
+          }
+          this.coverletters.push(datato)
         }
-        console.log('media array=====', this.resumes);
+        console.log('media array=====', this.coverletters);
       }
 
 
@@ -282,6 +356,16 @@ export class MyresumesPage implements OnInit {
       console.log('delete-employment==', data);
       this.extra.presentToast(data.message)
       let splice = this.resumes.splice(index, 1)
+      // console.log('splice index', splice);
+
+    })
+  }
+
+  delletter(index, letter) {
+    this.rest.delete('delete-coverletter', letter.id, localStorage.getItem('auth_token')).subscribe((data: any) => {
+      console.log('delete-employment==', data);
+      this.extra.presentToast(data.message)
+      let splice = this.coverletters.splice(index, 1)
       // console.log('splice index', splice);
 
     })

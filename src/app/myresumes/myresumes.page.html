@@ -77,7 +77,7 @@
             </ion-col>
             <ion-col class="ion-column1" size="2">{{media.filesize.toFixed(0)}}KB</ion-col>
             <ion-col class="ion-column1" size="4">{{media.date}}</ion-col>
-            <ion-col class="ion-column1" size="2">
+            <ion-col class="ion-column1" size="2.5">
               <ion-row>
                 <ion-col size="6" style="text-align: end; padding: 0px;">
                   <img src="assets/imgs/icons/download.svg">
@@ -118,11 +118,12 @@
         <p class="para">Write and save your cover letters here.
         </p>
         <div class="field1">
-          <ion-input class="input" type="text" placeholder="Title"></ion-input>
+          <ion-input class="input" type="text" placeholder="Title" [(ngModel)]="lettertitle"></ion-input>
         </div>
-        <ion-textarea class="msg-box" rows="8" cols="20" placeholder="Send message">
-        </ion-textarea>
-        <ion-button class="btn">Save</ion-button>
+        <input type="file" (change)="uploadcoverletter($event)" class="custom-file-input">
+        <!-- <ion-textarea class="msg-box" rows="8" cols="20" placeholder="Send message">
+        </ion-textarea> -->
+        <ion-button class="btn" (click)="saveletter()">Save</ion-button>
       </div>
       <p class="para">Uploaded Resumes</p>
       <div class="grid-div">
@@ -133,14 +134,14 @@
             <ion-col class="ion-column" size="4">Uploaded Date</ion-col>
             <ion-col class="ion-column" size="4">Action</ion-col>
           </ion-row>
-          <ion-row style="background-color: #FAFAFA;">
+          <ion-row style="background-color: #FAFAFA;" *ngFor="let media of coverletters;let i=index;">
             <ion-col class="ion-column1" size="4" style="display: flex;">
               <ion-checkbox mode="md" class="check" checked="true"></ion-checkbox>
-              <span style="margin-left: 5%;">My Lagos CV</span>
+              <span style="margin-left: 5%;">{{media.name}}</span>
             </ion-col>
-            <ion-col class="ion-column1" size="4">22/21/22</ion-col>
+            <ion-col class="ion-column1" size="4">{{media.date}}</ion-col>
             <ion-col class="ion-column1" size="4">
-              <img src="assets/imgs/icons/delete.svg">
+              <img src="assets/imgs/icons/delete.svg" (click)="delletter(i,media)">
             </ion-col>
           </ion-row>
         </ion-grid>

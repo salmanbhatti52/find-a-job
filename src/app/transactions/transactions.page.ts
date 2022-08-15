@@ -1,6 +1,6 @@
 import { NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-
+import { RestService } from '../services/rest.service';
 @Component({
   selector: 'app-transactions',
   templateUrl: './transactions.page.html',
@@ -8,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionsPage implements OnInit {
   dropdown = false;
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController,
+    public rest: RestService) { }
 
   ngOnInit() {
+    this.gettransaction()
+  }
+
+  gettransaction() {
+    this.rest.getRequest('get-transactions', localStorage.getItem('auth_token')).subscribe((res: any) => {
+
+      console.log('response-===--', res);
+
+    })
   }
 
   open() {
