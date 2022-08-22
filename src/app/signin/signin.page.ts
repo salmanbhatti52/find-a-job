@@ -29,6 +29,7 @@ export class SigninPage implements OnInit {
   }
 
   login() {
+    this.extra.loadershow();
     let data = {
       email: this.email,
       password: this.password
@@ -36,13 +37,16 @@ export class SigninPage implements OnInit {
 
     // axios.get('https://findajob.ng/api/sanctum/SjgrnxUMiNkuKWFN1XKq6JjlaatKlliHbiwey5MM').then(response => {
     // console.log('response get=', response)
+
     axios.post('https://findajob.ng/api/login', data).then(response => {
       console.log('User signed in!', response);
+      this.extra.hideLoader();
       localStorage.setItem('auth_token', response.data.token);
       localStorage.setItem('userid', response.data.user.id);
       this.navCtrl.navigateRoot('dashboard');
     }, err => {
       console.log('error response', err);
+      this.extra.hideLoader();
       if (err.response.data.errors) {
         if (err.response.data.errors.email) {
           this.extra.presentToast(err.response.data.errors.email[0]);
@@ -53,6 +57,7 @@ export class SigninPage implements OnInit {
       }
 
       else {
+        this.extra.hideLoader();
         this.extra.presentToast(err.response.data.message);
       }
     }) // credentials didn't match

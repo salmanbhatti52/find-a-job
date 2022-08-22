@@ -18,7 +18,7 @@
 </ion-header>
 
 <ion-content class="bg">
-  <div class="container">
+  <div style="margin-bottom: 20%;">
     <div class="para-div">
       <p class="first-para">
         Every job application starts with a decent, well laid-out CV. That is the starting point for an employer is who
@@ -29,79 +29,32 @@
       </p>
     </div>
 
-    <div class="section1">
-      <div class="sub-section">
-        <p class="head-para">CV Basic (Free)</p>
-        <div class="align">
-          <img class="svg" src="assets/imgs/icons/tick.svg">
-          <p class="sub-para">Do It Yourself With A Wizard</p>
-        </div>
-      </div>
-      <div class="sub-section-div2">
-        <div class="sub-section2">
-          <p class="para-sec2">Overview</p>
-          <img class="dropdown" src="assets/imgs/icons/dropdown.svg">
-        </div>
-      </div>
 
-    </div>
-
-    <div class="section1">
+    <div class="section1" *ngFor="let item of cvservices;let i=index">
       <div class="sub-section">
-        <p class="head-para">CV Pro (N15,500)</p>
-        <div class="align">
-          <img class="svg" src="assets/imgs/icons/tick.svg">
-          <p class="sub-para">Professionally Written CV</p>
+        <p class="head-para">{{item.name}} <span *ngIf="item.price==0">(Free)</span>
+          <span *ngIf="item.price!=0">({{item.price}})</span>
+
+        </p>
+        <div *ngIf="(item.isdown)">
+          <div class="align" *ngFor="let sv of item.services">
+            <img class="svg" src="assets/imgs/icons/tick.svg">
+            <p class="sub-para">{{sv}}</p>
+          </div>
         </div>
-        <div class="align">
-          <img class="svg" src="assets/imgs/icons/tick.svg">
-          <p class="sub-para sub-para1">Cover Letter</p>
-        </div>
-        <div class="align">
-          <img class="svg" src="assets/imgs/icons/tick.svg">
-          <p class="sub-para sub-para2">30 Minute Phone Consultation</p>
-        </div>
-        <div class="align">
-          <img class="svg" src="assets/imgs/icons/tick.svg">
-          <p class="sub-para sub-para3">5-7 Working Days For Delivery</p>
-        </div>
+
       </div>
       <div class="section-divv">
         <div class="sub-section2" style="padding-left: 20px">
           <p class="para-sec2">Overview</p>
-          <img class="dropdown" src="assets/imgs/icons/dropup.svg">
+          <img class="dropdown" src="assets/imgs/icons/dropup.svg" *ngIf="!(item.isdown)" (click)="open(i,item)">
+          <img class="dropdown" src="assets/imgs/icons/Polygondown.svg" *ngIf="(item.isdown)" (click)="open(i,item)">
         </div>
-        <p class="value"><span class="n-symbol">₦</span>15,500</p>
+        <p class="value" *ngIf="(item.isdown)"><span class="n-symbol">₦</span>{{item.price}}</p>
       </div>
     </div>
 
-    <div class="section1">
-      <div class="sub-section">
-        <p class="head-para">CV Pro+ (N33,500)</p>
-        <div class="align">
-          <img class="svg" src="assets/imgs/icons/tick.svg">
-          <p class="sub-para">Professionally Written CV</p>
-        </div>
-      </div>
-      <div class="sub-section2">
-        <p class="para-sec2">Overview</p>
-        <img class="dropdown" src="assets/imgs/icons/ydropdown.svg">
-      </div>
-    </div>
 
-    <div class="section1">
-      <div class="sub-section">
-        <p class="head-para">Remote working CV (N 16,000)</p>
-        <div class="align">
-          <img class="svg" src="assets/imgs/icons/tick.svg">
-          <p class="sub-para">Professionally Written CV</p>
-        </div>
-      </div>
-      <div class="sub-section2">
-        <p class="para-sec2">Overview</p>
-        <img class="dropdown" src="assets/imgs/icons/ydropdown.svg">
-      </div>
-    </div>
   </div>
 </ion-content>
 <ion-footer>

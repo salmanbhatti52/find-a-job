@@ -20,7 +20,25 @@
 
 
 <ion-content class="bg">
-  <div class="section">
+  <div class="section" *ngFor="let job of videos">
+    <div class="text">
+      <p class="p1">{{job.title}}</p>
+      <p class="p2">Upload: {{job.date}}</p>
+      <!-- <p class="p3">It is a long established fact that a reader will be distracted by the readable content</p> -->
+    </div>
+
+    <div style="position:relative">
+      <video controls width="100%" height="80%">
+        <source src="{{job.link}}">
+      </video>
+      <!-- <img style="margin-top: 13px; margin-right: 26px;" class="seeker-svg" src="assets/imgs/job-seeker1.svg"> -->
+      <img style="top: 46px;
+        right: 50px;; position: absolute;" src="assets/imgs/play.svg">
+    </div>
+
+  </div>
+
+  <!-- <div class="section">
     <div class="text" style="width: 66%;">
       <p class="p1">Job Preview</p>
       <p class="p2">Upload: 12-4-2021</p>
@@ -48,22 +66,7 @@
         right: 50px;; position: absolute;" src="assets/imgs/play.svg">
       </div>
     </div>
-  </div>
-
-  <div class="section">
-    <div class="text" style="width: 66%;">
-      <p class="p1">Job Preview</p>
-      <p class="p2">Upload: 12-4-2021</p>
-      <p class="p3">It is a long established fact that a reader will be distracted by the readable content</p>
-    </div>
-    <div>
-      <div style="position:relative">
-        <img style="margin-top: 13px; margin-right: 26px;" class="seeker-svg" src="assets/imgs/job-seeker1.svg">
-        <img style="top: 46px;
-        right: 50px;; position: absolute;" src="assets/imgs/play.svg">
-      </div>
-    </div>
-  </div>
+  </div> -->
 
 </ion-content>
 

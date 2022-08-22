@@ -27,8 +27,8 @@
       <!-- Select behavior type -->
       <div class="box3">
         <div style="align-items: center;display: flex;padding-right: 15px;">
-          <ion-input class="input4" type="text" placeholder="Unacceptable behaviour" (click)="openlist()" readonly
-            [(ngModel)]="name">
+          <ion-input class="input4" type="text" placeholder="Select behaviour type" (click)="openlist()" readonly
+            [(ngModel)]="behaviour_type">
           </ion-input>
           <div style="text-align: end;height: 17px;" *ngIf="droplist==false">
             <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
@@ -38,11 +38,12 @@
           </div>
         </div>
         <div *ngIf="droplist==true" style="padding-bottom:1%;">
-          <p *ngFor="let ls of list" class="para1" [class.active]="ls.status=='checked'" (click)="select(ls)">
+          <p *ngFor="let ls of list;let i=index" class="para1" [class.active]="ls.status=='checked'"
+            (click)="select(i,ls)">
             {{ls.name}}
             <span style="float:right ;">
-              <img src="assets/imgs/icons/unchecked.svg" *ngIf="ls.status=='unchecked'">
-              <img src="assets/imgs/icons/checked.svg" *ngIf="ls.status=='checked'">
+              <img src="assets/imgs/icons/unchecked.svg" *ngIf="ls.status=='unchecked'" (click)="openlist()">
+              <img src="assets/imgs/icons/checked.svg" *ngIf="ls.status=='checked'" (click)="openlist()">
             </span>
           </p>
         </div>
@@ -51,40 +52,42 @@
       <div class="text">Type of complain<span style="color:#CF1818">*</span></div>
       <div class="box3">
         <div style="align-items: center;display: flex;padding-right: 15px;">
-          <ion-input class="input4" type="text" placeholder="Select complaint type" readonly>
+          <ion-input class="input4" type="text" placeholder="Select complaint type" readonly [(ngModel)]="complain_type"
+            (click)="opencomplain()">
           </ion-input>
-          <div style="text-align: end;height: 17px;">
+          <div style="text-align: end;height: 17px;" *ngIf="showcomplain==false">
             <ion-icon name="caret-down-outline" class="cicon"></ion-icon>
           </div>
-          <!-- <div style="text-align: end;height: 17px;" *ngIf="droplist==true">
+          <div style="text-align: end;height: 17px;" *ngIf="showcomplain==true">
             <ion-icon name="caret-up-outline" class="cicon"></ion-icon>
-          </div> -->
+          </div>
         </div>
-        <!-- <div *ngIf="droplist==true" style="padding-bottom:1%;">
-          <p *ngFor="let ls of list" class="para1" [class.active]="ls.status=='checked'" (click)="select(ls)">
+        <div *ngIf="showcomplain==true" style="padding-bottom:1%;">
+          <p *ngFor="let ls of complainlist;let i=index" class="para1" [class.active]="ls.status=='checked'"
+            (click)="selectcomplain(i,ls)">
             {{ls.name}}
             <span style="float:right ;">
-              <img src="assets/imgs/icons/unchecked.svg" *ngIf="ls.status=='unchecked'">
-              <img src="assets/imgs/icons/checked.svg" *ngIf="ls.status=='checked'">
+              <img src="assets/imgs/icons/unchecked.svg" *ngIf="ls.status=='unchecked'" (click)="opencomplain()">
+              <img src="assets/imgs/icons/checked.svg" *ngIf="ls.status=='checked'" (click)="opencomplain()">
             </span>
           </p>
-        </div> -->
+        </div>
       </div>
 
       <div class="box4">
-        <ion-input class="input4" type="text" placeholder="First name">
+        <ion-input class="input4" type="text" placeholder="First name" [(ngModel)]="firstname">
         </ion-input>
       </div>
       <div class="box4">
-        <ion-input class="input4" type="text" placeholder="Surname*">
+        <ion-input class="input4" type="text" placeholder="Surname" [(ngModel)]="lastname">
         </ion-input>
       </div>
       <div class="box4">
-        <ion-input class="input4" type="text" placeholder="Contact number">
+        <ion-input class="input4" type="text" placeholder="Contact number" [(ngModel)]="phonenumber">
         </ion-input>
       </div>
       <div class="box4">
-        <ion-input class="input4" type="text" placeholder="Registered email">
+        <ion-input class="input4" type="text" placeholder="Registered email" [(ngModel)]="email">
         </ion-input>
       </div>
       <div class="box4">
@@ -92,9 +95,12 @@
         </ion-input>
       </div>
       <div class="box4">
-        <ion-textarea class="msg-box" rows="3" cols="20" placeholder="Details"></ion-textarea>
+        <ion-textarea class="msg-box" rows="3" cols="20" placeholder="Details" [(ngModel)]="details"></ion-textarea>
       </div>
 
+    </div>
+    <div style="width: 90%;margin: 0% auto;">
+      <ion-button class="btn1" (click)="reportscam()">Report</ion-button>
     </div>
   </div>
 </ion-content>
