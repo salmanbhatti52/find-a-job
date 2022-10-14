@@ -1,20 +1,17 @@
 <ion-header [translucent]="true" class="ion-no-border cheader">
   <ion-toolbar class="headBgGlobal">
     <ion-row>
-      <ion-col size="2">
+      <ion-col style="padding-top:10px;padding-left: 20px;" size="2">
+        <div>
+          <img src="assets/imgs/icons/back.svg" class="topicon" (click)="goback()">
+        </div>
       </ion-col>
 
       <ion-col class="titleclass" size="8">
-        <ion-text class="ctitle">Company Details</ion-text>
+        <ion-text class="ctitle">Company Detail</ion-text>
       </ion-col>
 
       <ion-col size="2" style="padding-top:8px;padding-left:20px;">
-        <ion-menu-toggle>
-          <ion-buttons>
-            <img src="assets/imgs/icons/menu.svg" style="width: 24px;
-              height: 24px;">
-          </ion-buttons>
-        </ion-menu-toggle>
       </ion-col>
     </ion-row>
   </ion-toolbar>
@@ -74,99 +71,114 @@
 
 
     <div *ngIf="requestsType=='about'">
-      <div class="para-caret-combo">
-        <p class="para">About</p>
-        <img class="caret-down" src="assets/imgs/icons/polygon.svg" alt="caret-down-svg">
+      <div *ngFor="let d of details">
+        <div class="para-caret-combo">
+          <p class="para">About</p>
+          <img class="caret-down" src="assets/imgs/icons/polygon.svg" alt="caret-down-svg">
+        </div>
+        <div class="para-div">
+          <p class="para-data">{{d.aboutus}}</p>
+        </div>
+        <div class="para-caret-combo">
+          <p class="para">Overview</p>
+          <img class="caret-down" src="assets/imgs/icons/polygon.svg" alt="caret-down-svg">
+        </div>
+        <div class="para-div">
+          <p class="para-data">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam neque elit, dapibus vel
+            sollicitudin vitae, egestas non elit. Duis laoreet, sem vel faucibus ullamcorper, erat eros consequat
+            lectus,
+            sit amet consequat tellus nunc sed leo. Suspendisse vel </p>
+        </div>
+        <div class="para-caret-combo">
+          <p class="para">Details</p>
+          <img class="caret-down" src="assets/imgs/icons/polygon.svg" alt="caret-down-svg">
+        </div>
+        <ion-grid style="padding: 0px;">
+          <ion-row style="padding: 0px; margin: 5px 0px;">
+            <ion-col size="4" style="padding: 0px;" class="col-head">
+              Website:
+            </ion-col>
+            <ion-col size="8" style="padding: 0px;" class="col-desc">
+              {{d.website}}
+            </ion-col>
+          </ion-row>
+
+          <ion-row style="padding: 0px; margin: 5px 0px;">
+            <ion-col size="4" style="padding: 0px;" class="col-head">
+              Industry:
+            </ion-col>
+            <ion-col size="8" style="padding: 0px;" class="col-desc">
+              hulu loreup ipsum
+            </ion-col>
+          </ion-row>
+
+          <ion-row style="padding: 0px; margin: 5px 0px;">
+            <ion-col size="4" style="padding: 0px;" class="col-head">
+              Company Size:
+            </ion-col>
+            <ion-col size="8" style="padding: 0px;" class="col-desc">
+              {{d.noofemployers}} employes
+            </ion-col>
+          </ion-row>
+
+          <ion-row style="padding: 0px; margin: 5px 0px;">
+            <ion-col size="4" style="padding: 0px;" class="col-head">
+              Type:
+            </ion-col>
+            <ion-col size="8" style="padding: 0px;" class="col-desc">
+              {{d.companyrc}}
+            </ion-col>
+          </ion-row>
+
+          <ion-row style="padding: 0px; margin: 5px 0px;">
+            <ion-col size="4" style="padding: 0px;" class="col-head">
+              Address:
+            </ion-col>
+            <ion-col size="8" style="padding: 0px;" class="col-desc">
+              {{d.address}}
+            </ion-col>
+          </ion-row>
+
+          <ion-row style="padding: 0px; margin: 5px 0px;">
+            <ion-col size="4" style="padding: 0px;" class="col-head">
+              Phone Number:
+            </ion-col>
+            <ion-col size="8" style="padding: 0px;" class="col-desc">
+              {{phonenumber}}
+            </ion-col>
+          </ion-row>
+
+          <ion-row style="padding: 0px; margin: 5px 0px;">
+            <ion-col size="4" style="padding: 0px;" class="col-head">
+              Specification:
+            </ion-col>
+            <ion-col size="8" style="padding: 0px;" class="col-desc">
+              {{d.specialities}}
+            </ion-col>
+          </ion-row>
+
+
+        </ion-grid>
       </div>
-      <div class="para-div">
-        <p class="para-data">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam neque elit, dapibus vel
-          sollicitudin vitae, egestas non elit. Duis laoreet, sem vel faucibus ullamcorper, erat eros consequat lectus,
-          sit amet consequat tellus nunc sed leo. Suspendisse vel </p>
-      </div>
-      <div class="para-caret-combo">
-        <p class="para">Overview</p>
-        <img class="caret-down" src="assets/imgs/icons/polygon.svg" alt="caret-down-svg">
-      </div>
-      <div class="para-div">
-        <p class="para-data">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam neque elit, dapibus vel
-          sollicitudin vitae, egestas non elit. Duis laoreet, sem vel faucibus ullamcorper, erat eros consequat lectus,
-          sit amet consequat tellus nunc sed leo. Suspendisse vel </p>
-      </div>
-      <div class="para-caret-combo">
-        <p class="para">Details</p>
-        <img class="caret-down" src="assets/imgs/icons/polygon.svg" alt="caret-down-svg">
-      </div>
-      <ion-grid style="padding: 0px;">
-        <ion-row style="padding: 0px; margin: 5px 0px;">
-          <ion-col size="4" style="padding: 0px;" class="col-head">
-            Website:
-          </ion-col>
-          <ion-col size="8" style="padding: 0px;" class="col-desc">
-            www.hulu.com
-          </ion-col>
-        </ion-row>
 
-        <ion-row style="padding: 0px; margin: 5px 0px;">
-          <ion-col size="4" style="padding: 0px;" class="col-head">
-            Industry:
-          </ion-col>
-          <ion-col size="8" style="padding: 0px;" class="col-desc">
-            hulu loreup ipsum
-          </ion-col>
-        </ion-row>
-
-        <ion-row style="padding: 0px; margin: 5px 0px;">
-          <ion-col size="4" style="padding: 0px;" class="col-head">
-            Company Size:
-          </ion-col>
-          <ion-col size="8" style="padding: 0px;" class="col-desc">
-            18000+ employes
-          </ion-col>
-        </ion-row>
-
-        <ion-row style="padding: 0px; margin: 5px 0px;">
-          <ion-col size="4" style="padding: 0px;" class="col-head">
-            Type:
-          </ion-col>
-          <ion-col size="8" style="padding: 0px;" class="col-desc">
-            Public Company
-          </ion-col>
-        </ion-row>
-
-        <ion-row style="padding: 0px; margin: 5px 0px;">
-          <ion-col size="4" style="padding: 0px;" class="col-head">
-            Address:
-          </ion-col>
-          <ion-col size="8" style="padding: 0px;" class="col-desc">
-            8th Avenue Street 87 98K, Canada
-          </ion-col>
-        </ion-row>
-
-        <ion-row style="padding: 0px; margin: 5px 0px;">
-          <ion-col size="4" style="padding: 0px;" class="col-head">
-            Phone Number:
-          </ion-col>
-          <ion-col size="8" style="padding: 0px;" class="col-desc">
-            +66-454-9799
-          </ion-col>
-        </ion-row>
-
-        <ion-row style="padding: 0px; margin: 5px 0px;">
-          <ion-col size="4" style="padding: 0px;" class="col-head">
-            Specification:
-          </ion-col>
-          <ion-col size="8" style="padding: 0px;" class="col-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam neque elit, dapibus vel sollicitudin vitae,
-            egestas non elit. Duis ll
-          </ion-col>
-        </ion-row>
-
-
-      </ion-grid>
     </div>
     <div *ngIf="requestsType=='jobs'">
       <ion-row>
-        <ion-col size="4">
+        <ion-col size="4" *ngFor="let job of jobs">
+          <div class="maindiv" (click)="goto(job)">
+            <div class="maininner">
+              <img class="intuit-svg" src="assets/imgs/intuit.svg" alt="hulu-svg">
+              <p class="para11">{{job.title}}</p>
+              <p class="para22">deadline: {{job.deadline}}</p>
+              <div style="display: flex;align-items: center;margin-left: 25%;">
+                <img src="assets/imgs/icons/Path-logo.svg" alt="path-svg">
+                <p class="para23">{{job.location}}</p>
+              </div>
+            </div>
+
+          </div>
+        </ion-col>
+        <!-- <ion-col size="4">
           <div class="maindiv">
             <div class="maininner">
               <img class="intuit-svg" src="assets/imgs/intuit.svg" alt="hulu-svg">
@@ -193,21 +205,7 @@
             </div>
 
           </div>
-        </ion-col>
-        <ion-col size="4">
-          <div class="maindiv">
-            <div class="maininner">
-              <img class="intuit-svg" src="assets/imgs/intuit.svg" alt="hulu-svg">
-              <p class="para11">UX UI Designer</p>
-              <p class="para22">Posted 2 day ago</p>
-              <div style="display: flex;align-items: center;margin-left: 25%;">
-                <img src="assets/imgs/icons/Path-logo.svg" alt="path-svg">
-                <p class="para23">Logos</p>
-              </div>
-            </div>
-
-          </div>
-        </ion-col>
+        </ion-col> -->
       </ion-row>
 
     </div>

@@ -22,24 +22,26 @@ export class JobDetailPage implements OnInit {
   min_qualification: any;
   experience: any;
   deadline: any;
-
+  requirements: any;
   constructor(public location: Location,
     public navCtrl: NavController,
     public rest: RestService,
-    public extra: ExtrasService) { }
+    public extra: ExtrasService) {
+
+  }
 
   ngOnInit() {
-    // this.extra.loadershow();
+
     this.user_ID = localStorage.getItem('userid');
     this.job_ID = localStorage.getItem('jobid');
     this.getjobdetail(this.job_ID);
   }
 
   getjobdetail(job_ID) {
-
+    this.extra.loadershow();
     this.rest.getRequest('getjob', localStorage.getItem('auth_token'), job_ID).subscribe((data: any) => {
       console.log('jobs data==', data);
-      // this.extra.hideLoader();
+      this.extra.hideLoader();
       this.employer_id = data.job.employer_id
       this.title = data.job.title;
       this.industry = data.job.industry;
@@ -51,7 +53,7 @@ export class JobDetailPage implements OnInit {
       this.slug = data.job.slug;
       this.level = data.job.level;
       this.summary = data.job.summary
-
+      this.requirements = data.requirement
       // let strtoarray = data.job.requirement.split(' ')
       // console.log('strtoarray=', strtoarray);
 

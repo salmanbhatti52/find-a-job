@@ -39,8 +39,7 @@
           </div>
           <div class="extra" *ngIf="show==true">
             <div auto-hide="false" *ngFor="let p of appsubPages; let i = index">
-              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
-                routerLinkActive="selected">
+              <ion-item routerDirection="root" lines="none" detail="false" routerLinkActive="selected">
 
 
                 <ion-label class="title1" (click)="openpage(p)">{{ p.title }}

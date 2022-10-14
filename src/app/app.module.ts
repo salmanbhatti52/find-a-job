@@ -15,12 +15,15 @@ import { NativeGeocoder } from '@awesome-cordova-plugins/native-geocoder/ngx';
 import { Chooser } from '@awesome-cordova-plugins/chooser/ngx';
 import { Camera } from '@awesome-cordova-plugins/camera/ngx';
 import { VideoEditor } from '@awesome-cordova-plugins/video-editor/ngx';
+import { FlutterwaveModule } from "flutterwave-angular-v3"
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FlutterwaveModule
   ],
   providers: [Geolocation,
     AndroidPermissions,

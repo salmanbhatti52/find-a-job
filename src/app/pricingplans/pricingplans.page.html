@@ -43,8 +43,10 @@
             <p class="slide-last-para">{{plan.feature}}</p>
           </div>
           <p class="last-para">About Subscriptions and Privacy</p>
-          <ion-button class="last-btn" *ngIf="plan.trial_period=='month'">Get Started</ion-button>
-          <ion-button class="last-btn" *ngIf="plan.trial_period=='booster'">Booster</ion-button>
+          <ion-button class="last-btn" *ngIf="plan.trial_period=='month'" (click)="startplan(plan)">Get Started
+          </ion-button>
+          <ion-button class="last-btn" *ngIf="plan.trial_period=='booster'" (click)="startplan(plan)">Booster
+          </ion-button>
         </div>
       </ion-slide>
 

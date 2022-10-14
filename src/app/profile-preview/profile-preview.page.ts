@@ -56,6 +56,7 @@ export class ProfilePreviewPage implements OnInit {
 
   }
   getuserdetails(userid) {
+    this.extra.loadershow();
     this.rest.userdetail('getuser', userid, localStorage.getItem('auth_token')).subscribe((data: any) => {
 
       console.log('getuser data==', data);
@@ -108,6 +109,7 @@ export class ProfilePreviewPage implements OnInit {
     this.rest.userdetail('get-certificate', this.userId, localStorage.getItem('auth_token')).subscribe((data: any) => {
       console.log('get-certificate==', data);
       this.certificates = data.certificate;
+      this.extra.hideLoader();
     })
   }
 

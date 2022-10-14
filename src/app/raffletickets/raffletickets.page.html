@@ -41,27 +41,11 @@
             <ion-col class="ion-column" size="6" style="color: white; margin: 15px auto; ">Draw date</ion-col>
             <ion-col class="ion-column" size="6" style="color: white; margin: 15px auto;">Ticket number</ion-col>
           </ion-row>
-          <ion-row style="background-color: #FAFAFA;">
-            <ion-col class="ion-column" size="6" style="color: #000000; margin: 14.2px auto 8.8px;">20 Jan 2020
+          <ion-row style="background-color: #FAFAFA;" *ngFor="let item of yourtickets">
+            <ion-col class="ion-column" size="6" style="color: #000000; margin: 14.2px auto 8.8px;">{{item.draw_date}}
             </ion-col>
-            <ion-col class="ion-column" size="6" style="color: #000000; margin: 14.2px auto 8.8px;">05A9R642Y1</ion-col>
-          </ion-row>
-          <ion-row style="background-color: #FFFFFF;">
-            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">20 Jan 2020</ion-col>
-            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">05A9R642Y1</ion-col>
-          </ion-row>
-          <ion-row style="background-color: #FAFAFA;">
-            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">20 Jan 2020</ion-col>
-            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">05A9R642Y1</ion-col>
-          </ion-row>
-          <ion-row style="background-color: #FFFFFF;">
-            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">20 Jan 2020</ion-col>
-            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">05A9R642Y1</ion-col>
-          </ion-row>
-          <ion-row style="background-color: #FAFAFA; border-end-start-radius: 14px;
-          border-end-end-radius: 14px;">
-            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">20 Jan 2020</ion-col>
-            <ion-col class="ion-column" size="6" style="color: #000000; margin:12px auto 11px;">05A9R642Y1</ion-col>
+            <ion-col class="ion-column" size="6" style="color: #000000; margin: 14.2px auto 8.8px;">
+              {{item.ticket_number}}</ion-col>
           </ion-row>
         </ion-grid>
       </div>
@@ -77,20 +61,16 @@
             <ion-col class="ion-column" size="4.5" style="color: white; margin: 15px auto;">Ticket number</ion-col>
             <ion-col class="ion-column" size="3" style="color: white; margin: 15px auto;">Wins</ion-col>
           </ion-row>
-          <ion-row style="background-color: #FAFAFA;">
+          <ion-row style="background-color: #FAFAFA;" *ngIf="winticketstatus=='success'">
             <ion-col class="ion-column" size="4.5" style="color: #000000; margin: 14.2px auto 8.8px;">20 Jan 2020
             </ion-col>
             <ion-col class="ion-column" size="4.5" style="color: #000000; margin: 14.2px auto 8.8px;">05A9R642Y1
             </ion-col>
             <ion-col class="ion-column" size="3" style="color: #000000; margin: 14.2px auto 8.8px;">Win</ion-col>
           </ion-row>
-          <ion-row style="background-color: #FFFFFF;">
-            <ion-col class="ion-column" size="4.5" style="color: #000000; margin:12px auto 11px;">20 Jan 2020</ion-col>
-            <ion-col class="ion-column" size="4.5" style="color: #000000; margin:12px auto 11px;">05A9R642Y1</ion-col>
-            <ion-col class="ion-column" size="3" style="color: #000000; margin:12px auto 11px;">Win</ion-col>
-          </ion-row>
+
           <ion-row style="background-color: #FAFAFA; border-end-start-radius: 14px;
-          border-end-end-radius: 14px;">
+          border-end-end-radius: 14px;" *ngIf="winticketstatus=='success'">
             <ion-col class="ion-column" size="4.5" style="color: #000000; margin:12px auto 11px;">20 Jan 2020</ion-col>
             <ion-col class="ion-column" size="4.5" style="color: #000000; margin:12px auto 11px;">05A9R642Y1</ion-col>
             <ion-col class="ion-column" size="3" style="color: #000000; margin:12px auto 11px;">Win</ion-col>

@@ -35,18 +35,19 @@ export class InterviewsPage implements OnInit {
     }
 
   ]
+  interviews: any;
   constructor(public navCtrl: NavController,
     public rest: RestService,
     public extra: ExtrasService) { }
 
   ngOnInit() {
-    this.interviews()
+    this.getinterviews()
   }
 
-  interviews() {
+  getinterviews() {
     this.rest.getRequest('get-userinterview', localStorage.getItem('auth_token')).subscribe((data: any) => {
-      console.log('interviews', data);
-
+      console.log('interviews=====', data.interviews);
+      this.interviews = data.interviews.length
     })
   }
   tablink(type) {

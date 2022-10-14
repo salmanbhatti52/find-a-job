@@ -25,7 +25,8 @@
     <div class="logo">
       <img src="assets/imgs/interviewlogo.svg">
     </div>
-    <div class="main">
+    <div style="font-size:18px;font-weight:600;text-align:center;" *ngIf="interviews==undefined">No Interviews</div>
+    <div class="main" *ngIf="interviews!=undefined">
       <div style="display: flex;padding: 10px 10px 0px 10px;">
         <div class="mainleft">
           <div class="mainhead">UX UI Designer</div>
@@ -83,7 +84,7 @@
 
     </div>
 
-    <div class="main">
+    <!-- <div class="main">
       <div style="display: flex;padding: 10px 10px 0px 10px;">
         <div class="mainleft">
           <div class="mainhead">UX UI Designer</div>
@@ -124,7 +125,7 @@
       </div>
 
 
-    </div>
+    </div> -->
   </div>
 </ion-content>
 <ion-footer>

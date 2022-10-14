@@ -33,11 +33,11 @@
           Preferences</span> on FAJ</p>
     </div>
 
-    <div class="main" (click)="seedetail()">
+    <div class="main" (click)="seedetail(item)" *ngFor="let item of companies">
       <div style="display: flex;padding: 10px 10px 0px 10px;">
         <div class="mainleft">
           <div class="innertext">
-            <div class="maintext">Intuit</div>
+            <div class="maintext">{{item.firstname}} {{item.lastname}}</div>
             <div style="margin-left: 3%;">
               <img src="assets/imgs/icons/greentick.svg">
             </div>
@@ -48,7 +48,7 @@
 
             <div style="width: 100%;margin-left: 5%;">
               <p>48 Adetokunbo Ademola, VI , Lagos</p>
-              <p>+948548944516</p>
+              <p>{{item.phone}}</p>
               <p style="font-weight: 500;"><span style="color:#51CF66">Available</span> 20 Jobs</p>
             </div>
 
@@ -62,7 +62,7 @@
 
     </div>
 
-    <div class="main" (click)="seedetail()">
+    <!-- <div class="main" (click)="seedetail()">
       <div style="display: flex;padding: 10px 10px 0px 10px;">
         <div class="mainleft">
           <div class="innertext">
@@ -88,7 +88,7 @@
           <img src="assets/imgs/jobimage1.svg">
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 

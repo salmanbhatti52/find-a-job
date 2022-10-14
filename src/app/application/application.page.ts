@@ -1,5 +1,6 @@
 import { NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { RestService } from '../services/rest.service';
 
 @Component({
   selector: 'app-application',
@@ -8,11 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicationPage implements OnInit {
   dropdown = false;
-  constructor(public navCtrl: NavController) { }
+  userId: any;
+  constructor(public navCtrl: NavController,
+    public rest: RestService) { }
 
   ngOnInit() {
+    this.userId = localStorage.getItem('userid');
+    this.getapplications(this.userId)
   }
 
+
+  getapplications(uid) {
+    this.rest.getRequest('applications', localStorage.getItem('auth_token'), uid).subscribe((res: any) => {
+
+      console.log('response-===--', res);
+
+    })
+  }
   open() {
     if (this.dropdown == false) {
       this.dropdown = true

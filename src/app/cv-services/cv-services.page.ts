@@ -1,26 +1,27 @@
 import { NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../services/rest.service';
+import { ExtrasService } from '../services/extras.service';
 @Component({
   selector: 'app-cv-services',
   templateUrl: './cv-services.page.html',
   styleUrls: ['./cv-services.page.scss'],
 })
 export class CvServicesPage implements OnInit {
-  str = 'Do It Yourself With A Wizard, Review CV';
+
   cvservices = []
   constructor(public navCtrl: NavController,
-    public rest: RestService) { }
+    public rest: RestService,
+    public extra: ExtrasService) { }
 
   ngOnInit() {
-    let split = this.str.split(',');
 
-    console.log('split', split);
     this.CvServices();
 
   }
 
   CvServices() {
+    this.extra.loadershow();
     this.rest.getRequest('cvservices', localStorage.getItem('auth_token')).subscribe((res: any) => {
 
       console.log('response-===--', res);
@@ -32,7 +33,7 @@ export class CvServicesPage implements OnInit {
           services: item.services.split(',')
         }
         this.cvservices.push(data)
-
+        this.extra.hideLoader();
       });
       console.log('services====', this.cvservices)
     })
@@ -40,6 +41,10 @@ export class CvServicesPage implements OnInit {
 
   open(index) {
     this.cvservices[index].isdown = !(this.cvservices[index].isdown);
+  }
+  goto(data) {
+    localStorage.setItem('details', JSON.stringify(data))
+    this.navCtrl.navigateForward('checkout')
   }
   tablink(type) {
     if (type == 1) {

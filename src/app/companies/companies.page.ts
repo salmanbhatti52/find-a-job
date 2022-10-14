@@ -1,18 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { ExtrasService } from '../services/extras.service';
+import { RestService } from '../services/rest.service';
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.page.html',
   styleUrls: ['./companies.page.scss'],
 })
 export class CompaniesPage implements OnInit {
+  companies: any;
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController,
+    public rest: RestService,
+    public extra: ExtrasService) { }
 
   ngOnInit() {
+    this.getcompanies();
   }
 
-  seedetail() {
+  getcompanies() {
+    this.extra.loadershow();
+    this.rest.getRequest('employers', localStorage.getItem('auth_token')).subscribe((data: any) => {
+      console.log('interviews=====', data);
+      this.companies = data.employers
+      this.extra.hideLoader();
+    })
+  }
+  seedetail(item) {
+    this.rest.companyid = item.id
     this.navCtrl.navigateForward('company-details');
   }
 

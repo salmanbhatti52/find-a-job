@@ -19,6 +19,25 @@
 
 <ion-content class="bg">
   <div class="wrapper">
+    <div class="sub-section" (click)="goto(item)">
+      <p class="head-para">{{name}}
+        <span>(₦ {{price}})</span>
+
+      </p>
+      <div>
+        <div class="align" *ngFor="let sv of services">
+          <img class="svg" src="assets/imgs/icons/tick.svg">
+          <p class="sub-para">{{sv}}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <flutterwave-make-payment [data]="paymentData">
+  </flutterwave-make-payment>
+  <!-- <div class="wrapper">
     <img src="assets/imgs/card.svg" style="width:100%;">
     <div class="text">Secure Card Payment</div>
     <ion-row style="margin-top: 2%;">
@@ -75,7 +94,7 @@
       </div>
 
     </div>
-  </div>
+  </div> -->
 </ion-content>
 
 <ion-footer>

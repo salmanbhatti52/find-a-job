@@ -43,11 +43,12 @@ ion-toolbar{
   background-color:rgba(243,243,243, 0.2) !important;
 }
 .swiper-pagination {
-  position: absolute;
-  top: 360px;
+  // position: absolute;
+  // top: 360px;
   // padding-bottom: 15px;
   --bullet-background:#FFA00A;
   --bullet-background-active:var(--bullet-background);
+  bottom: 55px !important;
 }
 .popupclass{
   --max-height: 55%;
@@ -93,4 +94,25 @@ ion-toolbar{
     // padding-bottom: 8px;
     // background: inherit;
     padding: 0px !important;
+}
+//  iframe{
+//   height:160px !important;
+//  }
+.flutterwave-pay-button{
+  background-color: #f5a623;
+  border-radius: 4px;
+  border-color: #f5a623;
+  -webkit-box-shadow: 0 2px 3px 0 #ccc;
+  box-shadow: 0 2px 3px 0 #ccc;
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 14px 22px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  width: 80%;
+  margin: 0% auto;
 }

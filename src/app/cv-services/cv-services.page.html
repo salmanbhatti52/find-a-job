@@ -31,7 +31,7 @@
 
 
     <div class="section1" *ngFor="let item of cvservices;let i=index">
-      <div class="sub-section">
+      <div class="sub-section" (click)="goto(item)">
         <p class="head-para">{{item.name}} <span *ngIf="item.price==0">(Free)</span>
           <span *ngIf="item.price!=0">({{item.price}})</span>
 

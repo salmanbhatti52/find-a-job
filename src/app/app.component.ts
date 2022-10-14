@@ -26,7 +26,7 @@ export class AppComponent {
     { title: 'trainingdirectory', url: 'training-directory' },
     { title: 'safejobs', url: 'safe-jobs' },
     { title: 'reportascam', url: 'reportascam' },
-    { title: 'checkout', url: 'checkout' },
+    // { title: 'checkout', url: 'checkout' },
     { title: 'cv services', url: 'cv-services' },
     // { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
     // { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
@@ -37,10 +37,18 @@ export class AppComponent {
   ];
   activepage: any;
   show = false;
-  appsubPages = [];
+  // appsubPages = [];
+  appsubPages = [
+
+    { title: 'Find A Job', url: '/findajob' },
+    { title: 'Saved Jobs', url: '/savedjobs' },
+    { title: 'Application', url: '/application' }
+
+  ];
   // public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(public menuCtrl: MenuController,
     public navCtrl: NavController) {
+
 
     console.log(localStorage.getItem('userid'));
 
@@ -57,28 +65,31 @@ export class AppComponent {
 
 
   openpage(p) {
-    console.log('page===', p.title);
-
+    console.log('page===', p);
     this.activepage = p.title
+    if (p.url == '/findajob') {
+      this.navCtrl.navigateRoot('findajob')
+    }
+    if (p.url == '/savedjobs') {
+      this.navCtrl.navigateRoot('savedjobs')
+    }
+    if (p.url == '/application') {
+      this.navCtrl.navigateRoot('application')
+    }
     if (this.activepage != 'Jobs') {
       this.menuCtrl.close();
       this.show = false;
     } else {
-      this.showhide();
+      this.showhide(p.url);
     }
 
 
   }
-  showhide() {
+  showhide(url) {
+    console.log(url);
+
     if (this.show == false) {
       this.show = true;
-      this.appsubPages = [
-
-        { title: 'Find A Job', url: '/findajob' },
-        { title: 'Saved Jobs', url: '/savedjobs' },
-        { title: 'Application', url: '/application' }
-
-      ];
     } else {
       this.appsubPages = []
       this.show = false

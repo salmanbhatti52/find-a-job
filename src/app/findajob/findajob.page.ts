@@ -22,14 +22,14 @@ export class FindajobPage implements OnInit {
 
 
   getjobs() {
-    // this.extra.loadershow();
+    this.extra.loadershow();
     this.rest.getRequest('jobs', localStorage.getItem('auth_token')).subscribe((data: any) => {
-      // this.extra.hideLoader();
+      this.extra.hideLoader();
       console.log('jobs data==', data);
       this.jobs = data.jobs
 
     }, err => {
-      // this.extra.hideLoader();
+      this.extra.hideLoader();
       console.log('error:::', err)
     })
   }

@@ -17,4 +17,4 @@ import { JobSeekerVideosPage } from './job-seeker-videos.page';
   ],
   declarations: [JobSeekerVideosPage]
 })
-export class JobSeekerVideosPageModule {}
+export class JobSeekerVideosPageModule { }

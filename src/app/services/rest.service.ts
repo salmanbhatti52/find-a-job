@@ -6,6 +6,8 @@ import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions
 })
 export class RestService {
   baseURL = "https://findajob.ng/api";
+
+  companyid: any;
   constructor(public http: HttpClient,
     private androidPermissions: AndroidPermissions) { }
 
