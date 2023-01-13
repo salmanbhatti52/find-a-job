@@ -63,6 +63,7 @@ export class RaffleticketsPage implements OnInit {
 
       }
       if (res.status == "error") {
+        this.extra.presentToast(res.message)
         this.extra.hideLoader()
 
       }

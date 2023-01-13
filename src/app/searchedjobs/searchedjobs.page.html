@@ -27,10 +27,14 @@
           </span></ion-input>
       </div>
     </div>
+    <div *ngIf="arraylength==0" style="text-align: center;
+    background-color: #fff;
+    padding: 20px;">No Job found</div>
     <div class="main" *ngFor="let job of jobs" (click)="seedetail(job.id)">
       <!-- <div class="sticker">
         <img src="assets/imgs/sticker.svg">
       </div> -->
+
       <div style="display: flex;padding: 10px 10px;">
         <div class="mainleft">
           <div class="mainhead">{{job.title}}</div>

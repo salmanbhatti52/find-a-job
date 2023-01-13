@@ -86,7 +86,7 @@ export class AppComponent {
 
   }
   showhide(url) {
-    console.log(url);
+    console.log('url open', url);
 
     if (this.show == false) {
       this.show = true;

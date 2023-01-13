@@ -11,6 +11,8 @@ import { NavController } from '@ionic/angular';
 export class SearchedjobsPage implements OnInit {
   jobs = []
   date: any;
+
+  arraylength: any;
   constructor(public rest: RestService,
     public activatedRoute: ActivatedRoute,
     public navCtrl: NavController) { }
@@ -27,10 +29,13 @@ export class SearchedjobsPage implements OnInit {
       date: date
     }
     this.rest.sendRequest('search-job', data, localStorage.getItem('auth_token')).subscribe((res: any) => {
-      console.log('saved jobs====', res);
+      console.log('search====', res);
       this.jobs = res.jobs[0]
+      this.arraylength = res.jobs[0].length
+      console.log(this.arraylength);
+
     }, err => {
-      console.log('error saved jobs====', err);
+      console.log('error search jobs====', err);
       // this.extra.presentToast(err.error.message)
     })
   }

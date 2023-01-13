@@ -15,12 +15,14 @@ export class ApplicationPage implements OnInit {
 
   ngOnInit() {
     this.userId = localStorage.getItem('userid');
+    console.log(localStorage.getItem('auth_token'));
+
     this.getapplications(this.userId)
   }
 
 
   getapplications(uid) {
-    this.rest.getRequest('applications', localStorage.getItem('auth_token'), uid).subscribe((res: any) => {
+    this.rest.getRequest('applications/' + uid, localStorage.getItem('auth_token')).subscribe((res: any) => {
 
       console.log('response-===--', res);
 
