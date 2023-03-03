@@ -44,7 +44,11 @@
 
     </div>
 
-    <div class="profile-info">
+    <div *ngIf="transaction==0" style="text-align: center;
+    background-color: #fff;
+    padding: 20px;">Nothing found</div>
+
+    <div class="profile-info" *ngIf="transaction!=0">
       <ion-grid style="padding-bottom: 8px; ">
         <ion-row (click)="open()">
           <ion-col size="4" style="padding-bottom: 0px;">
@@ -141,7 +145,7 @@
 </ion-content>
 
 
-<ion-footer>
+<ion-footer *ngIf="footerhide==false">
   <ion-tabs>
 
     <ion-fab vertical="bottom" horizontal="center" translucent="true">

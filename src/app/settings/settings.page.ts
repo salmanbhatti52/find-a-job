@@ -1,5 +1,5 @@
-import { NavController } from '@ionic/angular';
-import { Component, OnInit } from '@angular/core';
+import { NavController, Platform } from '@ionic/angular';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RestService } from '../services/rest.service';
 import { ExtrasService } from '../services/extras.service';
 
@@ -13,11 +13,29 @@ export class SettingsPage implements OnInit {
   newpass = '';
   confirmpass = '';
 
+  footerhide = false;
   constructor(public navCtrl: NavController,
     public rest: RestService,
-    public extra: ExtrasService) { }
+    public extra: ExtrasService,
+    public platform: Platform,
+    public cd: ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.platform.keyboardDidShow.subscribe(ev => {
+      console.log('keyboard show', ev);
+      this.footerhide = true;
+      this.cd.detectChanges();
+
+    });
+
+
+    this.platform.keyboardDidHide.subscribe(ev => {
+      this.footerhide = false;
+
+      this.cd.detectChanges();
+      console.log('keyboard hide');
+
+    });
   }
 
 

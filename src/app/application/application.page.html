@@ -35,29 +35,29 @@
       </div>
       <div class="clear"></div>
     </div>
-    <div class="profile-info">
+    <div class="profile-info" *ngFor="let item of jobsarray; let i=index;">
       <ion-grid style="padding-bottom: 8px; ">
         <ion-row (click)="open()">
           <ion-col size="4" style="padding-bottom: 0px;">
             <p class="p-size">Title</p>
           </ion-col>
-          <ion-col size="4" style="padding-bottom: 0px;">
-            <p class="p-size">UI/UX Designer</p>
+          <ion-col size="6" style="padding-bottom: 0px;">
+            <p class="p-size">{{item.title}}</p>
           </ion-col>
-          <ion-col size="4" style="padding-top:2px; padding-bottom:0px;text-align: end; ">
-            <img src="assets/imgs/icons/yellowdropdown.svg" *ngIf="dropdown==false">
-            <img src="assets/imgs/icons/up.png" *ngIf="dropdown==true" width="8px">
+          <ion-col size="2" style="padding-top:2px; padding-bottom:0px;text-align: end; ">
+            <img src="assets/imgs/icons/yellowdropdown.svg" *ngIf="(item.isdown)" (click)="open(i,item)">
+            <img src="assets/imgs/icons/up.png" *ngIf="!(item.isdown)" width="8px" height="8px" (click)="open(i,item)">
           </ion-col>
         </ion-row>
 
-        <div *ngIf="dropdown==true" style="padding-bottom: 0px; ">
+        <div *ngIf="(item.isdown)" style="padding-bottom: 0px; ">
           <ion-row>
             <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
               <p class="p-size">Company</p>
             </ion-col>
-            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+            <ion-col size="6" style="padding-top: 0px; padding-bottom: 0px;">
               <p class="p-size">
-                <span>Intuit
+                <span>{{item.industry}}
                   <span><img src="assets/imgs/icons/greentick.svg" style="margin-left: 5%;"></span>
                 </span>
               </p>
@@ -68,9 +68,9 @@
             <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
               <p class="p-size">Status</p>
             </ion-col>
-            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+            <ion-col size="6" style="padding-top: 0px; padding-bottom: 0px;">
               <p class="p-size">
-                Active
+                {{item.status}}
               </p>
             </ion-col>
           </ion-row>
@@ -79,9 +79,9 @@
             <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
               <p class="p-size">Role</p>
             </ion-col>
-            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+            <ion-col size="6" style="padding-top: 0px; padding-bottom: 0px;">
               <p class="p-size">
-                Accountant
+                {{item.role}}
               </p>
             </ion-col>
           </ion-row>
@@ -90,9 +90,9 @@
             <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
               <p class="p-size">Salary</p>
             </ion-col>
-            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+            <ion-col size="6" style="padding-top: 0px; padding-bottom: 0px;">
               <p class="p-size">
-                35k-40k
+                {{item.monthly_salary}}
               </p>
             </ion-col>
           </ion-row>
@@ -101,9 +101,9 @@
             <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
               <p class="p-size">Date Applied</p>
             </ion-col>
-            <ion-col size="4" style="padding-top: 0px; padding-bottom: 0px;">
+            <ion-col size="6" style="padding-top: 0px; padding-bottom: 0px;">
               <p class="p-size">
-                20/08/21
+                {{item.dateapplied}}
               </p>
             </ion-col>
           </ion-row>
@@ -130,7 +130,7 @@
 
     </div>
 
-    <div class="profile-info">
+    <!-- <div class="profile-info">
       <ion-grid style="padding-bottom: 8px; ">
         <ion-row (click)="open()">
           <ion-col size="4" style="padding-bottom: 0px;">
@@ -141,11 +141,10 @@
           </ion-col>
           <ion-col size="4" style="padding-top:2px; padding-bottom:0px;text-align: end; ">
             <img src="assets/imgs/icons/yellowdropdown.svg">
-            <!-- <img src="assets/imgs/icons/up.png" *ngIf="dropdown==true" width="8px"> -->
           </ion-col>
         </ion-row>
       </ion-grid>
-    </div>
+    </div> -->
     <div style="margin-top: 15%;">
       <p class="para">Showing 1-9 of 552 Applicationss</p>
       <div style="width: 80%;margin: 0% auto;">
@@ -154,9 +153,11 @@
 
     </div>
 
+
   </div>
+
 </ion-content>
-<ion-footer>
+<ion-footer *ngIf="footerhide==false">
   <ion-tabs>
 
     <ion-fab vertical="bottom" horizontal="center" translucent="true">

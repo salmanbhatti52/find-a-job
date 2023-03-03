@@ -1,5 +1,5 @@
-import { NavController, ModalController, AlertController, Platform } from '@ionic/angular';
-import { Component, OnInit } from '@angular/core';
+import { NavController, ModalController, AlertController, Platform, IonContent } from '@ionic/angular';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Countries, Country } from "./interface";
 import { PopupPage } from '../popup/popup.page';
@@ -21,6 +21,7 @@ const IMAGE_DIR = 'stored-images';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  @ViewChild(IonContent, undefined) content: IonContent;
   allItems: Array<Country> = [];
   private items: Array<Country> = [];
   safeUrl: SafeResourceUrl;
@@ -98,6 +99,8 @@ export class ProfilePage implements OnInit {
   statearray: any;
   min_qualification: '';
   description: any;
+
+  footerhide = false;
   constructor(private http: HttpClient,
     public platform: Platform,
     public navCtrl: NavController,
@@ -106,11 +109,27 @@ export class ProfilePage implements OnInit {
     public alertCtrl: AlertController,
     public extra: ExtrasService,
     public rest: RestService,
+    public cd: ChangeDetectorRef
   ) {
 
   }
 
   ngOnInit() {
+    this.platform.keyboardDidShow.subscribe(ev => {
+      console.log('keyboard show', ev);
+      this.footerhide = true;
+      this.cd.detectChanges();
+
+    });
+
+
+    this.platform.keyboardDidHide.subscribe(ev => {
+      this.footerhide = false;
+
+      this.cd.detectChanges();
+      console.log('keyboard hide');
+
+    });
     this.setToday();
 
   }
@@ -310,6 +329,7 @@ export class ProfilePage implements OnInit {
     }
     else if (this.nationality == '') {
       this.nation = true;
+      this.content.scrollToTop(1500);
       this.extra.presentToast('Select your nationality');
     }
     else if (this.phonenumber == '') {
@@ -338,7 +358,7 @@ export class ProfilePage implements OnInit {
     }
     setInterval(() => {
       this.nation = false
-    }, 4000);
+    }, 5000);
 
   }
 

@@ -1,5 +1,5 @@
-import { NavController } from '@ionic/angular';
-import { Component, OnInit } from '@angular/core';
+import { NavController, Platform } from '@ionic/angular';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RestService } from '../services/rest.service';
 @Component({
   selector: 'app-transactions',
@@ -8,17 +8,36 @@ import { RestService } from '../services/rest.service';
 })
 export class TransactionsPage implements OnInit {
   dropdown = false;
+  transaction: any;
+  footerhide = false;
   constructor(public navCtrl: NavController,
-    public rest: RestService) { }
+    public rest: RestService,
+    public platform: Platform,
+    public cd: ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.platform.keyboardDidShow.subscribe(ev => {
+      console.log('keyboard show', ev);
+      this.footerhide = true;
+      this.cd.detectChanges();
+
+    });
+
+
+    this.platform.keyboardDidHide.subscribe(ev => {
+      this.footerhide = false;
+
+      this.cd.detectChanges();
+      console.log('keyboard hide');
+
+    });
     this.gettransaction()
   }
 
   gettransaction() {
     this.rest.getRequest('get-transactions', localStorage.getItem('auth_token')).subscribe((res: any) => {
-
-      console.log('response-===--', res);
+      this.transaction = res.transactions.length
+      console.log('response-===--', this.transaction);
 
     })
   }

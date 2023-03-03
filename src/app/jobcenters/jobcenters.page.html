@@ -36,7 +36,7 @@
       <div class="clear"></div>
     </div>
 
-    <div class="main" *ngFor="let center of jobcenters" (click)="seedetail()">
+    <div class="main" *ngFor="let center of jobcenters">
       <div style="display: flex;padding: 15px 15px;">
         <div class="mainleft">
           <div class="mainhead">{{center.name}}</div>
@@ -94,7 +94,7 @@
 
 
 
-<ion-footer>
+<ion-footer *ngIf="footerhide==false">
   <ion-tabs>
 
     <ion-fab vertical="bottom" horizontal="center" translucent="true">

@@ -1,5 +1,5 @@
-import { NavController, ModalController } from '@ionic/angular';
-import { Component, OnInit } from '@angular/core';
+import { NavController, ModalController, Platform } from '@ionic/angular';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FilterjobPage } from '../filterjob/filterjob.page';
 import { RestService } from '../services/rest.service';
 @Component({
@@ -9,11 +9,29 @@ import { RestService } from '../services/rest.service';
 })
 export class JobcentersPage implements OnInit {
   jobcenters = [];
+  footerhide = false;
   constructor(public navCtrl: NavController,
     public modalController: ModalController,
-    public rest: RestService) { }
+    public rest: RestService,
+    public platform: Platform,
+    public cd: ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.platform.keyboardDidShow.subscribe(ev => {
+      console.log('keyboard show', ev);
+      this.footerhide = true;
+      this.cd.detectChanges();
+
+    });
+
+
+    this.platform.keyboardDidHide.subscribe(ev => {
+      this.footerhide = false;
+
+      this.cd.detectChanges();
+      console.log('keyboard hide');
+
+    });
     this.getjobcenters();
   }
 

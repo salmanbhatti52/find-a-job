@@ -1,5 +1,5 @@
 import { NavController, Platform } from '@ionic/angular';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { Chooser } from '@awesome-cordova-plugins/chooser/ngx';
 import { RestService } from '../services/rest.service';
 import { ExtrasService } from '../services/extras.service';
@@ -41,15 +41,34 @@ export class MyresumesPage implements OnInit {
   thumbpic: any;
   base64Data: Promise<string>;
   videobase64: any;
+
+  footerhide = false;
   constructor(public navCtrl: NavController,
     private chooser: Chooser,
     public rest: RestService,
     public extra: ExtrasService,
     private camera: Camera,
     private videoEditor: VideoEditor,
-    public platform: Platform) { }
+    public platform: Platform,
+    public cd: ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.platform.keyboardDidShow.subscribe(ev => {
+      console.log('keyboard show', ev);
+      this.footerhide = true;
+      this.cd.detectChanges();
+
+    });
+
+
+    this.platform.keyboardDidHide.subscribe(ev => {
+      this.footerhide = false;
+
+      this.cd.detectChanges();
+      console.log('keyboard hide');
+
+    });
+
     this.userId = localStorage.getItem('userid');
     this.getuserdetails()
   }

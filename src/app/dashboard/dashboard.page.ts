@@ -1,5 +1,5 @@
-import { NavController, MenuController } from '@ionic/angular';
-import { Component, OnInit } from '@angular/core';
+import { NavController, MenuController, Platform } from '@ionic/angular';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RestService } from '../services/rest.service';
 @Component({
   selector: 'app-dashboard',
@@ -43,11 +43,29 @@ export class DashboardPage implements OnInit {
   userprofile: any;
   media: any;
   mediaarray = [];
+  footerhide = false;
   constructor(public navCtrl: NavController,
     public menuCtrl: MenuController,
-    public rest: RestService) { }
+    public rest: RestService,
+    public platform: Platform,
+    public cd: ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.platform.keyboardDidShow.subscribe(ev => {
+      console.log('keyboard show', ev);
+      this.footerhide = true;
+      this.cd.detectChanges();
+
+    });
+
+
+    this.platform.keyboardDidHide.subscribe(ev => {
+      this.footerhide = false;
+
+      this.cd.detectChanges();
+      console.log('keyboard hide');
+
+    });
     this.userId = localStorage.getItem('userid');
     this.getuserdetails(this.userId)
     this.getjobs();
@@ -101,6 +119,9 @@ export class DashboardPage implements OnInit {
     this.navCtrl.navigateRoot('jobalert');
   }
 
+  interview() {
+    this.navCtrl.navigateForward('interviews');
+  }
   tablink(type) {
     if (type == 1) {
       this.navCtrl.navigateRoot('dashboard');

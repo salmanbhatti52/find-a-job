@@ -2,6 +2,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../services/rest.service';
 import { NavController } from '@ionic/angular';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-searchedjobs',
@@ -14,6 +15,7 @@ export class SearchedjobsPage implements OnInit {
 
   arraylength: any;
   constructor(public rest: RestService,
+    public location: Location,
     public activatedRoute: ActivatedRoute,
     public navCtrl: NavController) { }
 
@@ -24,6 +26,9 @@ export class SearchedjobsPage implements OnInit {
     this.getjobs(this.date)
   }
 
+  goback() {
+    this.location.back()
+  }
   getjobs(date) {
     let data = {
       date: date

@@ -7,6 +7,7 @@ ion-menu.md ion-content {
   --padding-end: 8px;
   --padding-top: 20px;
   --padding-bottom: 20px;
+  --background: #fff !important;
 }
 
 ion-menu.md ion-list {
@@ -47,6 +48,7 @@ ion-menu.md ion-item {
   --padding-start: 10px;
   --padding-end: 10px;
   border-radius: 4px;
+  --background: #fff !important;
 }
 
 ion-menu.md ion-item.selected {

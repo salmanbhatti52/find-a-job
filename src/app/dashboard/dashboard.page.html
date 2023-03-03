@@ -194,7 +194,7 @@
         <div class="jobheading">Scheduled Interview</div>
         <div class="jobtext" (click)="interview()">Show More ></div>
       </div>
-      <div class="main">
+      <!-- <div class="main">
         <div style="display: flex;padding: 10px 10px 0px 10px;">
           <div class="mainleft">
             <div class="mainhead">UX UI Designer</div>
@@ -248,51 +248,8 @@
             margin-left: 3%;">+5</span>
           </div>
         </div>
-        <!-- <ion-row>
-          <ion-col size="4">
-            <ion-row>
-              <ion-col size="3">
-                <img src="assets/imgs/greentick.svg">
-              </ion-col>
-              <ion-col size="9" style="padding-left: 0px;
-              padding-top: 10px">
-                <div style="font-size:10px;">Intrested</div>
-              </ion-col>
-            </ion-row>
 
-          </ion-col>
-          <ion-col size="4">
-            <ion-row>
-              <ion-col size="3">
-                <img src="assets/imgs/redcross.svg">
-              </ion-col>
-              <ion-col size="9" style="padding-left: 0px;
-              padding-top: 10px">
-                <div style="font-size:10px;">Not Intrested</div>
-              </ion-col>
-            </ion-row>
-          </ion-col>
-          <ion-col size="4">
-            <div class="scrollable-div">
-              <div *ngFor="let gList of msgsList1;let i=index">
-
-                <div [class.paddLeft]="i!=0">
-                  <div class="relative ">
-                    <ion-avatar class="main-avatar">
-                      <img src="{{gList.image}}">
-                    </ion-avatar>
-                  </div>
-                </div>
-              </div>
-              <span style="color:#5E5873;font-size: 12px;
-              margin-top: 2%;
-              margin-left: 3%;">+5</span>
-            </div>
-          </ion-col>
-
-        </ion-row> -->
-
-      </div>
+      </div> -->
     </div>
     <!-- end second section -->
     <div class="btndiv" (click)="jobalert()">
@@ -305,7 +262,7 @@
 
 </ion-content>
 
-<ion-footer>
+<ion-footer *ngIf="footerhide==false">
   <ion-tabs>
 
     <ion-fab vertical="bottom" horizontal="center" translucent="true">

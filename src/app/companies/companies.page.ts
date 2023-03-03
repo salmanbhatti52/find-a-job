@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { NavController, Platform } from '@ionic/angular';
 import { ExtrasService } from '../services/extras.service';
 import { RestService } from '../services/rest.service';
 @Component({
@@ -10,11 +10,29 @@ import { RestService } from '../services/rest.service';
 export class CompaniesPage implements OnInit {
   companies: any;
 
+  footerhide = false;
   constructor(public navCtrl: NavController,
     public rest: RestService,
-    public extra: ExtrasService) { }
+    public extra: ExtrasService,
+    public platform: Platform,
+    public cd: ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.platform.keyboardDidShow.subscribe(ev => {
+      console.log('keyboard show', ev);
+      this.footerhide = true;
+      this.cd.detectChanges();
+
+    });
+
+
+    this.platform.keyboardDidHide.subscribe(ev => {
+      this.footerhide = false;
+
+      this.cd.detectChanges();
+      console.log('keyboard hide');
+
+    });
     this.getcompanies();
   }
 
