@@ -36,6 +36,7 @@ export class ProfilePreviewPage implements OnInit {
   dropdown = false;
   employhistorydetails: any;
   certificates: any;
+  seekerstatus: any;
   constructor(public location: Location,
     public navCtrl: NavController,
     public modal: ModalController,
@@ -68,6 +69,8 @@ export class ProfilePreviewPage implements OnInit {
       this.nationality = data.user.nationality;
       this.userprofile = data.user.profile_image;
       this.state = data.user.state
+      this.seekerstatus = data.user.seeker_status
+
 
       //get age///
       const bdate = new Date(data.user.dofb);

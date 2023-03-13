@@ -2,6 +2,7 @@ import { NavController, Platform } from '@ionic/angular';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RestService } from '../services/rest.service';
 import * as moment from 'moment';
+import { ExtrasService } from '../services/extras.service';
 @Component({
   selector: 'app-application',
   templateUrl: './application.page.html',
@@ -15,7 +16,8 @@ export class ApplicationPage implements OnInit {
   constructor(public navCtrl: NavController,
     public rest: RestService,
     public platform: Platform,
-    public cd: ChangeDetectorRef) { }
+    public cd: ChangeDetectorRef,
+    public extra: ExtrasService) { }
 
   ngOnInit() {
 
@@ -43,12 +45,13 @@ export class ApplicationPage implements OnInit {
 
 
   getapplications(uid) {
+    this.extra.loadershow()
     this.rest.getRequest('applications/' + uid, localStorage.getItem('auth_token')).subscribe((res: any) => {
 
       console.log('response-===--', res);
       for (var i = 0; i < res.applications.length; i++) {
         this.rest.getRequest('getjob/' + res.applications[i].job_id, localStorage.getItem('auth_token')).subscribe((resdata: any) => {
-
+          this.extra.hideLoader()
           console.log('resdata-===--', resdata);
 
           let data = {

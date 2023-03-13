@@ -14,6 +14,9 @@ export class SettingsPage implements OnInit {
   confirmpass = '';
 
   footerhide = false;
+  oldpasscount: any;
+  newpasscount: any;
+  newcpasscount: any;
   constructor(public navCtrl: NavController,
     public rest: RestService,
     public extra: ExtrasService,
@@ -38,6 +41,16 @@ export class SettingsPage implements OnInit {
     });
   }
 
+  pass1(ev: any) {
+    // console.log(ev.detail.value.length);
+    this.oldpasscount = ev.detail.value.length
+  }
+  pass2(ev: any) {
+    this.newpasscount = ev.detail.value.length
+  }
+  pass3(ev: any) {
+    this.newcpasscount = ev.detail.value.length
+  }
 
   save() {
     if (this.oldpass == '') {
@@ -53,19 +66,30 @@ export class SettingsPage implements OnInit {
         newpassword: this.newpass,
         password_confirmation: this.confirmpass
       }
-      this.rest.sendRequest('new-password', datasend, localStorage.getItem('auth_token')).subscribe((res: any) => {
-        console.log('respnse===', res);
-        if (res.status == 'true') {
-          this.oldpass == '';
-          this.newpass == '';
-          this.confirmpass == '';
-          this.extra.presentToast(res.message);
-        } else {
-          this.extra.presentToast(res.message);
-        }
-      }, err => {
+      if (this.oldpasscount < 8) {
+        this.extra.presentToast('password must be atleast 8 character')
+      }
+      else if (this.newpasscount < 8) {
+        this.extra.presentToast('password must be atleast 8 character')
+      } else if (this.newcpasscount < 8) {
+        this.extra.presentToast('password must be atleast 8 character')
+      }
+      else {
+        this.rest.sendRequest('new-password', datasend, localStorage.getItem('auth_token')).subscribe((res: any) => {
+          console.log('respnse===', res);
+          if (res.status == 'true') {
+            this.oldpass == '';
+            this.newpass == '';
+            this.confirmpass == '';
+            this.extra.presentToast(res.message);
+          } else {
+            this.extra.presentToast(res.message);
+          }
+        }, err => {
 
-      })
+        })
+      }
+
     }
 
   }

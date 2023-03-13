@@ -44,6 +44,7 @@ export class DashboardPage implements OnInit {
   media: any;
   mediaarray = [];
   footerhide = false;
+  jobstatus: any;
   constructor(public navCtrl: NavController,
     public menuCtrl: MenuController,
     public rest: RestService,
@@ -85,6 +86,12 @@ export class DashboardPage implements OnInit {
       this.userprofile = data.user.profile_image;
       // }
 
+      if (data.user.seeker_status == null || data.user.seeker_status == undefined) {
+        this.jobstatus = 'Job Status'
+      } else {
+        this.jobstatus = data.user.seeker_status
+      }
+
     })
   }
 
@@ -111,6 +118,9 @@ export class DashboardPage implements OnInit {
     this.navCtrl.navigateForward('job-detail');
   }
 
+  gotoservices() {
+    this.navCtrl.navigateForward('pricingplans');
+  }
   findjob() {
     this.navCtrl.navigateRoot('findajob');
   }

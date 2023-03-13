@@ -13,6 +13,7 @@ import { format, parseISO, getDate, getMonth, getYear } from 'date-fns';
 import { CameraOptions } from '@awesome-cordova-plugins/camera/ngx';
 
 import axios from 'axios';
+import { Router } from '@angular/router';
 const IMAGE_DIR = 'stored-images';
 
 @Component({
@@ -109,7 +110,8 @@ export class ProfilePage implements OnInit {
     public alertCtrl: AlertController,
     public extra: ExtrasService,
     public rest: RestService,
-    public cd: ChangeDetectorRef
+    public cd: ChangeDetectorRef,
+    public router: Router
   ) {
 
   }
@@ -130,8 +132,42 @@ export class ProfilePage implements OnInit {
       console.log('keyboard hide');
 
     });
+
+    let userId = localStorage.getItem('userid');
+    this.getuserdetails(userId)
     this.setToday();
 
+  }
+
+  getuserdetails(userid) {
+    this.rest.userdetail('getuser', userid, localStorage.getItem('auth_token')).subscribe((data: any) => {
+
+      console.log('getuser data==', data);
+      if (data.user.dofb != null || data.user.dofb != undefined) {
+
+        this.showyear = true;
+        this.showmonth = true;
+        this.showdate = true;
+        let splitdob = data.user.dofb
+        let split = splitdob.split("-");
+        console.log(split);
+        this.syear = split[0]
+        this.smonth = split[1]
+        this.daydate = split[2]
+      }
+
+
+      this.identitynumber = data.user.identification_no;
+      this.gender = data.user.gender
+      this.firstname = data.user.firstname;
+      this.lastname = data.user.lastname;
+      this.phonenumber = data.user.phone;
+      this.nationality = data.user.nationality;
+      this.profileimage = data.user.profile_image;
+      this.choosestate = data.user.state
+      this.choosejobseeker = data.user.seeker_status
+
+    })
   }
 
   setToday() {
@@ -515,13 +551,14 @@ export class ProfilePage implements OnInit {
   // }
 
   employmenthistory() {
-    this.navCtrl.navigateForward('employmenthistory')
+    []
+    this.router.navigate(['employmenthistory'])
   }
   certificate() {
-    this.navCtrl.navigateForward('addcertificate')
+    this.router.navigate(['addcertificate'])
   }
   skills() {
-    this.navCtrl.navigateForward('userskills')
+    this.router.navigate(['userskills'])
   }
 
   tablink(type) {

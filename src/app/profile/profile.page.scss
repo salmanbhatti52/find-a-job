@@ -253,8 +253,12 @@
     // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
     border-radius: 5px;
     font-size: 12px;
-    opacity: 60%;
+    // opacity: 60%;
     color: #191919;
+
+}
+.input4::placeholder{
+  opacity: 60%;
 }
 .euro-text1{
   color: #191919;

@@ -5,6 +5,7 @@ import { ExtrasService } from '../services/extras.service';
 import * as moment from 'moment';
 import YouTubePlayer from 'youtube-player';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-job-seeker-videos',
@@ -21,11 +22,15 @@ export class JobSeekerVideosPage implements OnInit {
     public rest: RestService,
     public extra: ExtrasService,
     public sanitizer: DomSanitizer) { }
+  public location: Location
 
   ngOnInit() {
     this.Jobseekervideos()
   }
 
+  // goback() {
+  //   this.location.back()
+  // }
   Jobseekervideos() {
     this.extra.loadershow();
     this.rest.getRequest('job-seeker-videos', localStorage.getItem('auth_token')).subscribe((res: any) => {

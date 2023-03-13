@@ -77,6 +77,8 @@ export class JobDetailPage implements OnInit {
     this.rest.sendRequest('submitapplication', data,
       localStorage.getItem('auth_token')).subscribe((data: any) => {
         console.log('submit application data==', data);
+        this.extra.presentToast('Congratulation your job application is submitted');
+        this.navCtrl.navigateForward('myresumes')
       }, err => {
         console.log('errrorr==', err);
         this.extra.presentToast(err.error.message);

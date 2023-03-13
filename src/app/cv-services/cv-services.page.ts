@@ -2,6 +2,7 @@ import { NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../services/rest.service';
 import { ExtrasService } from '../services/extras.service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-cv-services',
   templateUrl: './cv-services.page.html',
@@ -12,12 +13,16 @@ export class CvServicesPage implements OnInit {
   cvservices = []
   constructor(public navCtrl: NavController,
     public rest: RestService,
-    public extra: ExtrasService) { }
+    public extra: ExtrasService,
+    public location: Location) { }
 
   ngOnInit() {
 
     this.CvServices();
 
+  }
+  goback() {
+    this.location.back()
   }
 
   CvServices() {
