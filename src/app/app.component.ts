@@ -14,6 +14,7 @@ export class AppComponent {
     { title: 'Companies', url: 'companies' },
     { title: 'My Resumes', url: 'myresumes' },
     { title: 'Job Centers', url: 'jobcenters' },
+    { title: 'Jobs Alert', url: 'alljobsalert' },
     { title: 'Transactions', url: 'transactions' },
     { title: 'Interviews', url: 'interviews' },
     { title: 'Messages', url: 'messages' },

@@ -212,88 +212,88 @@
 
       </div>
 
-      <ion-row style="margin-top:3%;">
-        <ion-col size="1"></ion-col>
-        <ion-col size="9">
-          <div class="atext">Advanced Profile Details (Optional)</div>
-        </ion-col>
-        <ion-col size="2" style="padding-left: 5%;padding-bottom: 0px;" (click)="openpopup()">
-          <img src="assets/imgs/icons/info.svg">
-        </ion-col>
-      </ion-row>
+      <!-- <ion-row style="margin-top:3%;">
+      <ion-col size="1"></ion-col>
+      <ion-col size="9">
+        <div class="atext">Advanced Profile Details (Optional)</div>
+      </ion-col>
+      <ion-col size="2" style="padding-left: 5%;padding-bottom: 0px;" (click)="openpopup()">
+        <img src="assets/imgs/icons/info.svg">
+      </ion-col>
+    </ion-row>
 
-      <div class="box3" (click)="religionlist()">
-        <div style="align-items: center;display: flex;justify-content: space-between;
-        padding: 9px 14px;">
-          <div class="input4">{{choosereligion}}</div>
-          <div style="text-align: end;">
-            <ion-icon name="caret-down-outline" class="cicon" *ngIf="!list"></ion-icon>
-            <ion-icon name="caret-up-outline" class="cicon" *ngIf="list"></ion-icon>
-          </div>
+    <div class="box3" (click)="religionlist()">
+      <div style="align-items: center;display: flex;justify-content: space-between;
+      padding: 9px 14px;">
+        <div class="input4">{{choosereligion}}</div>
+        <div style="text-align: end;">
+          <ion-icon name="caret-down-outline" class="cicon" *ngIf="!list"></ion-icon>
+          <ion-icon name="caret-up-outline" class="cicon" *ngIf="list"></ion-icon>
         </div>
-        <div *ngIf="list==true">
-          <div *ngFor="let list of religionarray" (click)="selectreligion(list)">
-            <div class="euro-text1">{{list.religion}}</div>
-          </div>
+      </div>
+      <div *ngIf="list==true">
+        <div *ngFor="let list of religionarray" (click)="selectreligion(list)">
+          <div class="euro-text1">{{list.religion}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box3" (click)="tribelist()">
+      <div style="align-items: center;display: flex;justify-content: space-between;
+      padding: 9px 14px;">
+        <div class="input4">{{choosetribe}}</div>
+        <div style="text-align: end;">
+          <ion-icon name="caret-down-outline" class="cicon" *ngIf="!list1"></ion-icon>
+          <ion-icon name="caret-up-outline" class="cicon" *ngIf="list1"></ion-icon>
+        </div>
+      </div>
+      <div *ngIf="list1==true">
+        <div *ngFor="let list of tribearray" (click)="selecttribe(list)">
+          <div class="euro-text1">{{list.tribe}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text">Height</div>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="Enter Height"></ion-input>
+    </div>
+
+    <div class="box3" (click)="complexionlist()">
+      <div style="align-items: center;display: flex;justify-content: space-between;
+      padding: 9px 14px;">
+        <div class="input4">{{Complexion}}</div>
+        <div style="text-align: end;">
+          <ion-icon name="caret-down-outline" class="cicon" *ngIf="!list2"></ion-icon>
+          <ion-icon name="caret-up-outline" class="cicon" *ngIf="list2"></ion-icon>
+        </div>
+      </div>
+      <div *ngIf="list2==true">
+        <div *ngFor="let list of complexionarray" (click)="selectcomplexion(list)">
+          <div class="euro-text1">{{list.complexion}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text">Disability</div>
+    <ion-radio-group value=male (ionChange)="selectdisability($event)">
+      <div style="display: flex;flex-direction: row;margin-top: 1%;">
+
+        <div class="leftone">
+          <ion-radio slot="start" value="yes" mode="md" class="cradio radio-gray"></ion-radio>
+          <ion-label class="txt">Yes</ion-label>
+        </div>
+
+        <div class="rightone">
+          <ion-radio slot="start" value="no" mode="md" class="cradio radio-gray"></ion-radio>
+          <ion-label class="txt">No</ion-label>
         </div>
       </div>
 
-      <div class="box3" (click)="tribelist()">
-        <div style="align-items: center;display: flex;justify-content: space-between;
-        padding: 9px 14px;">
-          <div class="input4">{{choosetribe}}</div>
-          <div style="text-align: end;">
-            <ion-icon name="caret-down-outline" class="cicon" *ngIf="!list1"></ion-icon>
-            <ion-icon name="caret-up-outline" class="cicon" *ngIf="list1"></ion-icon>
-          </div>
-        </div>
-        <div *ngIf="list1==true">
-          <div *ngFor="let list of tribearray" (click)="selecttribe(list)">
-            <div class="euro-text1">{{list.tribe}}</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="text">Height</div>
-      <div class="box3">
-        <ion-input class="input4" type="text" placeholder="Enter Height"></ion-input>
-      </div>
-
-      <div class="box3" (click)="complexionlist()">
-        <div style="align-items: center;display: flex;justify-content: space-between;
-        padding: 9px 14px;">
-          <div class="input4">{{Complexion}}</div>
-          <div style="text-align: end;">
-            <ion-icon name="caret-down-outline" class="cicon" *ngIf="!list2"></ion-icon>
-            <ion-icon name="caret-up-outline" class="cicon" *ngIf="list2"></ion-icon>
-          </div>
-        </div>
-        <div *ngIf="list2==true">
-          <div *ngFor="let list of complexionarray" (click)="selectcomplexion(list)">
-            <div class="euro-text1">{{list.complexion}}</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="text">Disability</div>
-      <ion-radio-group value=male (ionChange)="selectdisability($event)">
-        <div style="display: flex;flex-direction: row;margin-top: 1%;">
-
-          <div class="leftone">
-            <ion-radio slot="start" value="yes" mode="md" class="cradio radio-gray"></ion-radio>
-            <ion-label class="txt">Yes</ion-label>
-          </div>
-
-          <div class="rightone">
-            <ion-radio slot="start" value="no" mode="md" class="cradio radio-gray"></ion-radio>
-            <ion-label class="txt">No</ion-label>
-          </div>
-        </div>
-
-      </ion-radio-group>
-      <div class="box3">
-        <ion-input class="input4" type="text" placeholder="Type your Disability"></ion-input>
-      </div>
+    </ion-radio-group>
+    <div class="box3">
+      <ion-input class="input4" type="text" placeholder="Type your Disability"></ion-input>
+    </div> -->
 
       <div class="etext">Education</div>
       <div class="btndiv">

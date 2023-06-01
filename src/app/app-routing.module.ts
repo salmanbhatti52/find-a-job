@@ -166,6 +166,10 @@ const routes: Routes = [
   {
     path: 'searchedjobs',
     loadChildren: () => import('./searchedjobs/searchedjobs.module').then( m => m.SearchedjobsPageModule)
+  },
+  {
+    path: 'alljobsalert',
+    loadChildren: () => import('./alljobsalert/alljobsalert.module').then( m => m.AlljobsalertPageModule)
   }
 ];
 
