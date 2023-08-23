@@ -45,6 +45,9 @@ export class DashboardPage implements OnInit {
   mediaarray = [];
   footerhide = false;
   jobstatus: any;
+  jobcount: any;
+  companycount: any;
+  interviewcount: any;
   constructor(public navCtrl: NavController,
     public menuCtrl: MenuController,
     public rest: RestService,
@@ -74,7 +77,7 @@ export class DashboardPage implements OnInit {
 
   getuserdetails(userid) {
     this.rest.userdetail('getuser', userid, localStorage.getItem('auth_token')).subscribe((data: any) => {
-
+      this.dashboardpreview()
       console.log('getuser data==', data);
       this.fullname = data.user.full_name;
       this.email = data.user.email;
@@ -92,6 +95,16 @@ export class DashboardPage implements OnInit {
         this.jobstatus = data.user.seeker_status
       }
 
+    })
+  }
+
+  dashboardpreview() {
+    this.rest.getRequest('dashboard', localStorage.getItem('auth_token')).subscribe((data: any) => {
+
+      console.log('dashboard data==', data);
+      this.jobcount = data.jobcount
+      this.companycount = data.companycount
+      this.interviewcount = data.interviewcount
     })
   }
 

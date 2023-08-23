@@ -22,17 +22,19 @@
 <ion-content class="bg">
   <div class="wrapper">
     <div class="search-div">
-      <div style="width:85%;float: left;">
-        <ion-input class="search-box" placeholder="Search here"><span class="arrow-span">
+      <div style="width:88%;float: left;">
+        <ion-searchbar placeholder="Search here" [(ngModel)]="term">
+        </ion-searchbar>
+        <!-- <ion-input class="search-box" placeholder="Search here"><span class="arrow-span">
             <ion-icon name="search-outline"></ion-icon>
-          </span></ion-input>
+          </span></ion-input> -->
       </div>
       <div class="filterimg" (click)="filterjobs()">
         <img src="assets/imgs/icons/filter.svg">
       </div>
       <div class="clear"></div>
     </div>
-    <div class="main" *ngFor="let job of jobs" (click)="seedetail(job.id)">
+    <div class="main" *ngFor="let job of jobs| filter:term;" (click)="seedetail(job.id)">
       <!-- <div class="sticker">
         <img src="assets/imgs/sticker.svg">
       </div> -->

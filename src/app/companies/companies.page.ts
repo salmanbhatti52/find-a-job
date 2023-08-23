@@ -11,6 +11,7 @@ export class CompaniesPage implements OnInit {
   companies: any;
 
   footerhide = false;
+  term: any;
   constructor(public navCtrl: NavController,
     public rest: RestService,
     public extra: ExtrasService,
@@ -37,11 +38,12 @@ export class CompaniesPage implements OnInit {
   }
 
   getcompanies() {
-    this.extra.loadershow();
+    // this.extra.loadershow();
     this.rest.getRequest('employers', localStorage.getItem('auth_token')).subscribe((data: any) => {
       console.log('interviews=====', data);
-      this.companies = data.employers
       this.extra.hideLoader();
+      this.companies = data.employers
+
     })
   }
   seedetail(item) {

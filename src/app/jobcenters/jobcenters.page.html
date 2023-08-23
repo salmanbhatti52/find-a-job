@@ -25,7 +25,7 @@
   <div class="wrapper">
     <div class="search-div">
       <div style="width:88%;float: left;">
-        <ion-searchbar></ion-searchbar>
+        <ion-searchbar [(ngModel)]="term"></ion-searchbar>
         <!-- <ion-input class="search-box" placeholder="Search here"><span class="arrow-span">
             <ion-icon name="search-outline"></ion-icon>
           </span></ion-input> -->
@@ -36,7 +36,7 @@
       <div class="clear"></div>
     </div>
 
-    <div class="main" *ngFor="let center of jobcenters">
+    <div class="main" *ngFor="let center of jobcenters| filter:term;">
       <div style="display: flex;padding: 15px 15px;">
         <div class="mainleft">
           <div class="mainhead">{{center.name}}</div>

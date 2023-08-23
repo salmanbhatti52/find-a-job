@@ -49,6 +49,7 @@ export class ApplicationPage implements OnInit {
     this.rest.getRequest('applications/' + uid, localStorage.getItem('auth_token')).subscribe((res: any) => {
 
       console.log('response-===--', res);
+      this.extra.hideLoader()
       for (var i = 0; i < res.applications.length; i++) {
         this.rest.getRequest('getjob/' + res.applications[i].job_id, localStorage.getItem('auth_token')).subscribe((resdata: any) => {
           this.extra.hideLoader()

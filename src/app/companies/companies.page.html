@@ -25,15 +25,16 @@
   <div class="wrapper">
     <div class="search-div">
       <div style="width:85%;margin: 0% auto;">
-        <ion-input class="search-box" placeholder="Search here"><span class="arrow-span">
-            <ion-icon name="search-outline"></ion-icon>
-          </span></ion-input>
+
+        <ion-searchbar placeholder="Search here" [(ngModel)]="term">
+        </ion-searchbar>
+
       </div>
       <p class="para">Recommendations are based on your <span style="color:#CF1818;">Profile & Company
           Preferences</span> on FAJ</p>
     </div>
 
-    <div class="main" (click)="seedetail(item)" *ngFor="let item of companies">
+    <div class="main" (click)="seedetail(item)" *ngFor="let item of companies| filter:term;">
       <div style="display: flex;padding: 10px 10px 0px 10px;">
         <div class="mainleft">
           <div class="innertext">

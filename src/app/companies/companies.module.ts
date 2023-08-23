@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { CompaniesPageRoutingModule } from './companies-routing.module';
 
 import { CompaniesPage } from './companies.page';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CompaniesPageRoutingModule
+    CompaniesPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [CompaniesPage]
 })
-export class CompaniesPageModule {}
+export class CompaniesPageModule { }

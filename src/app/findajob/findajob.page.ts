@@ -12,6 +12,7 @@ export class FindajobPage implements OnInit {
   jobs = [];
 
   footerhide = false;
+  term: any;
   constructor(public navCtrl: NavController,
     public modalController: ModalController,
     public rest: RestService,

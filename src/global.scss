@@ -42,6 +42,13 @@ ion-input{
   --background: #F3F3F3;
 }
 
+
+.searchbar-left-aligned.sc-ion-searchbar-ios-h .searchbar-input.sc-ion-searchbar-ios {
+  padding-left: 8px;
+}
+ion-searchbar{
+  --background: none;
+}
 .filterclass{
   --max-width: 90%;
   --width: 90%;

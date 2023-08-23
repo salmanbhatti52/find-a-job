@@ -10,6 +10,7 @@ import { RestService } from '../services/rest.service';
 export class JobcentersPage implements OnInit {
   jobcenters = [];
   footerhide = false;
+  term: any;
   constructor(public navCtrl: NavController,
     public modalController: ModalController,
     public rest: RestService,
